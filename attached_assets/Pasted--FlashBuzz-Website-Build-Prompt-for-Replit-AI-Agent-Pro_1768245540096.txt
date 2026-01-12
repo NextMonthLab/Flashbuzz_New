@@ -1,0 +1,969 @@
+# FlashBuzz Website Build Prompt for Replit AI Agent
+
+## Project Overview
+
+Build a premium video production portfolio website for **FlashBuzz** (one word, lowercase ‘b’) — a filmmaker-led video production company based in Banbury, Oxfordshire, UK.
+
+**Critical Brand Rule**: The brand name is “FlashBuzz” with a capital F and lowercase b. Never write “FlashBuzz” with capital B.
+
+-----
+
+## Core Positioning & Brand Identity
+
+**Primary Positioning Statement**: “Documentary craft for business stories that matter.”
+
+**Brand Essence**: FlashBuzz brings a filmmaker’s discipline—story architecture, authentic interview technique, and cinematic execution—to organisations where generic corporate video fails. This is video production powered by an award-winning filmmaker (23 international awards, 9.2 IMDb rating for “Time Spent”), not a content mill or generic agency.
+
+**Tone of Voice**:
+
+- Calm authority — knowledgeable, confident, trustworthy without corporate stiffness
+- Human over corporate — conversational language demonstrating expertise through insights, not jargon
+- Confident understatement — letting quality speak rather than over-claiming
+- Premium but accessible — avoiding urgency-driven language or pushy sales tactics
+
+**Voice Examples**:
+
+- ✅ “We make films that change how people feel about your business.”
+- ✅ “Before we ever press record, we understand who you are and why your story matters.”
+- ❌ “We create award-winning cinematic content” (too generic/overused)
+- ❌ “Full-service production capabilities” (too corporate/jargon-heavy)
+
+-----
+
+## Technical Stack & Architecture
+
+**Framework**: Next.js 14+ with React, App Router
+**Styling**: Tailwind CSS for utility-first responsive design
+**Video Hosting**: Vimeo embeds (use Vimeo Player API for custom controls if needed)
+**Blog/Journal**: MDX or markdown-based with static generation
+**Forms**: Contact form with validation (consider Formspree, Web3Forms, or similar service)
+**Performance**: Optimise for Core Web Vitals — fast loading, minimal CLS
+**SEO**: Next.js metadata API, structured data (JSON-LD for LocalBusiness, VideoObject)
+**Analytics**: Prepare for Google Analytics 4 integration (can be added post-launch)
+
+-----
+
+## Site Structure & Navigation
+
+```
+HOME
+├── WORK (Portfolio Hub)
+│   ├── Featured Projects Grid
+│   ├── Individual Case Study Pages (8-12 deep projects)
+│   └── Showreel Page
+├── SERVICES (Dropdown/Mega Menu)
+│   ├── Services Overview
+│   ├── Brand & Corporate Films
+│   ├── Recruitment & Employer Brand
+│   ├── Documentary-Style Case Studies
+│   ├── Presenter & Interviewee Coaching
+│   └── Event & Motorsport Films
+├── SECTORS (Dropdown/Mega Menu)
+│   ├── Recruitment & Employer Branding
+│   ├── Financial Services
+│   ├── Manufacturing & Health Safety
+│   ├── Motorsport
+│   └── Scientific & Tech
+├── LOCATIONS (for SEO - can be footer links or dedicated section)
+│   ├── Video Production Oxfordshire
+│   ├── Video Production Banbury
+│   ├── Video Production Oxford
+│   └── [Additional regional hubs as needed]
+├── ABOUT
+│   ├── The FlashBuzz Approach
+│   └── Process & How We Work (can be same page or separate)
+├── JOURNAL (Blog/Insights)
+└── CONTACT / START A PROJECT
+```
+
+**Navigation Requirements**:
+
+- Sticky header with clean, premium design
+- Clear CTAs in header (“View Work” + “Start a Project”)
+- Mobile-responsive hamburger menu
+- Smooth scroll behaviour where appropriate
+- Breadcrumbs on deeper pages for SEO
+
+-----
+
+## Page-by-Page Specifications
+
+### 1. HOMEPAGE (`/`)
+
+**Hero Section** (Full viewport height):
+
+- Positioning statement: “Documentary craft for business stories that matter.”
+- Supporting tagline: “Video production powered by an award-winning filmmaker”
+- Full-width background video (autoplay, muted, loop) OR striking full-screen still from featured project
+- Two CTAs: “View Our Work” (secondary) + “Let’s Talk” (primary)
+- Subtle scroll indicator
+
+**Client Logos Section**:
+
+- 8-12 client logos in grid (responsive: 6 cols desktop, 3-4 tablet, 2 mobile)
+- Greyscale logos with subtle hover colour effect
+- Optional: “Trusted by” or “Clients include” heading
+
+**Featured Work Section**:
+
+- Heading: “Featured Projects” or “Our Work”
+- 3-6 project cards in grid layout
+- Each card: Project thumbnail (Vimeo thumbnail), project title, client name, sector tag
+- Hover effect reveals brief description
+- Link to individual case study page
+- “View All Work” CTA button
+
+**The Filmmaker-Led Difference Section**:
+
+- Heading: “What makes FlashBuzz different”
+- 2-3 paragraphs explaining documentary approach, depth, and filmmaker credentials
+- Can include side-by-side comparison or 3-column feature highlights:
+  - Story Architecture
+  - Authentic Interviews
+  - Documentary Depth
+- Consider including a behind-the-scenes image or founder portrait
+
+**Services Overview Section**:
+
+- Heading: “What we create”
+- 4-5 service categories as cards or list items
+- Each with icon, title, one-sentence description
+- Link to detailed service page
+
+**Social Proof Section**:
+
+- 1-2 client testimonials with:
+  - Quote text (pull-quote typography)
+  - Client name, title, company
+  - Client photo (optional but recommended)
+- Option to include video testimonial embed
+
+**Final CTA Section**:
+
+- Heading: “Ready to start your next project?”
+- Supporting text about process/approach
+- Contact form (simple: name, email, project type dropdown, message)
+- Alternative: “Book a call” or “Get in touch” button
+
+**Footer**:
+
+- Company info (address: Banbury, Oxfordshire)
+- Quick links (Services, Sectors, Work, About, Contact, Journal)
+- Social media links (LinkedIn, Vimeo, Instagram if applicable)
+- Copyright notice
+- Privacy/Terms links (can be placeholder pages)
+
+-----
+
+### 2. WORK / PORTFOLIO HUB (`/work`)
+
+**Page Layout**:
+
+- Hero section with heading “Our Work” and brief intro paragraph
+- Filter/sort options: All, by Sector (Recruitment, Financial Services, Manufacturing, Motorsport, etc.), by Type (Brand Film, Case Study, Recruitment, etc.)
+- Project grid (masonry or standard grid):
+  - 3 columns desktop, 2 tablet, 1 mobile
+  - Each card: Thumbnail, title, client, sector/type tags
+  - Hover state shows brief description and “View Project” CTA
+- Pagination or “Load More” if more than 12 projects
+
+**Individual Case Study Page** (`/work/[project-slug]`):
+
+- Project title and client name
+- Sector and service type tags
+- Vimeo embed (full-width or 16:9 contained)
+- Project overview section:
+  - The Challenge
+  - Our Approach
+  - The Outcome
+  - Client Testimonial (if available)
+- Key deliverables list
+- Behind-the-scenes images (optional gallery)
+- Metrics/results (if applicable and client-approved)
+- “Next Project” navigation
+- CTA section: “Need something similar?” with contact button
+
+-----
+
+### 3. SERVICES PAGES
+
+**Services Overview Page** (`/services`):
+
+- Hero section explaining FlashBuzz’s service philosophy
+- 5 service offerings as expandable cards or separate sections:
+1. Brand & Corporate Films
+1. Recruitment & Employer Brand
+1. Documentary-Style Case Studies
+1. Presenter & Interviewee Coaching
+1. Event & Motorsport Films
+- Each service: Icon, title, 2-3 sentence description, “Learn More” link
+- General process overview (optional)
+- CTA to discuss project
+
+**Individual Service Pages** (e.g., `/services/brand-corporate-films`):
+
+For each service page, follow this structure:
+
+**Hero Section**:
+
+- Service name as H1
+- Compelling subheading (e.g., “Films that capture your essence, not just your messaging”)
+- Relevant hero image or video
+
+**Who This Is For**:
+
+- 2-3 sentence description of ideal client
+- Example: “HR directors competing for talent in tight labour markets”
+
+**The Problem We Solve**:
+
+- Explain the real pain point
+- Example: “Generic corporate videos feel interchangeable—polished but forgettable”
+
+**Why Filmmaker-Led Matters**:
+
+- Explain documentary approach and specific techniques
+- Differentiate from generic production
+
+**What Makes FlashBuzz Different**:
+
+- Specific methodology or process points
+- Real examples of how this plays out
+
+**What You Get**:
+
+- Typical deliverables for this service type
+- Process overview (pre-production, filming, post-production)
+
+**Featured Projects**:
+
+- 2-4 relevant case studies from portfolio
+- Link to full case study pages
+
+**Pricing Indicator**:
+
+- “Typical projects start from £X,XXX” (use appropriate tier)
+- Link to pricing page or contact form
+- “Not sure which package fits?” CTA
+
+**FAQ Section** (optional):
+
+- 3-5 common questions specific to this service
+
+**CTA Section**:
+
+- “Ready to discuss your [service type]?”
+- Contact form or calendar booking link
+
+-----
+
+### 4. SECTOR PAGES
+
+**Sector Overview Page** (`/sectors`):
+
+- Brief intro explaining sector specialisation
+- 5 sector cards linking to dedicated pages:
+1. Recruitment & Employer Branding
+1. Financial Services
+1. Manufacturing & Health Safety
+1. Motorsport
+1. Scientific & Tech
+
+**Individual Sector Pages** (e.g., `/sectors/recruitment-employer-branding`):
+
+**Hero Section**:
+
+- Sector name as H1
+- Industry-specific subheading
+- Relevant background image (industry-appropriate, not stock-feeling)
+
+**Understanding Your Industry**:
+
+- Demonstrate deep sector knowledge
+- Specific challenges this industry faces with video content
+- Example: For Financial Services — “FCA Consumer Duty requirements now mandate clear communication. Generic videos don’t meet compliance standards.”
+
+**Why Documentary Approach Works Here**:
+
+- Explain why filmmaker-led approach specifically benefits this sector
+- Example: For Recruitment — “Candidates see through scripted ‘great place to work’ content. Documentary approach draws out genuine employee stories.”
+
+**Our Experience**:
+
+- Brief portfolio highlights from this sector
+- Mention specific clients (if permissible) or types of projects
+- Statistics if available (e.g., “We’ve produced 50+ recruitment videos resulting in 34% more applications”)
+
+**Typical Services for This Sector**:
+
+- List 3-4 most relevant services
+- Link to service pages
+
+**Case Studies**:
+
+- Featured 2-4 projects from this sector
+- Grid layout with links to full case studies
+
+**Sector-Specific Testimonial**:
+
+- Client quote from this industry
+
+**CTA Section**:
+
+- “Working in [sector]? Let’s talk.”
+- Contact form
+
+-----
+
+### 5. LOCATION / SEO PAGES
+
+**Regional Hub Page** (e.g., `/video-production-oxfordshire`):
+
+**Hero Section**:
+
+- H1: “Video Production Oxfordshire”
+- Subheading emphasising local presence + national reach
+- Example: “Filmmaker-led video production based in Banbury, serving businesses across Oxfordshire and beyond”
+
+**About Oxfordshire Presence**:
+
+- Explain FlashBuzz’s Banbury base
+- Geographic advantages (M40 corridor access, Midlands manufacturing heartland, Science Vale Oxford, Motorsport Valley)
+- “Local filmmaker, national standards”
+
+**Industries We Serve in Oxfordshire**:
+
+- Mention key local industries: Oxford University and research institutions, Science Vale companies, Bicester logistics, Banbury manufacturing, Motorsport (Silverstone proximity)
+
+**Featured Oxfordshire Projects**:
+
+- 1-3 case studies from local clients
+- Location-specific imagery (recognisable landmarks)
+
+**Why Choose Local Video Production**:
+
+- Benefits of working with local filmmaker (face-to-face meetings, location knowledge, no London agency premiums)
+
+**Locations We Cover**:
+
+- List towns/areas: Banbury, Oxford, Bicester, Witney, Chipping Norton, etc.
+
+**CTA Section**:
+
+- Contact form
+- “Based in Oxfordshire? Let’s meet for coffee.”
+
+**Town-Specific Pages** (e.g., `/video-production-banbury`):
+
+- Similar structure but more focused on that specific town
+- Mention local business parks, industries, landmarks
+- Emphasise accessibility and local knowledge
+
+-----
+
+### 6. ABOUT PAGE (`/about`)
+
+**Hero Section**:
+
+- H1: “About FlashBuzz”
+- Subheading: “Documentary craft brought to business storytelling”
+- High-quality founder portrait or behind-the-scenes image
+
+**The Filmmaker’s Story**:
+
+- Founder journey from award-winning filmmaker to business video specialist
+- Mention “Time Spent” (23 international awards, 9.2 IMDb rating)
+- Journey to applying documentary craft to corporate storytelling
+- Avoid generic agency-speak — make this personal and authentic
+
+**The FlashBuzz Philosophy**:
+
+- What “depth” means in practice
+- Why filmmaker-led approach matters
+- Core beliefs about business storytelling
+
+**How We Work**:
+
+- Brief process overview:
+  - Pre-production story development
+  - Documentary interview techniques
+  - Character-driven editing
+- Emphasis on collaboration and trust-building
+
+**Values or Principles** (3-4 key points):
+
+- Examples: “Depth over volume”, “Trust before cameras”, “Story-first, always”
+
+**The Team/Crew**:
+
+- Brief mention of freelance crew model and collaboration approach
+- “We work with talented filmmakers and crew across the UK”
+
+**Trust Signals**:
+
+- Years in business
+- Projects completed
+- Awards/recognition
+
+**Subtle CharacterX Mention** (optional small section):
+
+- “Our expertise in narrative intelligence has been lent to CharacterX, a business transformation platform applying cinematic principles to customer experience design”
+- Brief, not prominent — just authority signal
+
+**Video Introduction** (highly recommended):
+
+- Founder speaking directly to camera
+- 60-90 seconds
+- Authentic, not overly produced
+- Embed from Vimeo
+
+**CTA Section**:
+
+- “Let’s work together”
+- Contact button
+
+-----
+
+### 7. JOURNAL / BLOG (`/journal`)
+
+**Blog Index Page**:
+
+- Grid of blog posts (3 columns desktop, 2 tablet, 1 mobile)
+- Each card: Featured image, title, excerpt, date, read time, “Read More” link
+- Categories/tags filter: Documentary Technique, Industry Insights, Behind the Scenes, Client Stories
+- Pagination or “Load More”
+
+**Individual Blog Post** (`/journal/[post-slug]`):
+
+- Article title (H1)
+- Author, date, read time, share buttons
+- Featured image (full-width)
+- Article content with proper typography hierarchy
+- Related posts section (3 posts)
+- CTA at end: “Inspired? Let’s discuss your project”
+- Comment section (optional — can use Disqus or similar if desired)
+
+**Content Recommendations for Blog**:
+
+- Documentary techniques applied to business video
+- Interview best practices
+- Sector-specific insights (e.g., “Why recruitment videos fail” or “Financial services video compliance guide”)
+- Behind-the-scenes project stories
+- Equipment and craft articles
+- Case study deep-dives
+
+-----
+
+### 8. CONTACT / START A PROJECT PAGE (`/contact`)
+
+**Hero Section**:
+
+- H1: “Let’s Talk” or “Start Your Project”
+- Subheading: “Every great film starts with a conversation”
+
+**Contact Form** (primary):
+
+- Name (required)
+- Email (required)
+- Phone (optional)
+- Company (optional)
+- Project Type (dropdown: Brand Film, Recruitment Video, Case Study, Event Coverage, Not Sure Yet)
+- Budget Range (dropdown: £2k-£4k, £4k-£7k, £7k-£12k, £12k+, Not Sure Yet)
+- Message/Project Details (textarea)
+- Submit button: “Send Message” or “Let’s Talk”
+- Privacy policy checkbox
+- Success message after submission
+- Form validation with helpful error messages
+
+**Alternative Contact Methods**:
+
+- Email: [your-email@FlashBuzz.com]
+- Phone: [your-phone]
+- LinkedIn profile link
+
+**What Happens Next**:
+
+- Set expectations:
+  - “We’ll respond within 24 hours”
+  - “We’ll set up a discovery call to understand your needs”
+  - “We’ll provide a tailored proposal within a week”
+
+**Location Information**:
+
+- “Based in Banbury, Oxfordshire”
+- “Serving clients across the UK and internationally”
+- Optional: Embedded Google Map
+
+**FAQ Section** (optional):
+
+- Quick answers to common questions:
+  - How long does a typical project take?
+  - Do you travel for shoots?
+  - What’s included in your packages?
+  - How far in advance should we book?
+
+-----
+
+### 9. PRICING PAGE (`/pricing`) - Optional but Recommended
+
+**Hero Section**:
+
+- H1: “Transparent Pricing”
+- Subheading: “Accessible-premium video production”
+
+**Three-Tier Package Structure**:
+
+Display as cards or table (cards recommended for premium feel):
+
+**SPARK** (Entry tier) — Starting from £2,000
+
+- For businesses beginning their video journey
+- Includes:
+  - Half-day shoot (2-4 hours)
+  - One filmmaker
+  - One final video (60-90 seconds)
+  - 2 social cut-downs
+  - Basic motion graphics (logo, lower thirds)
+  - Music licensing
+  - 2 revision rounds
+  - 2-3 week delivery
+- “Get Started” CTA
+
+**IGNITE** (Sweet spot tier) — Starting from £4,500
+
+- Most popular — badge or highlight this tier
+- For growing brands
+- Includes:
+  - Full-day shoot (8 hours)
+  - 2-person crew
+  - One hero video (2-3 minutes)
+  - 3-4 social cut-downs (vertical + horizontal)
+  - Standard motion graphics
+  - Professional voiceover
+  - Music licensing
+  - Strategy session pre-shoot
+  - 3 revision rounds
+  - 3-4 week delivery
+- “Get Started” CTA
+
+**BLAZE** (Premium tier) — Starting from £8,000
+
+- For ambitious brands
+- Includes:
+  - Multi-day shoot (2+ days)
+  - Full crew (filmmaker + crew)
+  - Multiple locations
+  - One flagship video + supporting content suite
+  - Advanced motion graphics and animation elements
+  - Professional voiceover + sound design
+  - Content strategy workshop
+  - Full RAW footage delivery
+  - Priority turnaround
+- “Get Started” CTA
+
+**What’s Always Included** (section below packages):
+
+- Strategy session
+- Licensed music
+- Professional colour grading
+- Multi-format delivery
+- Revision rounds
+- Ongoing support
+
+**Pricing by Video Type** (alternative/additional section):
+
+- Brand Film — from £4,500
+- Testimonial — from £2,000
+- Case Study — from £3,000
+- Social Content Pack — from £1,500
+- Event Coverage — from £2,500
+- Recruitment Video — from £3,500
+
+**Not Sure Which Package?**:
+
+- CTA to book discovery call or contact form
+- “Let’s discuss your needs and recommend the right approach”
+
+**FAQ Section**:
+
+- What affects the final price?
+- Do you offer payment plans?
+- What if we need something custom?
+- Do you charge for travel?
+
+-----
+
+## Design & Visual Identity Guidelines
+
+**Colour Palette**:
+Suggest a premium, cinematic palette:
+
+- Primary: Deep charcoal or black (#1a1a1a) for authority
+- Secondary: Warm accent (e.g., warm bronze #B8956A or cinematic teal #2D5F6F)
+- Neutrals: Light grey (#f5f5f5) backgrounds, white (#ffffff)
+- Use colour sparingly for CTAs and accents
+
+**Typography**:
+
+- Headings: Modern sans-serif with authority (e.g., Inter, Manrope, Space Grotesk)
+- Body: Highly readable sans-serif (e.g., Inter, Open Sans, System fonts)
+- Consider serif for accent/pull quotes for editorial feel (e.g., Merriweather)
+- Hierarchy: Clear size differentiation between H1 > H2 > H3 > body
+
+**Imagery & Video**:
+
+- All imagery should feel premium, authentic, not stock-photo generic
+- Use behind-the-scenes shots, production stills, location photography
+- Vimeo embeds should have custom thumbnails (not auto-generated)
+- Ensure video embeds are responsive and don’t break layout on mobile
+
+**Spacing & Layout**:
+
+- Generous white space — never cramped
+- Consistent padding/margins (use Tailwind spacing scale)
+- Sections should breathe
+- Grid systems for consistency
+
+**Interactive Elements**:
+
+- Subtle hover effects on buttons (slight scale or colour shift)
+- Smooth transitions (0.3s ease)
+- Card hover states reveal more information
+- Video thumbnails: play icon overlay on hover
+
+**Mobile-First Design**:
+
+- All sections must be fully responsive
+- Navigation transforms to hamburger menu on mobile
+- Video embeds must maintain aspect ratio
+- Forms must be easy to complete on mobile
+
+-----
+
+## SEO & Technical Requirements
+
+**On-Page SEO**:
+
+- Unique meta titles and descriptions for every page
+- Proper heading hierarchy (one H1 per page, logical H2-H6 structure)
+- Alt text for all images (descriptive, includes keywords naturally)
+- Internal linking between related pages (services ↔ sectors ↔ case studies)
+- Breadcrumb navigation on deeper pages
+
+**Structured Data (JSON-LD)**:
+Implement for:
+
+- LocalBusiness schema (homepage, contact page)
+  - Include: name, address, phone, geo coordinates, service areas
+- VideoObject schema (case study pages, portfolio)
+  - Include: name, description, thumbnailUrl, uploadDate, duration
+- BreadcrumbList schema (all interior pages)
+- FAQPage schema (FAQ sections)
+
+**Technical SEO**:
+
+- Semantic HTML5 (proper use of `<header>`, `<nav>`, `<main>`, `<article>`, `<footer>`)
+- Canonical URLs
+- XML sitemap (auto-generated via Next.js)
+- Robots.txt
+- Fast loading times (aim for <3s LCP)
+- Optimise images (next/image for automatic optimisation)
+- Lazy loading for videos and below-fold content
+
+**URL Structure**:
+
+- Clean, descriptive URLs
+- Lowercase with hyphens
+- Examples:
+  - `/work/recruitment-video-oxfordshire-logistics-firm`
+  - `/services/brand-corporate-films`
+  - `/sectors/financial-services`
+  - `/video-production-banbury`
+
+**Accessibility**:
+
+- WCAG 2.1 AA compliance
+- Keyboard navigation support
+- Screen reader friendly
+- Sufficient colour contrast ratios
+- Skip to content link
+- Focus indicators on interactive elements
+
+-----
+
+## Content Guidelines for AI Agent
+
+When generating content for placeholder pages:
+
+**Voice & Tone Checklist**:
+
+- ✅ Conversational but professional
+- ✅ Confident without arrogance
+- ✅ Specific and concrete (avoid vague claims)
+- ✅ Evidence-based (reference real techniques, not buzzwords)
+- ❌ No corporate jargon
+- ❌ No empty “storytelling” claims without methodology
+- ❌ No urgency language (“Act now!”, “Limited time!”)
+- ❌ No overused terms: “award-winning” (unless specific context), “full-service”, “end-to-end”
+
+**Keyword Integration** (natural, not forced):
+
+- Primary: video production, filmmaker, documentary, Oxfordshire, Banbury
+- Service: brand films, recruitment video, corporate video, case study video
+- Sector: financial services video, manufacturing video, health and safety video, motorsport video
+- Approach: documentary style, cinematic, filmmaker-led
+
+**Example Good Copy**:
+“Before we press record, we spend hours understanding your story. Not what you want to say—what your audience needs to hear. That’s the documentary difference: depth before delivery, character before cameras, story before sales.”
+
+**Example Bad Copy**:
+“We create award-winning cinematic content that tells your authentic story through innovative storytelling techniques and cutting-edge production capabilities.”
+
+-----
+
+## Priority Features & Functionality
+
+**Must-Have (Launch MVP)**:
+
+1. Responsive, mobile-first design
+1. Homepage with hero video/image + featured projects
+1. Portfolio/work section with filterable grid
+1. 5 service pages (fully written)
+1. 5 sector pages (fully written)
+1. About page with founder story
+1. Contact page with working form
+1. At least 2 location pages (Oxfordshire hub + Banbury)
+1. Working navigation and footer
+1. Basic SEO (meta tags, structured data)
+
+**Nice-to-Have (Phase 2)**:
+
+- Blog/journal with 3-5 starter articles
+- Video testimonials on homepage
+- Advanced filtering on portfolio page
+- Newsletter signup
+- Client logo carousel with animation
+- Case study template with metrics/results sections
+- Pricing page with interactive calculators
+
+**Future Enhancements** (Post-Launch):
+
+- CMS integration for easier content updates
+- Client portal (private project galleries)
+- Live chat integration
+- Advanced analytics and conversion tracking
+- A/B testing for CTAs
+- Multi-language support (if expanding internationally)
+
+-----
+
+## File Structure Recommendation
+
+```
+flashbuzz-website/
+├── app/
+│   ├── layout.tsx (root layout with header/footer)
+│   ├── page.tsx (homepage)
+│   ├── work/
+│   │   ├── page.tsx (portfolio index)
+│   │   └── [slug]/
+│   │       └── page.tsx (individual case study)
+│   ├── services/
+│   │   ├── page.tsx (services overview)
+│   │   ├── brand-corporate-films/page.tsx
+│   │   ├── recruitment-employer-brand/page.tsx
+│   │   ├── documentary-case-studies/page.tsx
+│   │   ├── presenter-coaching/page.tsx
+│   │   └── event-motorsport-films/page.tsx
+│   ├── sectors/
+│   │   ├── page.tsx (sectors overview)
+│   │   ├── recruitment-employer-branding/page.tsx
+│   │   ├── financial-services/page.tsx
+│   │   ├── manufacturing-health-safety/page.tsx
+│   │   ├── motorsport/page.tsx
+│   │   └── scientific-tech/page.tsx
+│   ├── video-production-oxfordshire/page.tsx
+│   ├── video-production-banbury/page.tsx
+│   ├── video-production-oxford/page.tsx
+│   ├── about/page.tsx
+│   ├── journal/
+│   │   ├── page.tsx (blog index)
+│   │   └── [slug]/page.tsx (blog post)
+│   ├── pricing/page.tsx
+│   └── contact/page.tsx
+├── components/
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   ├── ProjectCard.tsx
+│   ├── VimeoEmbed.tsx
+│   ├── ContactForm.tsx
+│   ├── Testimonial.tsx
+│   ├── ServiceCard.tsx
+│   ├── SectorCard.tsx
+│   └── ... (other reusable components)
+├── lib/
+│   ├── projects.ts (project data)
+│   └── blog.ts (blog post utilities)
+├── public/
+│   ├── images/
+│   ├── videos/
+│   └── favicon.ico
+├── styles/
+│   └── globals.css (Tailwind imports + custom CSS)
+├── content/
+│   └── blog/
+│       ├── post-1.mdx
+│       └── post-2.mdx
+└── package.json
+```
+
+-----
+
+## Vimeo Integration Notes
+
+**Vimeo Player API**:
+
+- Use `@vimeo/player` npm package for advanced controls
+- Implement responsive embed (16:9 aspect ratio maintained)
+- Options to consider:
+  - Autoplay (muted) for homepage hero
+  - Custom play button overlays
+  - Disable Vimeo logo/controls for cleaner look (requires Vimeo Plus/Pro)
+  - Track video engagement if analytics integrated
+
+**Example Vimeo Embed Component**:
+
+```jsx
+<div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+  <iframe
+    src={`https://player.vimeo.com/video/${videoId}?title=0&byline=0&portrait=0`}
+    className="absolute top-0 left-0 w-full h-full"
+    frameBorder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowFullScreen
+  />
+</div>
+```
+
+**Thumbnail Handling**:
+
+- Fetch Vimeo thumbnail via API: `https://vimeo.com/api/v2/video/${videoId}.json`
+- Use custom thumbnail images uploaded to `/public/images/` for better control
+- Implement blur-up loading effect for premium feel
+
+-----
+
+## Performance Optimization Checklist
+
+- [ ] Use Next.js `<Image>` component for all images (automatic optimization)
+- [ ] Lazy load Vimeo embeds (load iframe only when in viewport)
+- [ ] Minimize JavaScript bundle size (tree-shaking, code splitting)
+- [ ] Implement font optimization (next/font)
+- [ ] Compress images (WebP format where supported)
+- [ ] Use CDN for static assets
+- [ ] Minimize CSS (Tailwind’s purge handles this)
+- [ ] Server-side rendering for SEO-critical pages
+- [ ] Implement proper caching headers
+
+-----
+
+## Final Deliverables Expected from AI Agent
+
+1. **Fully functional Next.js website** with all specified pages
+1. **Responsive design** that works flawlessly on mobile, tablet, desktop
+1. **Working contact form** with validation
+1. **Vimeo embeds** properly integrated (placeholder video IDs can be used)
+1. **Placeholder content** for all pages following voice/tone guidelines
+1. **Blog system** with at least 3 example posts
+1. **SEO fundamentals** implemented (meta tags, structured data, semantic HTML)
+1. **Clean, well-commented code** for easy future updates
+1. **README.md** with setup instructions and content update guide
+1. **Deployment-ready** configuration for Vercel or similar platform
+
+-----
+
+## Additional Context for AI Agent
+
+**About the Founder**:
+
+- Award-winning filmmaker (short film “Time Spent”: 23 international awards, 9.2 IMDb rating)
+- Previously ran FlashBuzz working with major UK brands
+- Based in Banbury, Oxfordshire
+- Willing to travel internationally for projects
+- Works with freelance crew network
+- Hundreds of videos in portfolio (curate to 8-12 best for launch)
+
+**Target Audience**:
+
+- Senior leaders and decision-makers in mid-size organisations
+- HR directors and talent acquisition managers (recruitment sector)
+- Marketing managers in financial services, manufacturing, tech
+- Motorsport teams and sponsors
+- Companies in regulated industries valuing credibility and compliance
+- Businesses who’ve been disappointed by generic video agencies
+
+**Competitive Differentiation**:
+
+- Genuine filmmaker credentials (not just “videographer”)
+- Documentary methodology (specific, articulated approach)
+- Accessible-premium pricing (£2k-£10k+, not budget, not £50k agency)
+- Strategic Midlands location (not London-centric)
+- Sector specialisation (not generalist)
+
+**Success Criteria for Website**:
+The website succeeds if visitors think: “These are the guys I need to make my next video. I need to talk to them as soon as possible.”
+
+-----
+
+## Build Instructions for Replit AI Agent
+
+Please build this website following these specifications:
+
+1. **Initialize a Next.js project** with TypeScript and Tailwind CSS
+1. **Create the full site structure** as outlined above
+1. **Implement all pages** with placeholder content following voice/tone guidelines
+1. **Ensure full responsiveness** across all device sizes
+1. **Integrate Vimeo embeds** with placeholder video IDs that can be easily swapped
+1. **Build a working contact form** with validation (use a form service like Formspree or Web3Forms)
+1. **Implement basic SEO** (meta tags, structured data, semantic HTML)
+1. **Create a blog system** using MDX or markdown with 3 example posts on documentary technique topics
+1. **Add smooth animations and transitions** where appropriate (but keep them subtle and premium-feeling)
+1. **Include detailed code comments** explaining component structure and how to update content
+
+**Important**: Treat this as a premium portfolio website. Every detail matters—typography, spacing, hover states, loading states, and overall polish. This should feel like a £10k+ website build, not a templated site.
+
+The website should inspire confidence that FlashBuzz is the obvious choice for clients who value filmmaker-led craft over content mill output.
+
+-----
+
+## Questions AI Agent Should Ask Before Building (if needed)
+
+1. Are there specific brand colours or an existing logo to incorporate?
+1. Do you have specific Vimeo video IDs to use, or should I use placeholders?
+1. Should the contact form integrate with a specific email service or CRM?
+1. Are there any specific fonts you want to use, or should I choose premium web fonts?
+1. Do you want Google Analytics tracking code placeholder added?
+1. Should the blog be powered by MDX (more flexible) or simple markdown?
+
+-----
+
+## Post-Launch Content Tasks for Rob
+
+After the site is built, you’ll need to:
+
+1. **Replace placeholder content** with actual copy for key pages
+1. **Upload real project videos** to Vimeo and update video IDs
+1. **Add actual case studies** with client details, testimonials, and results
+1. **Collect and add client testimonials** (video testimonials highly recommended)
+1. **Create portfolio imagery** (behind-the-scenes shots, production stills)
+1. **Write initial blog posts** on documentary techniques and industry insights
+1. **Update contact form** to your actual email and configure form service
+1. **Set up Google Analytics** and Search Console
+1. **Create and upload favicon and social sharing images**
+1. **Test thoroughly** across devices and browsers before launch
+
+-----
+
+**Remember**: The brand is “FlashBuzz” with lowercase ‘b’. This is non-negotiable and critical to brand identity.
+
+Build a website that makes visitors think: “These aren’t just video people. These are filmmakers who happen to work with businesses. And that’s exactly what we need.”
