@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { MapPin, Mail, Phone, Linkedin } from "lucide-react";
 import { SiVimeo } from "react-icons/si";
+import flashbuzzLogo from "@assets/flashbuzz-logo.png";
 
 const quickLinks = [
   { title: "Work", href: "/work" },
@@ -32,9 +33,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6" data-testid="footer-link-home">
-              <span className="text-2xl font-bold tracking-tight">
-                Flash<span className="text-primary">buzz</span>
-              </span>
+              <img 
+                src={flashbuzzLogo} 
+                alt="Flashbuzz" 
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               Documentary craft for business stories that matter. Video production powered by an award-winning filmmaker.

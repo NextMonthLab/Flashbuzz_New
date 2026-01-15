@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope } from "lucide-react";
+import flashbuzzLogo from "@assets/flashbuzz-logo.png";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
@@ -58,11 +59,11 @@ export function Navigation() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href="/" className="flex items-center gap-2" data-testid="link-home">
-            <div className="flex items-center">
-              <span className="text-xl lg:text-2xl font-bold tracking-tight">
-                Flash<span className="text-primary">buzz</span>
-              </span>
-            </div>
+            <img 
+              src={flashbuzzLogo} 
+              alt="Flashbuzz" 
+              className="h-8 lg:h-10 w-auto"
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
