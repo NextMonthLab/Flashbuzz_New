@@ -1,4 +1,4 @@
-# FlashBuzz Design Guidelines
+# Flashbuzz Design Guidelines
 
 ## Design Approach
 
@@ -9,6 +9,35 @@
 - Generous whitespace: Calm authority through breathing room, not clutter
 - Typography-led hierarchy: Editorial approach to content structure
 - Subtle, purposeful motion: Filmmaker's restraint—no gratuitous animations
+
+---
+
+## Color System: Option B (Cinematic Dark Mode)
+
+The site uses a deep, cinematic studio palette that feels high-end like a professional editing interface. The logo colors (electric magenta + neon yellow + black) appear as small, intentional accents.
+
+### Dark Mode Core (Primary Experience)
+- **Background**: #0B0F14 (deep cinematic charcoal)
+- **Surface**: #111827 (dark slate)
+- **Raised Surface**: #1F2937 (elevated slate)
+- **Text**: #F9FAFB (near-white)
+- **Muted Text**: #9CA3AF (medium gray)
+- **Borders**: #2B3442 (subtle dark border)
+
+### Soft Accents (Primary UI)
+- **Steel Blue** (primary): #60A5FA — buttons, links, interactive elements
+- **Purple Smoke** (accent): #A78BFA — secondary highlights, badges
+
+### Logo Colors (Use Sparingly — 10-20% of design)
+- **Magenta**: #FF3BB5 — special callouts, featured badges only
+- **Yellow**: #FFE066 — tiny accent hits, never full backgrounds
+
+### Light Mode (Alternative)
+- **Background**: #F3F4F6 (soft gray)
+- **Surface**: #FFFFFF (white cards)
+- **Text**: #111827 (near-black)
+- **Primary**: #60A5FA (steel blue)
+- **Accent**: #A78BFA (purple smoke)
 
 ---
 
@@ -55,9 +84,9 @@
 ## Component Library
 
 **Navigation**:
-- Sticky header with backdrop blur (backdrop-blur-lg bg-white/90)
+- Sticky header with backdrop blur (backdrop-blur-lg bg-background/95)
 - Logo left, menu center/right, dual CTAs (View Work + Start Project)
-- Dropdown mega-menus for Services/Sectors with image previews
+- Dropdown mega-menus for Services/Sectors with icon previews
 - Mobile: Full-screen overlay menu with large touch targets
 
 **Video Players**:
@@ -73,21 +102,22 @@
 - Description reveals on hover with fade transition
 
 **Buttons**:
-- Primary: Solid background with blur effect when over images
-- Secondary: Border outline with backdrop blur
+- Primary: Steel blue background (#60A5FA), dark text
+- Secondary: Border outline with subtle hover
+- Ghost: Transparent with hover elevation
 - Sizes: Large (py-4 px-8), standard (py-3 px-6)
 - Rounded corners (rounded-lg)
 
 **Forms**:
 - Generous input padding (p-4)
-- Clear focus states with ring-2
+- Clear focus states with ring-2 in steel blue
 - Inline validation messages
 - Grouped label + input with mb-6 spacing
 
 **Testimonial Blocks**:
 - Large pull-quote typography (text-2xl lg:text-3xl)
 - Author info below with photo (rounded-full, 64px)
-- Subtle border-l-4 accent on left
+- Subtle border-l-4 accent in steel blue on left
 
 ---
 
@@ -105,16 +135,9 @@
 - Founder portrait: Professional but approachable (not corporate headshot style)
 
 **Buttons on Images**:
-- Backdrop blur background (backdrop-blur-md bg-white/20)
+- Backdrop blur background (backdrop-blur-md bg-black/40)
 - White text with subtle shadow for legibility
 - No additional hover states—let Button component handle interaction
-
-**Image Descriptions**:
-1. **Homepage hero**: Full-width production still—filmmaker with camera in authentic location shoot, warm natural lighting
-2. **About page**: Founder portrait in production environment, holding equipment or reviewing footage
-3. **Service heroes**: Industry-specific imagery (e.g., interview setup for corporate, motorsport action for events)
-4. **Behind-the-scenes**: Candid production moments showing crew, lighting setups, genuine work environments
-5. **Client logos**: 8-12 recognizable brand marks, grayscale treatment
 
 ---
 
@@ -126,12 +149,11 @@
 - Sectors (dropdown: 5 sector pages)
 - About (direct link)
 - Journal (direct link)
-- CTAs: "View Work" (ghost) + "Start a Project" (primary)
+- CTAs: "View Work" (ghost) + "Start a Project" (primary steel blue)
 
 **Footer**:
 - Four-column layout: Company info, Quick Links, Services, Locations
 - Social icons (LinkedIn, Vimeo) with subtle hover states
-- Newsletter signup with single-field inline form
 - Banbury, Oxfordshire address with subtle map icon
 
 **Breadcrumbs**: On all deep pages (case studies, individual service/sector pages) with simple text separator
