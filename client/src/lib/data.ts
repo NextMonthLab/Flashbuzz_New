@@ -2,6 +2,25 @@ import type { Project, Service, Sector, Testimonial, JournalPost } from "@shared
 
 export const projects: Project[] = [
   {
+    id: "9",
+    slug: "hero-era-peking-to-paris",
+    title: "Peking to Paris Motor Challenge",
+    client: "HERO-ERA",
+    sector: "Motorsport",
+    serviceType: "Event & Motorsport Films",
+    description: "An epic documentary capturing the legendary Peking to Paris endurance rally - testing vintage and classic vehicles across continents.",
+    challenge: "",
+    approach: "",
+    outcome: "",
+    testimonial: null,
+    testimonialAuthor: null,
+    testimonialRole: null,
+    vimeoId: "874094700",
+    thumbnailUrl: "https://i.vimeocdn.com/video/1737911998-3de4b1fcd3c9f9d20fb6ebfe7baf4c69e49003f9e2e47fc588ced2abff4c5f83-d_640x360",
+    featured: true,
+    order: 1,
+  },
+  {
     id: "7",
     slug: "tugo-artisan-baking",
     title: "Tugo Artisan Baking",
@@ -18,7 +37,7 @@ export const projects: Project[] = [
     vimeoId: "1036052545",
     thumbnailUrl: "https://i.vimeocdn.com/video/1957683725-cfb468cc435781c51e19f63c5020c5665f86fb5f383a192718a217c062640921-d_640x360",
     featured: true,
-    order: 1,
+    order: 2,
   },
   {
     id: "8",
@@ -390,6 +409,7 @@ export const journalPosts: JournalPost[] = [
 ];
 
 export const clientLogos = [
+  { name: "HERO-ERA", initials: "HE" },
   { name: "Tugo", initials: "TG" },
   { name: "Horizon Logistics", initials: "HL" },
   { name: "Sterling Wealth", initials: "SW" },
@@ -397,7 +417,6 @@ export const clientLogos = [
   { name: "Apex Racing", initials: "AR" },
   { name: "NovaBio Research", initials: "NB" },
   { name: "Oxford Innovation", initials: "OI" },
-  { name: "Midlands Manufacturing", initials: "MM" },
 ];
 
 export const pricingTiers = [
