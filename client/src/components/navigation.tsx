@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope } from "lucide-react";
+import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope, UtensilsCrossed } from "lucide-react";
 import flashbuzzLogo from "@assets/flashbuzz-logo.png";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -23,6 +23,7 @@ const services = [
 ];
 
 const sectors = [
+  { title: "Food & Hospitality", href: "/sectors/food-hospitality", icon: UtensilsCrossed, description: "Capturing craft and passion" },
   { title: "Recruitment & Employer Branding", href: "/sectors/recruitment-employer-branding", icon: Users, description: "Authentic employer brand content" },
   { title: "Financial Services", href: "/sectors/financial-services", icon: Banknote, description: "Compliant, compelling video" },
   { title: "Manufacturing & Health Safety", href: "/sectors/manufacturing-health-safety", icon: Factory, description: "Showcasing craftsmanship and safety" },

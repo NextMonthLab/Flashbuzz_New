@@ -2,6 +2,44 @@ import type { Project, Service, Sector, Testimonial, JournalPost } from "@shared
 
 export const projects: Project[] = [
   {
+    id: "7",
+    slug: "tugo-artisan-baking",
+    title: "Tugo Artisan Baking",
+    client: "Tugo",
+    sector: "Food & Hospitality",
+    serviceType: "Brand & Corporate Films",
+    description: "Capturing the craft and passion behind artisan baking at Tugo.",
+    challenge: "",
+    approach: "",
+    outcome: "",
+    testimonial: null,
+    testimonialAuthor: null,
+    testimonialRole: null,
+    vimeoId: "1036052545",
+    thumbnailUrl: "https://i.vimeocdn.com/video/1957683725-cfb468cc435781c51e19f63c5020c5665f86fb5f383a192718a217c062640921-d_640x360",
+    featured: true,
+    order: 1,
+  },
+  {
+    id: "8",
+    slug: "tugo-sourdough-craft",
+    title: "Tugo Sourdough Craft",
+    client: "Tugo",
+    sector: "Food & Hospitality",
+    serviceType: "Brand & Corporate Films",
+    description: "Showcasing the artistry and technique of sourdough production.",
+    challenge: "",
+    approach: "",
+    outcome: "",
+    testimonial: null,
+    testimonialAuthor: null,
+    testimonialRole: null,
+    vimeoId: "1044952338",
+    thumbnailUrl: "https://i.vimeocdn.com/video/1968447495-f4a670f39e695910f20fb8e35a77f0994758a018bf49c035431cd8f806394cde-d_640x360",
+    featured: true,
+    order: 2,
+  },
+  {
     id: "1",
     slug: "horizon-logistics-recruitment",
     title: "Attracting Talent in a Competitive Market",
@@ -17,8 +55,8 @@ export const projects: Project[] = [
     testimonialRole: "Head of Talent Acquisition",
     vimeoId: "824804225",
     thumbnailUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=450&fit=crop",
-    featured: true,
-    order: 1,
+    featured: false,
+    order: 3,
   },
   {
     id: "2",
@@ -197,6 +235,20 @@ export const services: Service[] = [
 
 export const sectors: Sector[] = [
   {
+    id: "6",
+    slug: "food-hospitality",
+    title: "Food & Hospitality",
+    shortDescription: "Capturing the craft, passion, and stories behind food and hospitality brands.",
+    description: "Food and hospitality businesses thrive on authenticity and craft. Documentary-style video captures the passion, skill, and human stories that make your brand memorable.",
+    industryKnowledge: "In an era of artisan food movements and farm-to-table dining, customers want to know the story behind what they eat. They're seeking genuine connections with the people who make their food.",
+    whyDocumentaryWorks: "Documentary approach reveals the craft and dedication behind every dish. We capture the early mornings, the precise techniques, and the pride that goes into artisan production.",
+    experience: "We've worked with bakeries, restaurants, and food producers to create content that showcases their authentic story and connects with food-loving audiences.",
+    testimonial: null,
+    testimonialAuthor: null,
+    testimonialRole: null,
+    order: 1,
+  },
+  {
     id: "1",
     slug: "recruitment-employer-branding",
     title: "Recruitment & Employer Branding",
@@ -208,7 +260,7 @@ export const sectors: Sector[] = [
     testimonial: "The documentary approach captured something we couldn't articulate ourselves. Candidates now arrive already understanding our culture.",
     testimonialAuthor: "Sarah Mitchell",
     testimonialRole: "Head of Talent Acquisition, Horizon Logistics",
-    order: 1,
+    order: 2,
   },
   {
     id: "2",
@@ -338,6 +390,7 @@ export const journalPosts: JournalPost[] = [
 ];
 
 export const clientLogos = [
+  { name: "Tugo", initials: "TG" },
   { name: "Horizon Logistics", initials: "HL" },
   { name: "Sterling Wealth", initials: "SW" },
   { name: "Precision Engineering", initials: "PE" },
@@ -345,7 +398,6 @@ export const clientLogos = [
   { name: "NovaBio Research", initials: "NB" },
   { name: "Oxford Innovation", initials: "OI" },
   { name: "Midlands Manufacturing", initials: "MM" },
-  { name: "TechFlow Solutions", initials: "TF" },
 ];
 
 export const pricingTiers = [
