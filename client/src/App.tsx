@@ -19,6 +19,8 @@ import Contact from "@/pages/contact";
 import Journal from "@/pages/journal";
 import Pricing from "@/pages/pricing";
 import Photography from "@/pages/photography";
+import CaseStudies from "@/pages/case-studies";
+import CaseStudyDetail from "@/pages/case-study-detail";
 import PaletteDemo from "@/pages/palette-demo";
 
 function Router() {
@@ -36,6 +38,8 @@ function Router() {
       <Route path="/journal" component={Journal} />
       <Route path="/pricing" component={Pricing} />
       <Route path="/photography" component={Photography} />
+      <Route path="/case-studies" component={CaseStudies} />
+      <Route path="/case-studies/:slug" component={CaseStudyDetail} />
       <Route path="/palette-demo" component={PaletteDemo} />
       <Route component={NotFound} />
     </Switch>

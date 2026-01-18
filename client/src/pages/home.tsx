@@ -1,11 +1,79 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight, ChevronDown, Play, Award, Users, Film, Camera } from "lucide-react";
+import { showreel } from "@/lib/case-studies";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
 import { ServiceCard } from "@/components/service-card";
 import { TestimonialCard } from "@/components/testimonial-card";
 import { ContactForm } from "@/components/contact-form";
 import { projects, services, testimonials, clientLogos } from "@/lib/data";
+import { Badge } from "@/components/ui/badge";
+
+function ShowreelSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <section className="py-16 lg:py-24 bg-deep-petrol">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div>
+            <Badge className="mb-4 bg-electric-amber/20 text-electric-amber border-electric-amber/30">Showreel</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              See Our Work in Action
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              {showreel.summary}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/case-studies">
+                <Button data-testid="button-homepage-case-studies">
+                  <Film className="w-4 h-4 mr-2" />
+                  View Case Studies
+                </Button>
+              </Link>
+              <Link href="/case-studies/showreel">
+                <Button variant="outline" className="border-electric-amber/50 text-electric-amber" data-testid="button-homepage-showreel">
+                  Watch Full Showreel
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+          <div className="aspect-video rounded-lg overflow-hidden bg-muted shadow-lg">
+            {isPlaying ? (
+              <video
+                src={showreel.featuredVideoUrl}
+                poster={showreel.featuredVideoPoster}
+                controls
+                autoPlay
+                className="w-full h-full object-contain bg-black"
+                data-testid="showreel-video"
+              />
+            ) : (
+              <div 
+                className="relative w-full h-full cursor-pointer group"
+                onClick={() => setIsPlaying(true)}
+                data-testid="showreel-thumbnail"
+              >
+                <img
+                  src={showreel.featuredVideoPoster}
+                  alt={showreel.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Play className="w-10 h-10 text-white ml-1" />
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 6);
@@ -97,6 +165,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ShowreelSection />
 
       <section className="py-16 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

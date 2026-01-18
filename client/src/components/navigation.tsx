@@ -85,6 +85,21 @@ export function Navigation() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="/case-studies"
+                      className={cn(
+                        "group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover-elevate",
+                        location.startsWith("/case-studies") ? "text-primary" : "text-foreground"
+                      )}
+                      data-testid="link-case-studies"
+                    >
+                      Case Studies
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
                   <NavigationMenuTrigger className="hover-elevate" data-testid="button-services-menu">
                     Services
                   </NavigationMenuTrigger>
@@ -229,6 +244,10 @@ export function Navigation() {
           <div className="px-6 py-4 space-y-4">
             <Link href="/work" className="block py-2 text-lg font-medium" data-testid="mobile-link-work">
               Work
+            </Link>
+            
+            <Link href="/case-studies" className="block py-2 text-lg font-medium" data-testid="mobile-link-case-studies">
+              Case Studies
             </Link>
             
             <div className="space-y-2">

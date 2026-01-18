@@ -5,6 +5,7 @@ import flashbuzzLogo from "@assets/flashbuzz-logo-white.png";
 
 const quickLinks = [
   { title: "Work", href: "/work" },
+  { title: "Case Studies", href: "/case-studies" },
   { title: "Services", href: "/services" },
   { title: "Sectors", href: "/sectors" },
   { title: "Photography", href: "/photography" },

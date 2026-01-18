@@ -138,3 +138,50 @@ export const contactFormSchema = z.object({
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
+
+// Video Assets from Cloudinary
+export const videoAssets = pgTable("video_assets", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  publicId: text("public_id").notNull().unique(),
+  title: text("title").notNull(),
+  cloudinaryUrl: text("cloudinary_url").notNull(),
+  posterUrl: text("poster_url").notNull(),
+  sourceCollectionUrl: text("source_collection_url"),
+  type: text("type").default("video"),
+  duration: integer("duration"),
+  width: integer("width"),
+  height: integer("height"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertVideoAssetSchema = createInsertSchema(videoAssets).omit({ id: true, createdAt: true });
+export type InsertVideoAsset = z.infer<typeof insertVideoAssetSchema>;
+export type VideoAsset = typeof videoAssets.$inferSelect;
+
+// Case Studies
+export const caseStudies = pgTable("case_studies", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  slug: text("slug").notNull().unique(),
+  title: text("title").notNull(),
+  clientOrProjectName: text("client_or_project_name").notNull(),
+  category: text("category").notNull(),
+  summary: text("summary").notNull(),
+  theBrief: text("the_brief").notNull(),
+  approach: text("approach").array().notNull(),
+  outcome: text("outcome").notNull(),
+  services: text("services").array().notNull(),
+  featuredVideoId: varchar("featured_video_id").references(() => videoAssets.id),
+  supportingVideoIds: text("supporting_video_ids").array().default([]),
+  hero: boolean("hero").default(false),
+  tags: text("tags").array().default([]),
+  location: text("location"),
+  year: integer("year"),
+  order: integer("order").default(0),
+  isShowreel: boolean("is_showreel").default(false),
+  published: boolean("published").default(true),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertCaseStudySchema = createInsertSchema(caseStudies).omit({ id: true, createdAt: true });
+export type InsertCaseStudy = z.infer<typeof insertCaseStudySchema>;
+export type CaseStudy = typeof caseStudies.$inferSelect;

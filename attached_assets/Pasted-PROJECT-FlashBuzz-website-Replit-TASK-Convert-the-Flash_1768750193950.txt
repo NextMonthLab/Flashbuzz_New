@@ -1,0 +1,87 @@
+PROJECT: FlashBuzz website (Replit)
+TASK: Convert the FlashBuzz site from a Web Service (Node/Express style) into a Static Site build, like we did with Hut Studio.
+
+GOAL
+- The deployed output must be a purely static bundle (HTML/CSS/JS/assets).
+- No server runtime, no Express API routes required for the public site.
+- Keep all existing design, pages, and navigation working.
+- Keep costs low and simplify deployment.
+
+HIGH LEVEL APPROACH
+1) Remove server dependency: no backend routes required for the public site.
+2) Convert all data that was previously served via /api/* into build-time static data in the frontend.
+3) Configure the project to build into a /dist (or /build) folder and deploy that as a static site.
+
+DELIVERABLES
+A) Static build configuration
+B) Updated routing compatible with static hosting
+C) All content/data works without /api calls
+D) Local dev still works (npm run dev), and production build works (npm run build + npm run preview)
+
+STEP-BY-STEP REQUIREMENTS
+
+1) Identify the current stack
+- Determine whether this is Vite + React, Next.js, Remix, or another framework.
+- Choose the correct static export approach:
+  - Vite/React: build to dist and serve statically
+  - Next.js: use next export (or output: "export") if supported
+  - Remix/Express: refactor to Vite SPA or static export route by route
+
+2) Remove server-side API usage
+- Search the codebase for calls to /api, fetch("/api/..."), axios to /api, or server-only modules.
+- For each API endpoint currently used (case studies, blog posts, etc):
+  - Move the content into frontend data files, e.g. src/data/*.ts or *.json
+  - Update the UI to import that data directly (no HTTP requests)
+  - If any dynamic route previously depended on API, replace with local data lookups
+
+3) Routing for static hosting
+- Ensure client-side routing works on static hosting:
+  - Use React Router with a static-friendly config
+  - Prefer HashRouter if needed for Replit static hosting
+  - Or configure SPA fallback (rewrites) if the host supports it
+- Make sure deep links like /case-studies/oxford-beard-festival do not 404 on static host.
+  - If SPA fallback isn’t available, switch to HashRouter or generate static pages.
+
+4) Case Studies system compatibility
+- Keep the Case Studies pages working without a server:
+  - /case-studies index works
+  - /case-studies/:id works via static-friendly routing
+- Cloudinary collections ingestion:
+  - If ingestion currently requires server-side fetching/parsing, refactor it so it does not block static hosting.
+  - Preferred static approach:
+    - Do not fetch/parse collections at runtime for the public site.
+    - Instead, store asset mappings in a local data file (src/data/cloudinaryAssets.ts) that Rob can update.
+    - The admin-lite tools can remain as local-only/dev-only helpers, or be removed from production build.
+  - Minimum viable: public site embeds use known collection URLs (or known delivered URLs) stored in data.
+
+5) Build scripts
+- Update package.json scripts so:
+  - npm run dev works locally in Replit
+  - npm run build outputs static files to dist/ (or build/)
+  - npm run preview previews the static build
+- Remove any start script that launches a server (node server.js / ts-node server, etc) for production.
+
+6) Remove server code
+- If there is an Express server folder, API folder, or server entry:
+  - Remove it if unused after refactor
+  - Or keep it but ensure it is not required for build or deployment
+
+7) Replit deployment configuration
+- Update Replit config so the deployment target is Static Site (not Web Service).
+- Confirm the build command outputs to the correct folder.
+- Ensure the static hosting points to the output folder.
+
+8) Verification checklist
+- Build succeeds without server
+- Deployed static site loads homepage
+- All nav links work
+- All case study pages work (including deep links)
+- Cloudinary embeds render
+- No /api calls in production bundle
+
+IMPORTANT NOTES
+- Keep it simple and reliable. No new backend or database.
+- If deep links fail due to static host limitations, use HashRouter as the reliable fallback.
+- Match what we did on Hut Studio: simple static build output, no Node runtime.
+
+Please implement these changes carefully and commit them cleanly.

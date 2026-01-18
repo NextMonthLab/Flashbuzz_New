@@ -1,0 +1,201 @@
+PROJECT: FlashBuzz Website
+TASK: Implement a complete Case Studies + Showreel system using Cloudinary Collection links as the asset sources, and seed it with the confirmed case studies below. Replit can consume Cloudinary Collection share links directly.
+
+GOAL
+- We want a clean portfolio that shows more diversity and credibility.
+- One Cloudinary collection link maps to one case study (except the showreel, which is a pillar asset).
+- Public pages: /case-studies (index) and /case-studies/:id (detail)
+- Admin-lite pages (not in nav): /admin/assets and /admin/case-studies
+- Admin allows Rob to map featured and supporting videos from the ingested asset library to each case study without editing code.
+
+CLOUDINARY COLLECTIONS PROVIDED
+1) Oxford Beard Festival:
+   https://collection.cloudinary.com/drl0fxrkq/50d2e2313fb9134b92dc080166a20512  (note: this was also referenced for Redwings earlier - treat collections as sources; allow admin mapping per case study)
+
+2) Redwings Horse Sanctuary, Strangles Awareness Week:
+   https://collection.cloudinary.com/drl0fxrkq/50d2e2313fb9134b92dc080166a20512
+
+3) Warm Front, Home Insulation Projects:
+   https://collection.cloudinary.com/drl0fxrkq/f41b8db84684314e638eb38f7a005539
+
+4) Medical Device Startup, US Product Launch:
+   https://collection.cloudinary.com/drl0fxrkq/8cf21e04da66757037a776d69f054799
+
+5) Industrial Recruitment & Health and Safety Montage:
+   https://collection.cloudinary.com/drl0fxrkq/ef93641b5df3e2b2d770e3ce8ec25d66
+
+6) Banbury Lunchbox Community Project:
+   https://collection.cloudinary.com/drl0fxrkq/bffc43c2fd8631e3eb485c7d3e46d8e8
+
+7) FlashBuzz Showreel (pillar asset):
+   https://collection.cloudinary.com/drl0fxrkq/30ca0d347102db63ea83eb7611504eb6
+
+8) Tugo Foods, Vegetable Stir-Fry Noodle Pot Marketing Video:
+   https://collection.cloudinary.com/drl0fxrkq/cd641e3edf9b4919c1f468e1dbd218da
+
+ADDITIONAL COLLECTIONS (ingest and keep available in asset library even if not mapped yet)
+9) https://collection.cloudinary.com/drl0fxrkq/6d743203dc1f10abd53f853c3b6e42e3
+10) https://collection.cloudinary.com/drl0fxrkq/50d2e2313fb9134b92dc080166a20512 (already used above)
+11) https://collection.cloudinary.com/drl0fxrkq/f41b8db84684314e638eb38f7a005539 (already used above)
+12) https://collection.cloudinary.com/drl0fxrkq/8cf21e04da66757037a776d69f054799 (already used above)
+13) https://collection.cloudinary.com/drl0fxrkq/ef93641b5df3e2b2d770e3ce8ec25d66 (already used above)
+14) https://collection.cloudinary.com/drl0fxrkq/bffc43c2fd8631e3eb485c7d3e46d8e8 (already used above)
+15) https://collection.cloudinary.com/drl0fxrkq/30ca0d347102db63ea83eb7611504eb6 (already used above)
+16) https://collection.cloudinary.com/drl0fxrkq/cd641e3edf9b4919c1f468e1dbd218da (already used above)
+17) https://collection.cloudinary.com/drl0fxrkq/50d2e2313fb9134b92dc080166a20512 (duplicate OK)
+18) https://collection.cloudinary.com/drl0fxrkq/50d2e2313fb9134b92dc080166a20512 (duplicate OK)
+19) https://collection.cloudinary.com/drl0fxrkq/50d2e2313fb9134b92dc080166a20512 (duplicate OK)
+20) https://collection.cloudinary.com/drl0fxrkq/50d2e2313fb9134b92dc080166a20512 (duplicate OK)
+
+NOTE: Some collections were reused across earlier messages. Build the system so collections are ingested into an asset library, and then videos are assigned to case studies via admin mapping. The ingestion layer should not assume one collection equals one case study automatically; it should just bring in assets. Mapping is done in /admin/case-studies.
+
+REQUIREMENTS
+
+1) Cloudinary Asset Library
+Implement an ingestion utility that:
+- Takes an array of Cloudinary Collection share URLs
+- Extracts all video assets from each collection
+- Normalises them into a single merged asset library with:
+  - assetId (stable unique)
+  - cloudinaryUrl
+  - sourceCollectionUrl
+  - type = "video"
+  - posterUrl (generate thumbnail if possible)
+  - duration/width/height if available
+- Caches results locally (file or local storage) to avoid slow reloads
+- Provides a manual refresh button in /admin/assets
+
+2) Data Model
+Create local data storage for case studies, either:
+- /src/data/caseStudies.ts (preferred) or JSON
+Fields:
+- id
+- title
+- clientOrProjectName
+- category
+- summary
+- theBrief
+- approach (array)
+- outcome
+- services (array)
+- featuredVideo (assetId reference)
+- supportingVideos (array of assetId references)
+- hero (boolean)
+- tags (array)
+- location (optional)
+- year (optional)
+
+3) Public Pages
+- /case-studies (index):
+  - Featured hero studies at top (3 items)
+  - Grid of remaining
+  - Filter by category and tags
+  - Each card shows poster thumbnail and quick summary
+- /case-studies/:id (detail):
+  - Above fold: title, summary, embedded featured video
+  - Sections: Brief, Approach, Outcome, Services, Supporting videos
+  - CTA button: Enquire (links to contact form)
+
+4) Showreel Handling (special case)
+The showreel is a pillar asset, not a normal case study.
+Implement:
+- A homepage component/slot for the Showreel embed and a strong "Watch Showreel" CTA
+- Also allow a Showreel page, e.g. /showreel (optional) or feature it at top of /case-studies as an intro block
+- Do not bury it inside the normal case studies grid as if it were a client project
+
+5) Admin-lite UI (no nav link)
+- /admin/assets:
+  - List all ingested assets with poster previews
+  - Filter by sourceCollectionUrl
+  - "Refresh assets" button
+- /admin/case-studies:
+  - Create/edit case studies
+  - Pick featured video from asset library (assetId)
+  - Add supporting videos, reorder them
+  - Toggle hero
+  - Preview card and detail layout
+
+If the site already has auth, protect these routes. Otherwise keep it hidden and simple.
+
+SEED THE FOLLOWING CASE STUDIES (with copy below)
+Create these case studies in the data file, with hero flags as suggested. Videos should be assigned via admin mapping (featuredVideo can start null), except the Showreel which should be featured on homepage.
+
+A) Oxford Beard Festival (hero = true)
+Category: Event Film / Cultural Documentary
+Summary: FlashBuzz captured the Oxford Beard Festival, a quirky, character-led competition featuring regional contestants and national and international beard champions.
+Brief: Capture the culture, humour, and competitive spirit of the festival in a watchable, cinematic way.
+Approach: Character-led coverage, atmosphere, detail, energy-driven edit.
+Outcome: Additional sizzle reel produced and pitched to Channel 4 for a one-off documentary exploring beard festivals and their culture.
+Services: Filming, Editing
+Tags: Event, Documentary, Culture, Sizzle reel, Broadcast development
+
+B) Redwings Horse Sanctuary, Strangles Awareness Week (hero = true)
+Category: Documentary / Awareness Campaign
+Summary: FlashBuzz produced an emotive awareness film for Strangles Awareness Week, visiting real horse stables and speaking with owners about managing this devastating disease.
+Brief: Raise awareness with an honest, sensitive campaign film.
+Approach: Real contributors, real environments, interview-led storytelling, restrained respectful edit.
+Outcome: Strong audience reception and part of a wider series of awareness films for the campaign.
+Services: Filming, Editing, Interviews
+Tags: Charity, Awareness, Documentary, Animals
+
+C) Warm Front, Home Insulation Projects (hero = true)
+Category: Corporate / Public Sector / Built Environment
+Summary: A project showcase film highlighting home insulation works delivered with local housing associations, designed to inform residents and support new regional contracts.
+Brief: Serve two audiences: homeowners (reassurance) and housing associations (credibility).
+Approach: Real properties, process and outcomes, calm informative tone, polished procurement-friendly edit.
+Outcome: A trust-building comms asset supporting transparency and new partnership conversations.
+Services: Filming, Editing
+Tags: Housing, Public sector, Infrastructure, Sustainability
+
+D) Medical Device Startup, US Product Launch (hero = false)
+Category: Product Launch / Technology / Healthcare
+Summary: A product launch film for a medical technology startup with significant EU funding, created for a US launch event.
+Brief: Communicate innovation and credibility for a high-stakes international audience.
+Approach: Premium tone, clarity over complexity, event-ready pacing.
+Outcome: Strong visual anchor for launch presentations and stakeholder conversations.
+Services: Filming, Editing
+Tags: Product launch, MedTech, Startup, International
+
+E) Industrial Recruitment & Health and Safety Montage (hero = false)
+Category: Industrial / Recruitment / Health & Safety
+Summary: Montage showcasing industrial recruitment and health and safety films across logistics, warehouse, and industrial environments.
+Brief: Demonstrate breadth of work and competence in regulated environments.
+Approach: Real workplaces, authoritative tone, clarity, pace without gimmicks.
+Outcome: A strong proof asset for large employers and procurement teams.
+Services: Filming, Editing
+Tags: Recruitment, H&S, Logistics, Warehousing
+
+F) Banbury Lunchbox Community Project (hero = false)
+Category: Community / Charity / Awareness
+Summary: A local initiative bringing businesses together to support families in need at Christmas, and encourage wider business involvement.
+Brief: Celebrate the impact and act as a call-to-action for next year’s support.
+Approach: Natural moments, warmth, community-first storytelling.
+Outcome: Awareness and recruitment asset to help grow the initiative.
+Services: Filming, Editing
+Tags: Community, Christmas, Social impact, Charity
+
+G) FlashBuzz Showreel (pillar)
+Category: Showreel / Brand Film
+Summary: High-energy showreel showcasing FlashBuzz work across multiple sectors and clients over the years.
+Use: Homepage hero or near-hero, persistent “Watch our work” CTA, and optional /showreel page.
+Tags: Showreel, Portfolio, Multi-sector
+
+H) Tugo Foods, Vegetable Stir-Fry Noodle Pot Campaign (hero = false)
+Category: Food & Beverage / Product Marketing
+Summary: High-energy product marketing film positioning Tugo as a rapid, creative culinary supplier for food service, not fast food.
+Brief: Elevate perception and differentiate brand category.
+Approach: Appetite-led close-ups, fast-paced edits, stylised modern tone.
+Outcome: Strong marketing asset supporting brand repositioning across channels.
+Services: Filming, Editing
+Tags: Food marketing, Product video, Food service, Brand positioning
+
+HOMEPAGE RECOMMENDATION
+- Feature Showreel prominently.
+- Below, show 3 hero case studies: Beard Festival, Redwings, Warm Front.
+- Then a grid of the remaining.
+
+IMPLEMENTATION NOTES
+- Keep this lightweight: local data files + admin-lite UI.
+- No heavy database required unless already present.
+- Ensure embeds are responsive and support both landscape and vertical clips (contain by default, no destructive cropping).
+- Provide poster thumbnails for performance.
