@@ -101,5 +101,32 @@ The logo (pink/yellow lightning) remains the loudest element. The UI uses premiu
 - **Build**: esbuild for server bundling, Vite for client
 
 ### Environment Variables Required
-- `DATABASE_URL`: PostgreSQL connection string (required)
+- `DATABASE_URL`: PostgreSQL connection string (required for dev server only)
 - `NODE_ENV`: development or production
+
+## Static Site Deployment
+
+The site is configured for static deployment (no backend required).
+
+### Build Command
+```bash
+npx vite build
+```
+
+### Output Directory
+`dist/public/`
+
+### Render Deployment
+A `render.yaml` file is included for easy Render deployment:
+- **Type**: Static site
+- **Build command**: `npm install && npx vite build`
+- **Publish path**: `./dist/public`
+- **Routing**: All routes rewrite to `/index.html` for SPA support
+
+### Contact Form
+Currently uses a simple mailto link to `boo@flashbuzz.co.uk`. Can be replaced with Tally form embed later.
+
+## Recent Changes
+- 2026-01-18: Converted to static site architecture, removed backend API dependencies
+- 2026-01-18: Updated contact form to use email placeholder
+- 2026-01-18: Added render.yaml for Render static site deployment
