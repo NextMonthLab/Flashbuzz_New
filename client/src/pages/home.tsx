@@ -121,16 +121,16 @@ export default function Home() {
         </button>
       </section>
 
-      <section className="py-16 lg:py-24 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="text-center text-sm text-muted-foreground uppercase tracking-wide mb-8">
+      <section className="py-12 lg:py-16 border-y border-border/50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <p className="text-center text-xs text-muted-foreground uppercase tracking-widest mb-10">
             Trusted by leading organisations
           </p>
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 lg:gap-8 items-center justify-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 items-center justify-items-center">
             {clientLogos.map((logo) => (
               <div
                 key={logo.name}
-                className="h-12 w-24 flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                className="w-full max-w-[140px] h-16 px-4 py-3 rounded-md bg-white flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
                 title={logo.name}
                 data-testid={`logo-${logo.name.toLowerCase().replace(/\s+/g, '-')}`}
               >

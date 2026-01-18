@@ -620,51 +620,51 @@ export const journalPosts: JournalPost[] = [
 export const clientLogos = [
   { 
     name: "Bibby Financial Services", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/BFS-logo_luy7i9" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/BFS-logo_luy7i9" 
   },
   { 
     name: "John Lewis", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/John_Lewis___Partners_logo_dsgh4o" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/John_Lewis___Partners_logo_dsgh4o" 
   },
   { 
     name: "Overbury", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/Overbury-Logo_f2fygl" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/Overbury-Logo_f2fygl" 
   },
   { 
     name: "Subaru", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/Subaru-Logo-9-1200x750_rjjb2z" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/Subaru-Logo-9-1200x750_rjjb2z" 
   },
   { 
     name: "Tugo Foods", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/TUGO_logo_large_black_on_red_podyxc" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/TUGO_logo_large_black_on_red_podyxc" 
   },
   { 
     name: "Smyths Toys", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/channels4_profile_pymxmk" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/channels4_profile_pymxmk" 
   },
   { 
     name: "Voneus", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/download_1_irerko" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/download_1_irerko" 
   },
   { 
     name: "Halfords", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/halfords-logo_dhdbym" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/halfords-logo_dhdbym" 
   },
   { 
     name: "Hero Era", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/images_wudq1a" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/images_wudq1a" 
   },
   { 
     name: "Prodrive", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/stickers-prodrive_waldqo" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/stickers-prodrive_waldqo" 
   },
   { 
     name: "Spring Chicken", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/unnamed_hpxlbb" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/unnamed_hpxlbb" 
   },
   { 
     name: "White Stuff", 
-    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/white-stuff-primary-logo-black-gfvuxfgydsubdeaax-yr4vn2lm-2023-10-30_jrynah" 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/w_160,h_60,c_pad,b_white,q_auto,f_auto/white-stuff-primary-logo-black-gfvuxfgydsubdeaax-yr4vn2lm-2023-10-30_jrynah" 
   },
 ];
 
