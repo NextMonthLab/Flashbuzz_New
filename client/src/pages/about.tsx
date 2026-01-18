@@ -1,6 +1,8 @@
 import { Link } from "wouter";
 import { ArrowRight, Award, Film, Users, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import behindTheScenes from "@assets/flashbuzz-photo-1.jpg";
+import founderPhoto from "@assets/flashbuzz-photo-2.jpg";
 
 const stats = [
   { label: "International Awards", value: "23" },
@@ -41,8 +43,8 @@ export default function About() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
                 <img
-                  src="https://images.unsplash.com/photo-1598387993441-a364f854c3e1?w=800&h=600&fit=crop"
-                  alt="Filmmaker at work"
+                  src={behindTheScenes}
+                  alt="Flashbuzz team filming on location"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -176,8 +178,8 @@ export default function About() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
                 <img
-                  src="https://images.unsplash.com/photo-1559131583-f176a2eb61db?w=800&h=600&fit=crop"
-                  alt="Film crew at work"
+                  src={founderPhoto}
+                  alt="Flashbuzz founder in the studio"
                   className="w-full h-full object-cover"
                 />
               </div>
