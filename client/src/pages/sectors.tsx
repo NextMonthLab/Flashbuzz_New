@@ -3,6 +3,7 @@ import { ArrowRight, Users, Banknote, Factory, Flag, Microscope } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { sectors } from "@/lib/data";
+import heroBackground from "@assets/flashbuzz-photo-2.jpg";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "recruitment-employer-branding": Users,
@@ -15,8 +16,17 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 export default function Sectors() {
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
-      <section className="py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `url(${heroBackground})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="max-w-xl">
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-sectors-title">

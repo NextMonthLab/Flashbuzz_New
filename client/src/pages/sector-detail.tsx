@@ -6,6 +6,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ServiceCard } from "@/components/service-card";
 import { ContactForm } from "@/components/contact-form";
 import { sectors, projects, services } from "@/lib/data";
+import heroBackground from "@assets/flashbuzz-photo-2.jpg";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "recruitment-employer-branding": Users,
@@ -49,8 +50,17 @@ export default function SectorDetail() {
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
-      <section className="py-12 lg:py-20 bg-gradient-to-b from-muted/50 to-background">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `url(${heroBackground})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8" data-testid="sector-breadcrumb">
             <Link href="/" className="hover:text-foreground transition-colors">
               Home
@@ -64,8 +74,8 @@ export default function SectorDetail() {
           </nav>
 
           <div className="max-w-3xl">
-            <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-              <IconComponent className="w-8 h-8 text-primary" />
+            <div className="w-16 h-16 rounded-lg bg-flash-pink/20 flex items-center justify-center mb-6">
+              <IconComponent className="w-8 h-8 text-flash-pink" />
             </div>
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-sector-title">
               {sector.title}

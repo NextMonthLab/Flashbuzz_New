@@ -3,12 +3,22 @@ import { ArrowRight, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ServiceCard } from "@/components/service-card";
 import { services } from "@/lib/data";
+import heroBackground from "@assets/flashbuzz-photo-1.jpg";
 
 export default function Services() {
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
-      <section className="py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `url(${heroBackground})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-services-title">
               Our Services
