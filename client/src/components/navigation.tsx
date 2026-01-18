@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope, UtensilsCrossed } from "lucide-react";
-import flashbuzzLogo from "@assets/flashbuzz-logo.png";
+import flashbuzzLogo from "@assets/flashbuzz-logo-white.png";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,

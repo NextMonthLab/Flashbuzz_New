@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { MapPin, Mail, Phone, Linkedin } from "lucide-react";
 import { SiVimeo } from "react-icons/si";
-import flashbuzzLogo from "@assets/flashbuzz-logo.png";
+import flashbuzzLogo from "@assets/flashbuzz-logo-white.png";
 
 const quickLinks = [
   { title: "Work", href: "/work" },
