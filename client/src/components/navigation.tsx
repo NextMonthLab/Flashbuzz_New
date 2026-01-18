@@ -3,7 +3,6 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope, UtensilsCrossed } from "lucide-react";
 import flashbuzzLogo from "@assets/flashbuzz-logo.png";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -185,7 +184,6 @@ export function Navigation() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <ThemeToggle />
             <Link href="/work">
               <Button variant="ghost" data-testid="button-view-work">
                 View Work
@@ -199,7 +197,6 @@ export function Navigation() {
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"

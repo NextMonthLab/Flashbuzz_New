@@ -43,7 +43,7 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="light" storageKey="flashbuzz-theme">
+      <ThemeProvider defaultTheme="dark" storageKey="flashbuzz-theme">
         <TooltipProvider>
           <div className="flex flex-col min-h-screen">
             <Navigation />
