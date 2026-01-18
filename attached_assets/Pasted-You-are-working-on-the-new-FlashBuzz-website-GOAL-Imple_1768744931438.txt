@@ -1,0 +1,59 @@
+You are working on the new FlashBuzz website.
+
+GOAL
+Implement a clean secondary colour palette that complements the FlashBuzz logo (pink/yellow lightning) without overpowering the whole site. The logo should remain the loudest element. The rest of the UI should feel premium, cohesive, and calm.
+
+REFERENCE
+I am attaching a reference palette image showing the intended look and usage. Match that vibe and hierarchy.
+
+PALETTE (HEX)
+Neutrals (do most of the work):
+- Charcoal Black (primary background): #0F0F12
+- Slate Graphite (cards/panels/nav): #1C1F26
+- Steel Grey (borders/dividers): #2A2F3A
+Text:
+- Off-White (primary text): #F4F4F6
+- Muted Grey (secondary text): #A6ABB5
+
+Accents (use sparingly):
+- Flash Pink (brand accent): #FF2E88
+- Electric Amber (secondary accent): #FFC247
+- Deep Petrol Blue (large section background option): #1F3A4A
+
+DESIGN RULES
+- Use neutrals for 70–75% of surfaces.
+- Use accents for 5–10% total (combined). Accents should appear as highlights, not big blocks.
+- The Flash Pink should be used for: primary CTAs, active states, subtle highlights, hover underlines, small icons.
+- The Electric Amber should be used for: secondary CTAs, hover states, badges, subtle highlights.
+- Deep Petrol Blue can be used for occasional larger section backgrounds or hero panels to reduce “all-dark” fatigue.
+
+IMPLEMENTATION REQUIREMENTS
+1) Add CSS variables in a single place (global):
+   - If Tailwind is used, add to tailwind config as theme colours too.
+   - If plain CSS, add to :root in global stylesheet.
+2) Apply palette across core components:
+   - Body background: Charcoal Black
+   - Primary surfaces/cards: Slate Graphite
+   - Borders/dividers: Steel Grey (very subtle)
+   - Text colours: Off-White and Muted Grey
+3) Buttons:
+   - Primary button: background Flash Pink, text Off-White
+   - Primary hover: slightly darken pink or add subtle glow/shadow
+   - Secondary button: background Electric Amber, text Charcoal Black
+   - Secondary hover: slightly darken amber
+4) Links:
+   - Default: Off-White or Muted Grey depending context
+   - Hover/active: Flash Pink underline or colour shift
+5) Accessibility:
+   - Ensure readable contrast between text and backgrounds.
+   - Avoid using pink/yellow for body text.
+
+DELIVERABLES
+- A short commit/change summary describing what files were updated.
+- A “Palette Demo” section/page or component (even temporary) showing:
+  - Backgrounds, cards, text, buttons, link states, and a sample section using Petrol Blue.
+This makes it easy to review visually.
+
+IMPORTANT
+Do not change the logo artwork. The goal is to support it, not redesign it.
+Keep it cohesive and minimal.
