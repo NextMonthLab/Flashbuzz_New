@@ -618,22 +618,54 @@ export const journalPosts: JournalPost[] = [
 ];
 
 export const clientLogos = [
-  { name: "Bibby Financial Services", initials: "BF" },
-  { name: "John Lewis", initials: "JL" },
-  { name: "Smyths Toys", initials: "ST" },
-  { name: "White Stuff", initials: "WS" },
-  { name: "HERO ERA", initials: "HE" },
-  { name: "Prodrive", initials: "PD" },
-  { name: "Tugo Foods", initials: "TF" },
-  { name: "Voneus", initials: "VN" },
-  { name: "Flutter Shutter", initials: "FS" },
-  { name: "Spring Chicken", initials: "SC" },
-  { name: "Catherine House Hospice", initials: "CH" },
-  { name: "Shipston Home Nursing", initials: "SN" },
-  { name: "Beauty Above", initials: "BA" },
-  { name: "Beardmail", initials: "BM" },
-  { name: "Fine Fettle", initials: "FF" },
-  { name: "Bearded Viking Axe Masters", initials: "BV" },
+  { 
+    name: "Bibby Financial Services", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/BFS-logo_luy7i9" 
+  },
+  { 
+    name: "John Lewis", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/John_Lewis___Partners_logo_dsgh4o" 
+  },
+  { 
+    name: "Overbury", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/Overbury-Logo_f2fygl" 
+  },
+  { 
+    name: "Subaru", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/Subaru-Logo-9-1200x750_rjjb2z" 
+  },
+  { 
+    name: "Tugo Foods", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/TUGO_logo_large_black_on_red_podyxc" 
+  },
+  { 
+    name: "Smyths Toys", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/channels4_profile_pymxmk" 
+  },
+  { 
+    name: "Voneus", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/download_1_irerko" 
+  },
+  { 
+    name: "Halfords", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/halfords-logo_dhdbym" 
+  },
+  { 
+    name: "Hero Era", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/images_wudq1a" 
+  },
+  { 
+    name: "Prodrive", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/stickers-prodrive_waldqo" 
+  },
+  { 
+    name: "Spring Chicken", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/unnamed_hpxlbb" 
+  },
+  { 
+    name: "White Stuff", 
+    logo: "https://res.cloudinary.com/drl0fxrkq/image/upload/h_60,w_100,c_fit,q_auto,f_auto/white-stuff-primary-logo-black-gfvuxfgydsubdeaax-yr4vn2lm-2023-10-30_jrynah" 
+  },
 ];
 
 export const pricingTiers = [

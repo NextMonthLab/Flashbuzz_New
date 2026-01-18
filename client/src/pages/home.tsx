@@ -126,15 +126,20 @@ export default function Home() {
           <p className="text-center text-sm text-muted-foreground uppercase tracking-wide mb-8">
             Trusted by leading organisations
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 lg:gap-8 items-center justify-items-center">
             {clientLogos.map((logo) => (
               <div
                 key={logo.name}
-                className="w-16 h-16 rounded-lg bg-card border border-card-border flex items-center justify-center text-muted-foreground hover:text-primary transition-colors cursor-default"
+                className="h-12 w-24 flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
                 title={logo.name}
-                data-testid={`logo-${logo.initials.toLowerCase()}`}
+                data-testid={`logo-${logo.name.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                <span className="text-lg font-bold">{logo.initials}</span>
+                <img 
+                  src={logo.logo} 
+                  alt={logo.name}
+                  className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
