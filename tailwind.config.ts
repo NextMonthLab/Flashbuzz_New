@@ -81,6 +81,10 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        "flash-pink": "hsl(var(--flash-pink) / <alpha-value>)",
+        "electric-amber": "hsl(var(--electric-amber) / <alpha-value>)",
+        "deep-petrol": "hsl(var(--deep-petrol) / <alpha-value>)",
+        charcoal: "hsl(var(--charcoal) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-sans)"],

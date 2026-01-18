@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE - Cinematic Studio (lighter variant for day use) */
+/* LIGHT MODE - Flashbuzz Premium (clean, premium aesthetic) */
 :root {
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
@@ -10,66 +10,67 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
   
-  /* Core neutrals - Studio light */
-  --background: 220 14% 96%;
-  --foreground: 222 47% 11%;
-  --border: 217 19% 88%;
+  /* Core neutrals - Light mode */
+  --background: 240 14% 96%;
+  --foreground: 240 9% 6%;
+  --border: 220 10% 88%;
   
   /* Cards and surfaces */
   --card: 0 0% 100%;
-  --card-foreground: 222 47% 11%;
-  --card-border: 217 19% 88%;
+  --card-foreground: 240 9% 6%;
+  --card-border: 220 10% 88%;
   
-  /* Sidebar */
-  --sidebar: 222 47% 11%;
-  --sidebar-foreground: 210 40% 98%;
-  --sidebar-border: 217 19% 17%;
-  --sidebar-primary: 217 91% 60%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 217 30% 20%;
-  --sidebar-accent-foreground: 210 40% 98%;
-  --sidebar-ring: 217 91% 60%;
+  /* Sidebar - Uses dark theme even in light mode */
+  --sidebar: 240 9% 6%;
+  --sidebar-foreground: 240 14% 96%;
+  --sidebar-border: 221 16% 20%;
+  --sidebar-primary: 334 100% 59%;
+  --sidebar-primary-foreground: 240 14% 96%;
+  --sidebar-accent: 221 16% 20%;
+  --sidebar-accent-foreground: 240 14% 96%;
+  --sidebar-ring: 334 100% 59%;
   
   /* Popover */
   --popover: 0 0% 100%;
-  --popover-foreground: 222 47% 11%;
-  --popover-border: 217 19% 88%;
+  --popover-foreground: 240 9% 6%;
+  --popover-border: 220 10% 88%;
   
-  /* Primary: Steel Blue */
-  --primary: 217 91% 60%;
-  --primary-foreground: 0 0% 100%;
+  /* Primary: Flash Pink (brand accent) */
+  --primary: 334 100% 59%;
+  --primary-foreground: 240 14% 96%;
   
-  /* Secondary */
-  --secondary: 220 14% 92%;
-  --secondary-foreground: 222 47% 11%;
+  /* Secondary: Electric Amber */
+  --secondary: 40 100% 64%;
+  --secondary-foreground: 240 9% 6%;
   
   /* Muted */
-  --muted: 220 14% 92%;
-  --muted-foreground: 215 14% 45%;
+  --muted: 220 10% 92%;
+  --muted-foreground: 220 10% 45%;
   
-  /* Accent: Purple Smoke */
-  --accent: 263 70% 72%;
-  --accent-foreground: 0 0% 100%;
+  /* Accent: Electric Amber (secondary accent) */
+  --accent: 40 100% 64%;
+  --accent-foreground: 240 9% 6%;
   
   /* Destructive */
   --destructive: 0 84% 40%;
   --destructive-foreground: 0 0% 100%;
   
   /* Input and ring */
-  --input: 217 19% 82%;
-  --ring: 217 91% 60%;
+  --input: 220 10% 82%;
+  --ring: 334 100% 59%;
   
-  /* Logo accent colors (use sparingly) */
-  --magenta: 326 100% 60%;
-  --yellow: 47 100% 68%;
-  --charcoal: 213 36% 6%;
+  /* Flashbuzz brand colors (use sparingly) */
+  --flash-pink: 334 100% 59%;
+  --electric-amber: 40 100% 64%;
+  --deep-petrol: 202 41% 21%;
+  --charcoal: 240 9% 6%;
   
   /* Charts */
-  --chart-1: 217 91% 60%;
-  --chart-2: 263 70% 72%;
-  --chart-3: 217 50% 50%;
-  --chart-4: 263 50% 60%;
-  --chart-5: 215 14% 40%;
+  --chart-1: 334 100% 59%;
+  --chart-2: 40 100% 64%;
+  --chart-3: 202 41% 40%;
+  --chart-4: 334 70% 70%;
+  --chart-5: 220 10% 45%;
   
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -112,7 +113,7 @@
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 }
 
-/* DARK MODE - Option B: Cinematic Studio Interface */
+/* DARK MODE - Flashbuzz Cinematic (premium dark studio aesthetic) */
 .dark {
   --button-outline: rgba(255,255,255, .10);
   --badge-outline: rgba(255,255,255, .05);
@@ -120,66 +121,67 @@
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
   
-  /* Core - Deep cinematic charcoal */
-  --background: 213 36% 6%;
-  --foreground: 210 40% 98%;
-  --border: 217 19% 17%;
+  /* Core - Charcoal Black #0F0F12 */
+  --background: 240 9% 6%;
+  --foreground: 240 14% 96%;
+  --border: 221 16% 20%;
   
-  /* Surface layers */
-  --card: 222 47% 11%;
-  --card-foreground: 210 40% 98%;
-  --card-border: 217 19% 14%;
+  /* Surface layers - Slate Graphite #1C1F26 */
+  --card: 222 15% 13%;
+  --card-foreground: 240 14% 96%;
+  --card-border: 221 16% 18%;
   
-  /* Raised surface */
-  --sidebar: 220 26% 14%;
-  --sidebar-foreground: 210 40% 98%;
-  --sidebar-border: 217 19% 17%;
-  --sidebar-primary: 217 91% 68%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 217 30% 22%;
-  --sidebar-accent-foreground: 210 40% 98%;
-  --sidebar-ring: 217 91% 68%;
+  /* Sidebar - Slate Graphite */
+  --sidebar: 222 15% 13%;
+  --sidebar-foreground: 240 14% 96%;
+  --sidebar-border: 221 16% 20%;
+  --sidebar-primary: 334 100% 59%;
+  --sidebar-primary-foreground: 240 14% 96%;
+  --sidebar-accent: 221 16% 20%;
+  --sidebar-accent-foreground: 240 14% 96%;
+  --sidebar-ring: 334 100% 59%;
   
-  /* Popover */
-  --popover: 222 47% 11%;
-  --popover-foreground: 210 40% 98%;
-  --popover-border: 217 19% 17%;
+  /* Popover - Slate Graphite */
+  --popover: 222 15% 13%;
+  --popover-foreground: 240 14% 96%;
+  --popover-border: 221 16% 20%;
   
-  /* Primary: Steel Blue */
-  --primary: 217 91% 68%;
-  --primary-foreground: 222 47% 11%;
+  /* Primary: Flash Pink #FF2E88 */
+  --primary: 334 100% 59%;
+  --primary-foreground: 240 14% 96%;
   
-  /* Secondary */
-  --secondary: 220 26% 14%;
-  --secondary-foreground: 210 40% 98%;
+  /* Secondary: Electric Amber #FFC247 */
+  --secondary: 40 100% 64%;
+  --secondary-foreground: 240 9% 6%;
   
-  /* Muted */
-  --muted: 220 26% 14%;
-  --muted-foreground: 215 14% 65%;
+  /* Muted - Steel Grey area */
+  --muted: 221 16% 16%;
+  --muted-foreground: 220 10% 68%;
   
-  /* Accent: Purple Smoke */
-  --accent: 263 70% 72%;
-  --accent-foreground: 222 47% 11%;
+  /* Accent: Electric Amber */
+  --accent: 40 100% 64%;
+  --accent-foreground: 240 9% 6%;
   
   /* Destructive */
   --destructive: 0 84% 50%;
   --destructive-foreground: 0 0% 100%;
   
   /* Input and ring */
-  --input: 217 19% 22%;
-  --ring: 217 91% 68%;
+  --input: 221 16% 20%;
+  --ring: 334 100% 59%;
   
-  /* Logo accent colors */
-  --magenta: 326 100% 65%;
-  --yellow: 47 100% 70%;
-  --charcoal: 213 36% 6%;
+  /* Flashbuzz brand colors */
+  --flash-pink: 334 100% 59%;
+  --electric-amber: 40 100% 64%;
+  --deep-petrol: 202 41% 21%;
+  --charcoal: 240 9% 6%;
   
   /* Charts */
-  --chart-1: 217 91% 68%;
-  --chart-2: 263 70% 72%;
-  --chart-3: 217 60% 55%;
-  --chart-4: 263 55% 60%;
-  --chart-5: 215 14% 50%;
+  --chart-1: 334 100% 59%;
+  --chart-2: 40 100% 64%;
+  --chart-3: 202 41% 40%;
+  --chart-4: 334 70% 70%;
+  --chart-5: 220 10% 55%;
   
   /* Shadows */
   --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
