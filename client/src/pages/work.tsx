@@ -26,13 +26,24 @@ export default function Work() {
     <div className="min-h-screen pt-24 lg:pt-32">
       <section className="py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-work-title">
-              Our Work
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-              Documentary-style films that reveal authentic stories and drive real business results. Each project represents a unique collaboration with clients who trusted us to tell their story with depth and craft.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="max-w-xl">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-work-title">
+                Our Work
+              </h1>
+              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+                Documentary-style films that reveal authentic stories and drive real business results. Each project represents a unique collaboration with clients who trusted us to tell their story with depth and craft.
+              </p>
+            </div>
+            <div className="relative hidden lg:block">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
+                <img
+                  src="https://res.cloudinary.com/drl0fxrkq/image/upload/w_800,h_600,c_fill,q_auto,f_auto/v1759077974/Operating_The_TV_Camera_original_1116311_tbid5m.jpg"
+                  alt="Professional camera operator at work"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-2 mb-12">

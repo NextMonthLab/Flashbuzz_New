@@ -23,9 +23,9 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90 dark:from-background dark:via-background/95 dark:to-background/90" />
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&h=1080&fit=crop')`,
+            backgroundImage: `url('https://res.cloudinary.com/drl0fxrkq/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1759077974/Silhouette_Of_People_Working_In_Film_Set_original_1662964_bxcgmu.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

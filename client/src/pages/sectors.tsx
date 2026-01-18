@@ -17,13 +17,24 @@ export default function Sectors() {
     <div className="min-h-screen pt-24 lg:pt-32">
       <section className="py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-sectors-title">
-              Sectors We Serve
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-              We bring deep sector knowledge to every project. Understanding your industry's unique challenges and language means content that resonates with your specific audience.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="max-w-xl">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-sectors-title">
+                Sectors We Serve
+              </h1>
+              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+                We bring deep sector knowledge to every project. Understanding your industry's unique challenges and language means content that resonates with your specific audience.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
+                <img
+                  src="https://res.cloudinary.com/drl0fxrkq/image/upload/w_800,h_600,c_fill,q_auto,f_auto/v1759077732/voneus_edit.mp4_1080p_.00_00_00_00.Still001_p1nllv.jpg"
+                  alt="Documentary film production for corporate clients"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

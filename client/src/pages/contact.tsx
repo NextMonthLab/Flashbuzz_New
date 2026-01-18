@@ -32,13 +32,24 @@ export default function Contact() {
     <div className="min-h-screen pt-24 lg:pt-32">
       <section className="py-12 lg:py-20 bg-gradient-to-b from-muted/50 to-background">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-contact-title">
-              Let's Talk
-            </h1>
-            <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
-              Every great film starts with a conversation. Tell us about your project and we'll get back to you within 24 hours.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-xl">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-contact-title">
+                Let's Talk
+              </h1>
+              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                Every great film starts with a conversation. Tell us about your project and we'll get back to you within 24 hours.
+              </p>
+            </div>
+            <div className="hidden lg:block">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
+                <img
+                  src="https://res.cloudinary.com/drl0fxrkq/image/upload/w_600,h_450,c_fill,q_auto,f_auto/v1744814523/Meadow-Cafe-Filming-0014_nggmtt.jpg"
+                  alt="Flashbuzz film crew on location"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
