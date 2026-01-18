@@ -51,9 +51,29 @@ Preferred communication style: Simple, everyday language.
 
 ### Design System
 - **Typography**: Inter for headings and body text, Merriweather for serif accents
-- **Color Palette**: Warm neutral base with accent color (HSL 32° warm tone)
 - **Component Style**: shadcn/ui "new-york" style with custom border radius and shadow system
 - **Spacing**: Tailwind units of 4, 6, 8, 12, 16, 24, 32
+
+### Colour Palette (Flashbuzz Premium)
+The logo (pink/yellow lightning) remains the loudest element. The UI uses premium, calm neutrals:
+
+**Neutrals (70-75% of surfaces):**
+- Charcoal Black `#0F0F12` - Primary background
+- Slate Graphite `#1C1F26` - Cards, panels, navigation
+- Steel Grey `#2A2F3A` - Borders, dividers
+
+**Text:**
+- Off-White `#F4F4F6` - Primary text
+- Muted Grey `#A6ABB5` - Secondary text
+
+**Accents (use sparingly, 5-10% each):**
+- Flash Pink `#FF2E88` - Primary CTAs, active states, hover highlights
+- Electric Amber `#FFC247` - Secondary CTAs, badges, hover accents
+- Deep Petrol Blue `#1F3A4A` - Optional section backgrounds to reduce dark-mode fatigue
+
+**Tailwind utilities:** `flash-pink`, `electric-amber`, `deep-petrol`, `charcoal`
+
+**Demo page:** `/palette-demo` shows all colour swatches, buttons, badges, and component examples
 
 ## External Dependencies
 
