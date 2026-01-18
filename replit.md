@@ -18,7 +18,7 @@ Preferred communication style: Simple, everyday language.
 - **State Management**: TanStack React Query for server state and data fetching
 - **UI Components**: shadcn/ui component library built on Radix UI primitives
 - **Styling**: Tailwind CSS with custom design tokens defined in CSS variables
-- **Theme Support**: Light/dark mode with ThemeProvider context
+- **Theme Support**: Dark mode only (locked via ThemeProvider)
 
 ### Backend Architecture
 - **Runtime**: Node.js with Express.js
@@ -84,7 +84,14 @@ The logo (pink/yellow lightning) remains the loudest element. The UI uses premiu
 
 ### Third-Party Services
 - **Vimeo**: Video hosting and embedding (uses Vimeo Player API)
+- **Cloudinary**: Photography portfolio images (CDN delivery with responsive transforms)
 - **Google Fonts**: Inter and Merriweather font families
+
+### Photography Portfolio
+- **Data Source**: `client/src/lib/photography.ts` - categorized photos from Cloudinary
+- **Categories**: Portraits, Couples & Lifestyle, Events, Documentary
+- **Page**: `/photography` - filterable gallery with lightbox viewer
+- **Callouts**: Photography promotion boxes on Homepage, About, and Services pages
 
 ### Key NPM Packages
 - **UI**: Radix UI primitives, Lucide React icons, react-icons

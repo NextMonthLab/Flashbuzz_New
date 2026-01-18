@@ -45,14 +45,14 @@ export default function Photography() {
             {filteredPhotos.map((photo) => (
               <div
                 key={photo.id}
-                className="group relative aspect-[3/2] rounded-lg overflow-hidden bg-muted cursor-pointer hover-elevate"
+                className="group relative aspect-[3/2] rounded-lg overflow-hidden bg-muted cursor-pointer"
                 onClick={() => setSelectedPhoto(photo)}
-                data-testid={`photo-${photo.id.slice(0, 10)}`}
+                data-testid={`card-photo-${photo.category}-${photo.id.split('_')[0]}`}
               >
                 <img
                   src={photo.thumbnail}
                   alt={photo.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">

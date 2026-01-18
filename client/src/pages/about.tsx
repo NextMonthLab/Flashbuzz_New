@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, Award, Film, Users, Clock, CheckCircle } from "lucide-react";
+import { ArrowRight, Award, Film, Users, Clock, CheckCircle, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import behindTheScenes from "@assets/flashbuzz-photo-1.jpg";
 import founderPhoto from "@assets/flashbuzz-photo-2.jpg";
@@ -185,6 +185,32 @@ export default function About() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <Link href="/photography">
+            <div className="bg-card border border-card-border rounded-lg p-6 lg:p-8 cursor-pointer" data-testid="about-photography-callout">
+              <div className="flex flex-col md:flex-row md:items-center gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-electric-amber/10 flex items-center justify-center flex-shrink-0">
+                    <Camera className="w-6 h-6 text-electric-amber" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">We also shoot stills</h3>
+                    <p className="text-sm text-muted-foreground">Browse our photography portfolio featuring portraits, events, and documentary work.</p>
+                  </div>
+                </div>
+                <div className="md:ml-auto">
+                  <Button variant="outline" className="border-electric-amber/50 text-electric-amber">
+                    View Gallery
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 

@@ -234,7 +234,7 @@ export default function Home() {
                 Every frame tells a story. Browse our photography portfolio featuring portraits, lifestyle, events, and documentary work captured with the same cinematic eye we bring to video.
               </p>
               <Link href="/photography">
-                <Button variant="outline" className="border-electric-amber/50 text-electric-amber hover:bg-electric-amber/10" data-testid="button-photography-callout">
+                <Button variant="outline" className="border-electric-amber/50 text-electric-amber" data-testid="button-photography-callout">
                   View Photography
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
