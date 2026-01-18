@@ -18,6 +18,7 @@ import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import Journal from "@/pages/journal";
 import Pricing from "@/pages/pricing";
+import Photography from "@/pages/photography";
 import PaletteDemo from "@/pages/palette-demo";
 
 function Router() {
@@ -34,6 +35,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/journal" component={Journal} />
       <Route path="/pricing" component={Pricing} />
+      <Route path="/photography" component={Photography} />
       <Route path="/palette-demo" component={PaletteDemo} />
       <Route component={NotFound} />
     </Switch>

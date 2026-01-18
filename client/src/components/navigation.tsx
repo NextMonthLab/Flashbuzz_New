@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope, UtensilsCrossed } from "lucide-react";
+import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope, UtensilsCrossed, Camera } from "lucide-react";
 import flashbuzzLogo from "@assets/flashbuzz-logo-white.png";
 import { Button } from "@/components/ui/button";
 import {
@@ -153,6 +153,21 @@ export function Navigation() {
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
+                      href="/photography"
+                      className={cn(
+                        "group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover-elevate",
+                        location === "/photography" ? "text-primary" : "text-foreground"
+                      )}
+                      data-testid="link-photography"
+                    >
+                      Photography
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
                       href="/about"
                       className={cn(
                         "group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover-elevate",
@@ -250,6 +265,9 @@ export function Navigation() {
               ))}
             </div>
 
+            <Link href="/photography" className="block py-2 text-lg font-medium" data-testid="mobile-link-photography">
+              Photography
+            </Link>
             <Link href="/about" className="block py-2 text-lg font-medium" data-testid="mobile-link-about">
               About
             </Link>
