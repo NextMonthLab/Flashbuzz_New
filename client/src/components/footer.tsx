@@ -7,6 +7,7 @@ const quickLinks = [
   { title: "Work", href: "/work" },
   { title: "Services", href: "/services" },
   { title: "Sectors", href: "/sectors" },
+  { title: "Photography", href: "/photography" },
   { title: "About", href: "/about" },
   { title: "Journal", href: "/journal" },
   { title: "Contact", href: "/contact" },

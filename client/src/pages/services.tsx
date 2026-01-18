@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ServiceCard } from "@/components/service-card";
 import { services } from "@/lib/data";
@@ -62,6 +62,32 @@ export default function Services() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <Link href="/photography">
+            <div className="bg-card border border-card-border rounded-lg p-6 lg:p-8 hover-elevate cursor-pointer" data-testid="services-photography-callout">
+              <div className="flex flex-col md:flex-row md:items-center gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-electric-amber/10 flex items-center justify-center flex-shrink-0">
+                    <Camera className="w-6 h-6 text-electric-amber" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Looking for photography?</h3>
+                    <p className="text-sm text-muted-foreground">We also offer professional photography services with the same cinematic approach.</p>
+                  </div>
+                </div>
+                <div className="md:ml-auto">
+                  <Button variant="outline" className="border-electric-amber/50 text-electric-amber">
+                    View Gallery
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 
