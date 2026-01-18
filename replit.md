@@ -124,7 +124,7 @@ A `render.yaml` file is included for easy Render deployment:
 - **Routing**: All routes rewrite to `/index.html` for SPA support
 
 ### Contact Form
-Currently uses a simple mailto link to `boo@flashbuzz.co.uk`. Can be replaced with Tally form embed later.
+Uses embedded Tally form (form ID: Xxo2Le) for contact submissions.
 
 ## Recent Changes
 - 2026-01-18: Converted to static site architecture, removed backend API dependencies
