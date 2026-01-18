@@ -167,8 +167,8 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
                 <img
-                  src="https://images.unsplash.com/photo-1598387993211-5a5b66c41f74?w=800&h=600&fit=crop"
-                  alt="Behind the scenes - filmmaker at work"
+                  src="https://res.cloudinary.com/drl0fxrkq/image/upload/w_800,h_600,c_fill,q_auto,f_auto/v1759077975/Camera_Lens_original_779692_dp4vee.jpg"
+                  alt="Professional cinema camera lens - Flashbuzz documentary filmmaking equipment"
                   className="w-full h-full object-cover"
                 />
               </div>
