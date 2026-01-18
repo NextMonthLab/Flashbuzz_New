@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight, ChevronDown, Play, Award, Users, Film, Camera } from "lucide-react";
 import { showreel } from "@/lib/case-studies";
@@ -7,12 +6,11 @@ import { ProjectCard } from "@/components/project-card";
 import { ServiceCard } from "@/components/service-card";
 import { TestimonialCard } from "@/components/testimonial-card";
 import { ContactForm } from "@/components/contact-form";
+import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
 import { projects, services, testimonials, clientLogos } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 
 function ShowreelSection() {
-  const [isPlaying, setIsPlaying] = useState(false);
-
   return (
     <section className="py-16 lg:py-24 bg-deep-petrol">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -40,35 +38,12 @@ function ShowreelSection() {
               </Link>
             </div>
           </div>
-          <div className="aspect-video rounded-lg overflow-hidden bg-muted shadow-lg">
-            {isPlaying ? (
-              <video
-                src={showreel.featuredVideoUrl}
-                poster={showreel.featuredVideoPoster}
-                controls
-                autoPlay
-                className="w-full h-full object-contain bg-black"
-                data-testid="showreel-video"
-              />
-            ) : (
-              <div 
-                className="relative w-full h-full cursor-pointer group"
-                onClick={() => setIsPlaying(true)}
-                data-testid="showreel-thumbnail"
-              >
-                <img
-                  src={showreel.featuredVideoPoster}
-                  alt={showreel.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Play className="w-10 h-10 text-white ml-1" />
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+          <CloudinaryVideoPlayer
+            videoUrl={showreel.featuredVideoUrl}
+            posterUrl={showreel.featuredVideoPoster}
+            title={showreel.title}
+            testId="homepage-showreel"
+          />
         </div>
       </div>
     </section>

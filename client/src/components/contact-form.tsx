@@ -21,8 +21,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { contactFormSchema, type ContactFormData } from "@shared/schema";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 const projectTypes = [
@@ -47,6 +45,7 @@ interface ContactFormProps {
 
 export function ContactForm({ variant = "default" }: ContactFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<ContactFormData>({
@@ -62,25 +61,30 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      setIsSubmitted(true);
-      form.reset();
-    },
-    onError: () => {
-      toast({
-        title: "Something went wrong",
-        description: "Please try again or email us directly.",
-        variant: "destructive",
-      });
-    },
-  });
-
   const onSubmit = (data: ContactFormData) => {
-    mutation.mutate(data);
+    setIsSubmitting(true);
+    
+    const projectLabel = projectTypes.find(p => p.value === data.projectType)?.label || data.projectType;
+    const budgetLabel = budgetRanges.find(b => b.value === data.budgetRange)?.label || data.budgetRange;
+    
+    const subject = encodeURIComponent(`New Project Enquiry from ${data.name}`);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\n` +
+      `Email: ${data.email}\n` +
+      `Phone: ${data.phone || 'Not provided'}\n` +
+      `Company: ${data.company || 'Not provided'}\n` +
+      `Project Type: ${projectLabel}\n` +
+      `Budget Range: ${budgetLabel || 'Not specified'}\n\n` +
+      `Message:\n${data.message}`
+    );
+    
+    window.location.href = `mailto:hello@flashbuzz.co.uk?subject=${subject}&body=${body}`;
+    
+    setTimeout(() => {
+      setIsSubmitted(true);
+      setIsSubmitting(false);
+      form.reset();
+    }, 500);
   };
 
   if (isSubmitted) {

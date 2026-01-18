@@ -1,45 +1,9 @@
-import { useState } from "react";
 import { Link, useParams } from "wouter";
-import { ArrowLeft, ArrowRight, Play, CheckCircle, Tag, MapPin, Calendar } from "lucide-react";
+import { ArrowLeft, ArrowRight, Play, CheckCircle, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
 import { getCaseStudyBySlug, caseStudies } from "@/lib/case-studies";
-
-function VideoPlayer({ videoUrl, posterUrl, title, autoPlay = false }: { videoUrl: string; posterUrl: string; title: string; autoPlay?: boolean }) {
-  const [isPlaying, setIsPlaying] = useState(autoPlay);
-
-  if (isPlaying) {
-    return (
-      <video
-        src={videoUrl}
-        poster={posterUrl}
-        controls
-        autoPlay
-        className="w-full h-full object-contain bg-black"
-        data-testid="video-player-main"
-      />
-    );
-  }
-
-  return (
-    <div 
-      className="relative w-full h-full cursor-pointer group"
-      onClick={() => setIsPlaying(true)}
-      data-testid="video-thumbnail-main"
-    >
-      <img
-        src={posterUrl}
-        alt={title}
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-        <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-          <Play className="w-10 h-10 text-white ml-1" />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function CaseStudyDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -108,13 +72,12 @@ export default function CaseStudyDetail() {
 
       <section className="pb-12 lg:pb-16">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="aspect-video rounded-lg overflow-hidden bg-muted shadow-lg">
-            <VideoPlayer
-              videoUrl={study.featuredVideoUrl}
-              posterUrl={study.featuredVideoPoster}
-              title={study.title}
-            />
-          </div>
+          <CloudinaryVideoPlayer
+            videoUrl={study.featuredVideoUrl}
+            posterUrl={study.featuredVideoPoster}
+            title={study.title}
+            testId={`case-study-${study.slug}-main`}
+          />
         </div>
       </section>
 
@@ -179,13 +142,13 @@ export default function CaseStudyDetail() {
             <h2 className="text-2xl font-bold text-foreground mb-8">Supporting Videos</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {study.supportingVideos.map((video, index) => (
-                <div key={index} className="aspect-video rounded-lg overflow-hidden bg-muted">
-                  <VideoPlayer
-                    videoUrl={video.url}
-                    posterUrl={video.poster}
-                    title={video.title}
-                  />
-                </div>
+                <CloudinaryVideoPlayer
+                  key={index}
+                  videoUrl={video.url}
+                  posterUrl={video.poster}
+                  title={video.title}
+                  testId={`case-study-${study.slug}-video-${index}`}
+                />
               ))}
             </div>
           </div>

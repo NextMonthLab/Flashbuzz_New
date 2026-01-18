@@ -1,71 +1,36 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, Play, Filter } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
 import { caseStudies, showreel, getHeroCaseStudies, getAllCategories, type CaseStudy } from "@/lib/case-studies";
-
-function VideoPlayer({ videoUrl, posterUrl, title }: { videoUrl: string; posterUrl: string; title: string }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  if (isPlaying) {
-    return (
-      <video
-        src={videoUrl}
-        poster={posterUrl}
-        controls
-        autoPlay
-        className="w-full h-full object-contain bg-black"
-        data-testid="video-player"
-      />
-    );
-  }
-
-  return (
-    <div 
-      className="relative w-full h-full cursor-pointer group"
-      onClick={() => setIsPlaying(true)}
-      data-testid="video-thumbnail"
-    >
-      <img
-        src={posterUrl}
-        alt={title}
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-        <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
-          <Play className="w-8 h-8 text-primary-foreground ml-1" />
-        </div>
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-          <Play className="w-8 h-8 text-white ml-1" />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
     <Link href={`/case-studies/${study.slug}`}>
-      <Card className="h-full overflow-hidden hover-elevate cursor-pointer" data-testid={`card-case-study-${study.slug}`}>
-        <div className="aspect-video overflow-hidden bg-muted">
+      <Card className="h-full overflow-hidden hover-elevate cursor-pointer group" data-testid={`card-case-study-${study.slug}`}>
+        <div className="aspect-video overflow-hidden bg-muted relative">
           <img
             src={study.featuredVideoPoster}
             alt={study.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
+          <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="w-14 h-14 rounded-full bg-flash-pink/90 flex items-center justify-center">
+              <Play className="w-6 h-6 text-white ml-0.5" />
+            </div>
+          </div>
         </div>
         <CardContent className="p-6">
           <div className="flex items-center gap-2 mb-3">
             <Badge variant="secondary" className="text-xs">{study.category.split(" / ")[0]}</Badge>
-            {study.hero && <Badge className="text-xs bg-primary/20 text-primary border-primary/30">Featured</Badge>}
+            {study.hero && <Badge className="text-xs bg-flash-pink/20 text-flash-pink border-flash-pink/30">Featured</Badge>}
           </div>
-          <h3 className="text-lg font-semibold text-foreground mb-2">{study.title}</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-2" data-testid={`text-case-study-title-${study.slug}`}>{study.title}</h3>
           <p className="text-sm text-muted-foreground line-clamp-2">{study.summary}</p>
-          <div className="flex items-center gap-2 mt-4 text-primary text-sm font-medium">
+          <div className="flex items-center gap-2 mt-4 text-flash-pink text-sm font-medium group-hover:text-electric-amber transition-colors" data-testid={`cta-case-study-${study.slug}`}>
             <span>View case study</span>
             <ArrowRight className="w-4 h-4" />
           </div>
@@ -116,13 +81,12 @@ export default function CaseStudiesIndex() {
                   </Button>
                 </Link>
               </div>
-              <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-                <VideoPlayer
-                  videoUrl={showreel.featuredVideoUrl}
-                  posterUrl={showreel.featuredVideoPoster}
-                  title={showreel.title}
-                />
-              </div>
+              <CloudinaryVideoPlayer
+                videoUrl={showreel.featuredVideoUrl}
+                posterUrl={showreel.featuredVideoPoster}
+                title={showreel.title}
+                testId="showreel-video"
+              />
             </div>
           </div>
         </div>
