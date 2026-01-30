@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope, UtensilsCrossed, Camera } from "lucide-react";
+import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope, UtensilsCrossed, Camera, BarChart3 } from "lucide-react";
 import flashbuzzLogo from "@assets/flashbuzz-logo-white.png";
 import { Button } from "@/components/ui/button";
+import { leadGenConfig, buildCtaUrl } from "@/lib/leadGenConfig";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -214,16 +215,24 @@ export function Navigation() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Link href="/work">
-              <Button variant="ghost" data-testid="button-view-work">
-                View Work
+            <a
+              href={buildCtaUrl(leadGenConfig.scorecard.url, leadGenConfig, "scorecard")}
+              data-cta="scorecard"
+              data-testid="cta-scorecard-header"
+            >
+              <Button>
+                <BarChart3 className="w-4 h-4 mr-2" />
+                {leadGenConfig.scorecard.headerLabel}
               </Button>
-            </Link>
-            <Link href="/contact">
-              <Button data-testid="button-start-project">
-                Start a Project
-              </Button>
-            </Link>
+            </a>
+            <a
+              href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden xl:block"
+              data-cta="plan"
+              data-testid="cta-plan-header"
+            >
+              {leadGenConfig.plan.headerLabel}
+            </a>
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
@@ -295,16 +304,27 @@ export function Navigation() {
             </Link>
 
             <div className="pt-4 space-y-3">
-              <Link href="/work" className="block">
-                <Button variant="outline" className="w-full" data-testid="mobile-button-view-work">
-                  View Work
+              <a
+                href={buildCtaUrl(leadGenConfig.scorecard.url, leadGenConfig, "scorecard")}
+                className="block"
+                data-cta="scorecard"
+                data-testid="mobile-cta-scorecard"
+              >
+                <Button className="w-full">
+                  <BarChart3 className="w-4 h-4 mr-2" />
+                  {leadGenConfig.scorecard.headerLabel}
                 </Button>
-              </Link>
-              <Link href="/contact" className="block">
-                <Button className="w-full" data-testid="mobile-button-start-project">
-                  Start a Project
+              </a>
+              <a
+                href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
+                className="block"
+                data-cta="plan"
+                data-testid="mobile-cta-plan"
+              >
+                <Button variant="outline" className="w-full">
+                  {leadGenConfig.plan.headerLabel}
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

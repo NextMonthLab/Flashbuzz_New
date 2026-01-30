@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { MobileStickyCtaBar } from "@/components/mobile-sticky-cta-bar";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Work from "@/pages/work";
@@ -58,6 +59,7 @@ function App() {
             </main>
             <Footer />
           </div>
+          <MobileStickyCtaBar />
           <Toaster />
         </TooltipProvider>
       </ThemeProvider>

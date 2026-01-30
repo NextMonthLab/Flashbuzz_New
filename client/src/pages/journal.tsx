@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { journalPosts } from "@/lib/data";
+import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
 
 export default function Journal() {
   return (
@@ -67,22 +68,11 @@ export default function Journal() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-card border-t border-card-border">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-            Inspired by what you've read?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Let's discuss how documentary craft can transform your business storytelling.
-          </p>
-          <Link href="/contact">
-            <Button size="lg" data-testid="button-journal-cta">
-              Start a Conversation
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-          </Link>
-        </div>
-      </section>
+      <LeadGenCtaBand
+        variant="gradient"
+        headline="Want to improve your video marketing?"
+        description="Take our free scorecard and get a tailored 90-day plan in minutes."
+      />
     </div>
   );
 }

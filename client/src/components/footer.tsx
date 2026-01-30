@@ -1,7 +1,8 @@
 import { Link } from "wouter";
-import { MapPin, Mail, Phone, Linkedin } from "lucide-react";
+import { MapPin, Mail, Phone, Linkedin, BarChart3, Calendar } from "lucide-react";
 import { SiVimeo } from "react-icons/si";
 import flashbuzzLogo from "@assets/flashbuzz-logo-white.png";
+import { leadGenConfig, buildCtaUrl } from "@/lib/leadGenConfig";
 
 const quickLinks = [
   { title: "Work", href: "/work" },
@@ -86,7 +87,7 @@ export function Footer() {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.href}>
-                  <Link 
+                  <Link
                     href={service.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     data-testid={`footer-link-service-${service.href.split('/').pop()}`}
@@ -95,6 +96,35 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+
+            <h4 className="font-semibold text-foreground mt-8 mb-4">{leadGenConfig.copy.footerHeadline}</h4>
+            <p className="text-sm text-muted-foreground mb-4">
+              {leadGenConfig.copy.footerDescription}
+            </p>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href={buildCtaUrl(leadGenConfig.scorecard.url, leadGenConfig, "scorecard")}
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  data-cta="scorecard"
+                  data-testid="footer-cta-scorecard"
+                >
+                  <BarChart3 className="w-4 h-4 text-primary flex-shrink-0" />
+                  {leadGenConfig.scorecard.label}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  data-cta="plan"
+                  data-testid="footer-cta-plan"
+                >
+                  <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
+                  {leadGenConfig.plan.label}
+                </a>
+              </li>
             </ul>
           </div>
 
