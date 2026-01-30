@@ -1,9 +1,11 @@
 import { Link, useParams } from "wouter";
-import { ArrowLeft, ArrowRight, Play, CheckCircle, MapPin, Calendar } from "lucide-react";
+import { ArrowLeft, ArrowRight, Play, CheckCircle, MapPin, Calendar, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
 import { getCaseStudyBySlug, caseStudies } from "@/lib/case-studies";
+import { InlineCta } from "@/components/lead-gen-ctas";
+import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
 
 export default function CaseStudyDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -106,6 +108,8 @@ export default function CaseStudyDetail() {
               <p className="text-muted-foreground leading-relaxed">{study.outcome}</p>
             </div>
           </div>
+
+          <InlineCta className="mt-12" />
         </div>
       </section>
 
@@ -155,22 +159,11 @@ export default function CaseStudyDetail() {
         </section>
       )}
 
-      <section className="py-16 lg:py-24 bg-deep-petrol">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-            Ready to create something like this?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Let's discuss how documentary craft can tell your story with the same depth and authenticity.
-          </p>
-          <Link href="/contact">
-            <Button size="lg" data-testid="button-case-study-cta">
-              Start a Conversation
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-          </Link>
-        </div>
-      </section>
+      <LeadGenCtaBand
+        variant="gradient"
+        headline="Ready to plan your next video project?"
+        description="Take our free scorecard and get a tailored 90-day plan in minutes."
+      />
 
       {otherStudies.length > 0 && (
         <section className="py-12 lg:py-16">

@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, ChevronDown, Play, Award, Users, Film, Camera } from "lucide-react";
+import { ArrowRight, ChevronDown, Play, Award, Users, Film, Camera, BarChart3 } from "lucide-react";
 import { showreel } from "@/lib/case-studies";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
@@ -9,6 +9,8 @@ import { ContactForm } from "@/components/contact-form";
 import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
 import { projects, services, testimonials, clientLogos } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
+import { leadGenConfig, buildCtaUrl } from "@/lib/leadGenConfig";
+import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
 
 function ShowreelSection() {
   return (
@@ -91,24 +93,35 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/work">
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="bg-white/10 border-white/30 text-white hover:bg-white/20 dark:bg-transparent dark:border-border dark:text-foreground"
-                data-testid="button-hero-view-work"
-              >
-                <Play className="w-4 h-4 mr-2" />
-                View Our Work
+            <a
+              href={buildCtaUrl(leadGenConfig.scorecard.url, leadGenConfig, "scorecard")}
+              data-cta="scorecard"
+              data-testid="cta-scorecard-hero"
+            >
+              <Button size="lg" data-testid="button-hero-scorecard">
+                <BarChart3 className="w-4 h-4 mr-2" />
+                {leadGenConfig.scorecard.heroLabel}
               </Button>
-            </Link>
-            <Link href="/contact">
-              <Button size="lg" data-testid="button-hero-contact">
-                Let's Talk
+            </a>
+            <a
+              href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
+              data-cta="plan"
+              data-testid="cta-plan-hero"
+            >
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 border-white/30 text-white hover:bg-white/20 dark:bg-transparent dark:border-border dark:text-foreground"
+                data-testid="button-hero-plan"
+              >
+                {leadGenConfig.plan.heroLabel}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </Link>
+            </a>
           </div>
+          <p className="mt-6 text-sm text-white/60 dark:text-muted-foreground">
+            {leadGenConfig.copy.trustCopy}
+          </p>
         </div>
 
         <button 
@@ -147,6 +160,8 @@ export default function Home() {
       </section>
 
       <ShowreelSection />
+
+      <LeadGenCtaBand variant="minimal" />
 
       <section className="py-16 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

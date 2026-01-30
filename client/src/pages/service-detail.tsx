@@ -5,6 +5,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
 import { services, projects } from "@/lib/data";
 import heroBackground from "@assets/flashbuzz-photo-1.jpg";
+import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Film,
@@ -109,6 +110,8 @@ export default function ServiceDetail() {
           </div>
         </div>
       </section>
+
+      <LeadGenCtaBand variant="minimal" />
 
       <section className="py-12 lg:py-16 bg-card border-y border-card-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
