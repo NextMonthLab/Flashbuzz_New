@@ -58,7 +58,7 @@ const defaultConfig: LeadGenConfig = {
   },
 
   plan: {
-    url: "https://rob-hutt-scorecard.onrender.com/scorecards/flashbuzz-video-growth",
+    url: "https://character-x.com/planner/90-day",
     label: "Get the 90-Day Plan",
     headerLabel: "Get the 90-Day Plan",
     heroLabel: "View the 90-day plan",

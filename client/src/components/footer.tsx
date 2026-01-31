@@ -117,6 +117,8 @@ export function Footer() {
               <li>
                 <a
                   href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   data-cta="plan"
                   data-testid="footer-cta-plan"
