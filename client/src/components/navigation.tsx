@@ -227,6 +227,8 @@ export function Navigation() {
             </a>
             <a
               href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden xl:block"
               data-cta="plan"
               data-testid="cta-plan-header"
@@ -317,6 +319,8 @@ export function Navigation() {
               </a>
               <a
                 href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block"
                 data-cta="plan"
                 data-testid="mobile-cta-plan"

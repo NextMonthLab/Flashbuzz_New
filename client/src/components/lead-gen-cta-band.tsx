@@ -64,6 +64,8 @@ export function LeadGenCtaBand({
               </a>
               <a
                 href={planUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden sm:block"
                 data-cta="plan"
                 data-testid="cta-plan-band-link"
@@ -105,6 +107,8 @@ export function LeadGenCtaBand({
             </a>
             <a
               href={planUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               data-cta="plan"
               data-testid="cta-plan-band-gradient"
             >
@@ -153,6 +157,8 @@ export function LeadGenCtaBand({
             </a>
             <a
               href={planUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               data-cta="plan"
               data-testid="cta-plan-band-default"
             >

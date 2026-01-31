@@ -105,6 +105,8 @@ export default function Home() {
             </a>
             <a
               href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
+              target="_blank"
+              rel="noopener noreferrer"
               data-cta="plan"
               data-testid="cta-plan-hero"
             >

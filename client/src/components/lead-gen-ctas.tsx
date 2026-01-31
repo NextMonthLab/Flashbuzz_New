@@ -64,6 +64,8 @@ export function LeadGenCtas({
         </a>
         <a
           href={planUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           data-cta="plan"
           data-testid="cta-plan-footer"
@@ -100,6 +102,8 @@ export function LeadGenCtas({
         </a>
         <a
           href={planUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           data-cta="plan"
           data-testid="cta-plan-secondary"
         >
@@ -150,6 +154,8 @@ export function HeaderCta({ className, showSecondary = false }: HeaderCtaProps) 
       {showSecondary && (
         <a
           href={planUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden xl:block"
           data-cta="plan"
           data-testid="cta-plan-header"
