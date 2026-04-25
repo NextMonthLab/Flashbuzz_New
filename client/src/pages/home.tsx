@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, ChevronDown, Play, Award, Users, Film, Camera, BarChart3 } from "lucide-react";
+import { ArrowRight, ChevronDown, Award, Users, Film, Camera } from "lucide-react";
 import { showreel } from "@/lib/case-studies";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
@@ -9,7 +9,6 @@ import { ContactForm } from "@/components/contact-form";
 import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
 import { projects, services, testimonials, clientLogos } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
-import { leadGenConfig, buildCtaUrl } from "@/lib/leadGenConfig";
 import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
 
 function ShowreelSection() {
@@ -93,36 +92,34 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={buildCtaUrl(leadGenConfig.scorecard.url, leadGenConfig, "scorecard")}
-              data-cta="scorecard"
-              data-testid="cta-scorecard-hero"
+            <Link
+              href="/contact"
+              className="plausible-event-name=Quote+CTA"
+              data-testid="cta-quote-hero"
             >
-              <Button size="lg" data-testid="button-hero-scorecard">
-                <BarChart3 className="w-4 h-4 mr-2" />
-                {leadGenConfig.scorecard.heroLabel}
+              <Button size="lg" data-testid="button-hero-quote">
+                Get a quote
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </a>
-            <a
-              href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cta="plan"
-              data-testid="cta-plan-hero"
+            </Link>
+            <Link
+              href="/workshop"
+              className="plausible-event-name=Workshop+CTA"
+              data-testid="cta-workshop-hero"
             >
               <Button
                 variant="outline"
                 size="lg"
                 className="bg-white/10 border-white/30 text-white hover:bg-white/20 dark:bg-transparent dark:border-border dark:text-foreground"
-                data-testid="button-hero-plan"
+                data-testid="button-hero-workshop"
               >
-                {leadGenConfig.plan.heroLabel}
+                Join the workshop
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </a>
+            </Link>
           </div>
           <p className="mt-6 text-sm text-white/60 dark:text-muted-foreground">
-            {leadGenConfig.copy.trustCopy}
+            We reply within 24 hours.
           </p>
         </div>
 

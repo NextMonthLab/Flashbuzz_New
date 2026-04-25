@@ -153,7 +153,6 @@ export default function CaseStudiesIndex() {
       <LeadGenCtaBand
         variant="gradient"
         headline="Want help planning your video content?"
-        description="Take our free scorecard and get a tailored 90-day plan in minutes."
       />
     </div>
   );

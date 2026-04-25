@@ -21,16 +21,10 @@ Preferred communication style: Simple, everyday language.
 - **Theme Support**: Dark mode only (locked via ThemeProvider)
 
 ### Backend Architecture
-- **Runtime**: Node.js with Express.js
-- **Language**: TypeScript with ESM modules
-- **API Pattern**: RESTful endpoints under `/api/*` prefix
-- **Build Process**: Custom build script using esbuild for server, Vite for client
+Static site only — no backend. Contact form uses an embedded Tally form.
 
 ### Data Layer
-- **ORM**: Drizzle ORM with PostgreSQL dialect
-- **Schema Location**: `shared/schema.ts` contains all database table definitions
-- **Validation**: Zod schemas generated from Drizzle schemas using drizzle-zod
-- **Database Push**: Use `npm run db:push` to sync schema changes
+Content is shipped as static TypeScript modules under `client/src/lib`. Shared types live in `shared/schema.ts` (plain TypeScript interfaces).
 
 ### Project Structure
 ```
@@ -39,13 +33,8 @@ Preferred communication style: Simple, everyday language.
 │   ├── pages/           # Route page components
 │   ├── hooks/           # Custom React hooks
 │   └── lib/             # Utilities and data
-├── server/              # Express backend
-│   ├── index.ts         # Server entry point
-│   ├── routes.ts        # API route definitions
-│   ├── storage.ts       # Database access layer
-│   └── db.ts            # Database connection
-├── shared/              # Shared types and schemas
-│   └── schema.ts        # Drizzle database schema
+├── shared/              # Shared TypeScript types
+│   └── schema.ts        # Content type definitions
 └── attached_assets/     # Project documentation and assets
 ```
 
@@ -77,11 +66,6 @@ The logo (pink/yellow lightning) remains the loudest element. The UI uses premiu
 
 ## External Dependencies
 
-### Database
-- **PostgreSQL**: Primary database via `DATABASE_URL` environment variable
-- **Connection**: Uses `pg` package with connection pooling
-- **Session Storage**: connect-pg-simple for Express sessions
-
 ### Third-Party Services
 - **Vimeo**: Video hosting and embedding (uses Vimeo Player API)
 - **Cloudinary**: Photography portfolio images (CDN delivery with responsive transforms)
@@ -95,14 +79,10 @@ The logo (pink/yellow lightning) remains the loudest element. The UI uses premiu
 
 ### Key NPM Packages
 - **UI**: Radix UI primitives, Lucide React icons, react-icons
-- **Forms**: React Hook Form with Zod resolver
+- **Forms**: React Hook Form
 - **Dates**: date-fns for date formatting
 - **Carousel**: Embla Carousel for image/content carousels
-- **Build**: esbuild for server bundling, Vite for client
-
-### Environment Variables Required
-- `DATABASE_URL`: PostgreSQL connection string (required for dev server only)
-- `NODE_ENV`: development or production
+- **Build**: Vite
 
 ## Static Site Deployment
 

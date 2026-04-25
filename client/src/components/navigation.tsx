@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope, UtensilsCrossed, Camera, BarChart3 } from "lucide-react";
+import { Menu, X, Play, Film, Users, BookOpen, Mic, Zap, Building2, Banknote, Factory, Flag, Microscope, UtensilsCrossed, ArrowRight } from "lucide-react";
 import flashbuzzLogo from "@assets/flashbuzz-logo-white.png";
 import { Button } from "@/components/ui/button";
-import { leadGenConfig, buildCtaUrl } from "@/lib/leadGenConfig";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -215,26 +214,23 @@ export function Navigation() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href={buildCtaUrl(leadGenConfig.scorecard.url, leadGenConfig, "scorecard")}
-              data-cta="scorecard"
-              data-testid="cta-scorecard-header"
+            <Link
+              href="/contact"
+              className="plausible-event-name=Quote+CTA"
+              data-testid="cta-quote-header"
             >
               <Button>
-                <BarChart3 className="w-4 h-4 mr-2" />
-                {leadGenConfig.scorecard.headerLabel}
+                Get a quote
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </a>
-            <a
-              href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden xl:block"
-              data-cta="plan"
-              data-testid="cta-plan-header"
+            </Link>
+            <Link
+              href="/workshop"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden xl:block plausible-event-name=Workshop+CTA"
+              data-testid="cta-workshop-header"
             >
-              {leadGenConfig.plan.headerLabel}
-            </a>
+              Join the workshop
+            </Link>
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
@@ -306,29 +302,25 @@ export function Navigation() {
             </Link>
 
             <div className="pt-4 space-y-3">
-              <a
-                href={buildCtaUrl(leadGenConfig.scorecard.url, leadGenConfig, "scorecard")}
-                className="block"
-                data-cta="scorecard"
-                data-testid="mobile-cta-scorecard"
+              <Link
+                href="/contact"
+                className="block plausible-event-name=Quote+CTA"
+                data-testid="mobile-cta-quote"
               >
                 <Button className="w-full">
-                  <BarChart3 className="w-4 h-4 mr-2" />
-                  {leadGenConfig.scorecard.headerLabel}
+                  Get a quote
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
-              </a>
-              <a
-                href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-                data-cta="plan"
-                data-testid="mobile-cta-plan"
+              </Link>
+              <Link
+                href="/workshop"
+                className="block plausible-event-name=Workshop+CTA"
+                data-testid="mobile-cta-workshop"
               >
                 <Button variant="outline" className="w-full">
-                  {leadGenConfig.plan.headerLabel}
+                  Join the workshop
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

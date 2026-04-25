@@ -5,9 +5,9 @@
  * on service pages and key landing pages.
  */
 
-import { ArrowRight, BarChart3 } from "lucide-react";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { leadGenConfig, buildCtaUrl } from "@/lib/leadGenConfig";
 import { cn } from "@/lib/utils";
 
 interface LeadGenCtaBandProps {
@@ -16,6 +16,9 @@ interface LeadGenCtaBandProps {
   headline?: string;
   description?: string;
 }
+
+const DEFAULT_HEADLINE = "Got a project in mind?";
+const DEFAULT_DESCRIPTION = "Get a quote in 24 hours, or join the next free workshop.";
 
 /**
  * Full-width CTA band component
@@ -26,12 +29,8 @@ export function LeadGenCtaBand({
   headline,
   description,
 }: LeadGenCtaBandProps) {
-  const config = leadGenConfig;
-  const scorecardUrl = buildCtaUrl(config.scorecard.url, config, "scorecard");
-  const planUrl = buildCtaUrl(config.plan.url, config, "plan");
-
-  const displayHeadline = headline || config.copy.bandHeadline;
-  const displayDescription = description || config.copy.bandDescription;
+  const displayHeadline = headline || DEFAULT_HEADLINE;
+  const displayDescription = description || DEFAULT_DESCRIPTION;
 
   if (variant === "minimal") {
     return (
@@ -52,26 +51,23 @@ export function LeadGenCtaBand({
               </p>
             </div>
             <div className="flex items-center gap-3 flex-shrink-0">
-              <a
-                href={scorecardUrl}
-                data-cta="scorecard"
-                data-testid="cta-scorecard-band"
+              <Link
+                href="/contact"
+                className="plausible-event-name=Quote+CTA"
+                data-testid="cta-quote-band"
               >
                 <Button>
-                  <BarChart3 className="w-4 h-4 mr-2" />
-                  Take the scorecard
+                  Get a quote
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
-              </a>
-              <a
-                href={planUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden sm:block"
-                data-cta="plan"
-                data-testid="cta-plan-band-link"
+              </Link>
+              <Link
+                href="/workshop"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden sm:block plausible-event-name=Workshop+CTA"
+                data-testid="cta-workshop-band-link"
               >
-                Or view the plan
-              </a>
+                Or join the workshop
+              </Link>
             </div>
           </div>
         </div>
@@ -95,38 +91,32 @@ export function LeadGenCtaBand({
             {displayDescription}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={scorecardUrl}
-              data-cta="scorecard"
-              data-testid="cta-scorecard-band-gradient"
+            <Link
+              href="/contact"
+              className="plausible-event-name=Quote+CTA"
+              data-testid="cta-quote-band-gradient"
             >
               <Button size="lg">
-                <BarChart3 className="w-4 h-4 mr-2" />
-                Take the free scorecard
-              </Button>
-            </a>
-            <a
-              href={planUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cta="plan"
-              data-testid="cta-plan-band-gradient"
-            >
-              <Button variant="outline" size="lg">
-                View the 90-day plan
+                Get a quote
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </a>
+            </Link>
+            <Link
+              href="/workshop"
+              className="plausible-event-name=Workshop+CTA"
+              data-testid="cta-workshop-band-gradient"
+            >
+              <Button variant="outline" size="lg">
+                Join the workshop
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
           </div>
-          <p className="mt-6 text-sm text-muted-foreground">
-            {config.copy.trustCopy}
-          </p>
         </div>
       </section>
     );
   }
 
-  // Default variant
   return (
     <section
       className={cn(
@@ -145,28 +135,26 @@ export function LeadGenCtaBand({
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:justify-end">
-            <a
-              href={scorecardUrl}
-              data-cta="scorecard"
-              data-testid="cta-scorecard-band-default"
+            <Link
+              href="/contact"
+              className="plausible-event-name=Quote+CTA"
+              data-testid="cta-quote-band-default"
             >
               <Button size="lg">
-                <BarChart3 className="w-4 h-4 mr-2" />
-                Take the free scorecard
-              </Button>
-            </a>
-            <a
-              href={planUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cta="plan"
-              data-testid="cta-plan-band-default"
-            >
-              <Button variant="outline" size="lg">
-                View the plan
+                Get a quote
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </a>
+            </Link>
+            <Link
+              href="/workshop"
+              className="plausible-event-name=Workshop+CTA"
+              data-testid="cta-workshop-band-default"
+            >
+              <Button variant="outline" size="lg">
+                Join the workshop
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

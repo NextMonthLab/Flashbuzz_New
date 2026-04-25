@@ -1,8 +1,7 @@
 import { Link } from "wouter";
-import { MapPin, Mail, Phone, Linkedin, BarChart3, Calendar } from "lucide-react";
+import { MapPin, Mail, Phone, Linkedin, ArrowRight, Calendar } from "lucide-react";
 import { SiVimeo } from "react-icons/si";
 import flashbuzzLogo from "@assets/flashbuzz-logo-white.png";
-import { leadGenConfig, buildCtaUrl } from "@/lib/leadGenConfig";
 
 const quickLinks = [
   { title: "Work", href: "/work" },
@@ -98,34 +97,27 @@ export function Footer() {
               ))}
             </ul>
 
-            <h4 className="font-semibold text-foreground mt-8 mb-4">{leadGenConfig.copy.footerHeadline}</h4>
-            <p className="text-sm text-muted-foreground mb-4">
-              {leadGenConfig.copy.footerDescription}
-            </p>
+            <h4 className="font-semibold text-foreground mt-8 mb-4">Get in touch</h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href={buildCtaUrl(leadGenConfig.scorecard.url, leadGenConfig, "scorecard")}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  data-cta="scorecard"
-                  data-testid="footer-cta-scorecard"
+                <Link
+                  href="/contact"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors plausible-event-name=Quote+CTA"
+                  data-testid="footer-cta-quote"
                 >
-                  <BarChart3 className="w-4 h-4 text-primary flex-shrink-0" />
-                  {leadGenConfig.scorecard.label}
-                </a>
+                  <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
+                  Get a quote
+                </Link>
               </li>
               <li>
-                <a
-                  href={buildCtaUrl(leadGenConfig.plan.url, leadGenConfig, "plan")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  data-cta="plan"
-                  data-testid="footer-cta-plan"
+                <Link
+                  href="/workshop"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors plausible-event-name=Workshop+CTA"
+                  data-testid="footer-cta-workshop"
                 >
                   <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
-                  {leadGenConfig.plan.label}
-                </a>
+                  Join the workshop
+                </Link>
               </li>
             </ul>
           </div>
