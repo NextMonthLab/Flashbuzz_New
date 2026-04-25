@@ -6,9 +6,9 @@
  */
 
 import { useState, useEffect } from "react";
-import { BarChart3 } from "lucide-react";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { leadGenConfig, buildCtaUrl } from "@/lib/leadGenConfig";
 import { cn } from "@/lib/utils";
 
 interface MobileStickyCtaBarProps {
@@ -18,9 +18,6 @@ interface MobileStickyCtaBarProps {
 export function MobileStickyCtaBar({ className }: MobileStickyCtaBarProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
-
-  const config = leadGenConfig;
-  const scorecardUrl = buildCtaUrl(config.scorecard.url, config, "scorecard");
 
   useEffect(() => {
     // Show bar after scrolling past 30% of viewport height
@@ -69,17 +66,16 @@ export function MobileStickyCtaBar({ className }: MobileStickyCtaBarProps) {
       {/* Safe area for bottom notch on iOS */}
       <div className="bg-background/95 backdrop-blur-lg border-t border-border safe-area-bottom">
         <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <a
-            href={scorecardUrl}
-            data-cta="scorecard"
-            data-testid="cta-scorecard-mobile-sticky"
-            className="flex-1"
+          <Link
+            href="/contact"
+            data-testid="cta-quote-mobile-sticky"
+            className="flex-1 plausible-event-name=Quote+CTA"
           >
             <Button className="w-full" size="default">
-              <BarChart3 className="w-4 h-4 mr-2" />
-              {config.scorecard.mobileLabel}
+              Get a quote
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-          </a>
+          </Link>
           <button
             onClick={handleDismiss}
             className="p-2 text-muted-foreground hover:text-foreground transition-colors"

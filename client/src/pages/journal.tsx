@@ -71,7 +71,6 @@ export default function Journal() {
       <LeadGenCtaBand
         variant="gradient"
         headline="Want to improve your video marketing?"
-        description="Take our free scorecard and get a tailored 90-day plan in minutes."
       />
     </div>
   );

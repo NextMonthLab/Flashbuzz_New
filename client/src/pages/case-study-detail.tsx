@@ -162,7 +162,6 @@ export default function CaseStudyDetail() {
       <LeadGenCtaBand
         variant="gradient"
         headline="Ready to plan your next video project?"
-        description="Take our free scorecard and get a tailored 90-day plan in minutes."
       />
 
       {otherStudies.length > 0 && (
