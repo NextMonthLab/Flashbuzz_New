@@ -1,7 +1,19 @@
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { MapPin, Mail, Phone, Clock, CheckCircle } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { PageMeta } from "@/components/page-meta";
+
+const photographyContextLines: Record<string, string> = {
+  "photography-headshots":
+    "Booking a half-day or full-day headshot session. Tell me about your team and where you're based, and I'll come back to you within 24 hours with availability.",
+  "photography-stills":
+    "Booking a brand stills day. Tell me about your business and the kind of images you're missing, and I'll come back to you within 24 hours with availability.",
+  "photography-events":
+    "Booking event coverage. Tell me about the event — date, location, format — and I'll come back to you within 24 hours with availability.",
+  photography:
+    "Booking a photography session. Tell me what you need — headshots, brand stills, or event coverage — and I'll come back to you within 24 hours.",
+};
 
 const whatHappensNext = [
   "We'll respond within 24 hours",
@@ -29,6 +41,16 @@ const faqs = [
 ];
 
 export default function Contact() {
+  const [type, setType] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    setType(params.get("type"));
+  }, []);
+
+  const photographyContextLine = type ? photographyContextLines[type] : undefined;
+
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
       <PageMeta
@@ -66,7 +88,15 @@ export default function Contact() {
             <div className="lg:col-span-2">
               <div className="bg-card border border-card-border rounded-lg p-6 lg:p-10">
                 <h2 className="text-xl font-semibold text-foreground mb-6">Start Your Project</h2>
-                <ContactForm />
+                {photographyContextLine && (
+                  <p
+                    className="text-sm italic text-muted-foreground mb-6"
+                    data-testid="photography-context-line"
+                  >
+                    {photographyContextLine}
+                  </p>
+                )}
+                <ContactForm type={type} />
               </div>
             </div>
 

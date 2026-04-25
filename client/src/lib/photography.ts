@@ -21,6 +21,7 @@ function createPhoto(publicId: string, category: string, alt: string): Photo {
 export const categories = [
   { id: "all", label: "All" },
   { id: "portraits", label: "Portraits" },
+  { id: "brand-stills", label: "Brand Stills" },
   { id: "couples", label: "Couples & Lifestyle" },
   { id: "events", label: "Events" },
   { id: "documentary", label: "Documentary" },
@@ -32,6 +33,145 @@ export const photos: Photo[] = [
     "Alastair_a8sq8b",
     "portraits",
     "Alastair — black and white documentary portrait by Flashbuzz"
+  ),
+
+  // Doorfit team portraits — UK door hardware specialist (April 2026 shoot)
+  createPhoto(
+    "Doorfit_17_uprzjy",
+    "portraits",
+    "Doorfit team portrait — UK door hardware specialist headshots by Flashbuzz"
+  ),
+  createPhoto(
+    "Doorfit_37_qe2t0f",
+    "portraits",
+    "Doorfit leadership portrait — UK door hardware specialist headshots by Flashbuzz"
+  ),
+  createPhoto(
+    "Doorfit_39_lgasav",
+    "portraits",
+    "Doorfit team member headshot — UK door hardware specialist by Flashbuzz"
+  ),
+  createPhoto(
+    "Doorfit_45_wmbuea",
+    "portraits",
+    "Doorfit professional portrait — UK door hardware specialist headshots by Flashbuzz"
+  ),
+  createPhoto(
+    "Doorfit_48_k6ls8g",
+    "portraits",
+    "Doorfit on-location headshot — UK door hardware specialist by Flashbuzz"
+  ),
+
+  // Voneus brand stills — UK rural broadband provider (22 image set)
+  createPhoto(
+    "voneus_01",
+    "brand-stills",
+    "Voneus brand stills — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_02",
+    "brand-stills",
+    "Voneus operations team — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_03",
+    "brand-stills",
+    "Voneus customer environment — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_04",
+    "brand-stills",
+    "Voneus community event — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_05",
+    "brand-stills",
+    "Voneus team at work — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_06",
+    "brand-stills",
+    "Voneus network detail — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_07",
+    "brand-stills",
+    "Voneus engineer on location — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_08",
+    "brand-stills",
+    "Voneus staff portrait — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_09",
+    "brand-stills",
+    "Voneus rural environment — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_10",
+    "brand-stills",
+    "Voneus customer interaction — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_11",
+    "brand-stills",
+    "Voneus team meeting — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_12",
+    "brand-stills",
+    "Voneus office detail — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_13",
+    "brand-stills",
+    "Voneus operations centre — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_14",
+    "brand-stills",
+    "Voneus engineer at work — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_15",
+    "brand-stills",
+    "Voneus countryside scene — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_16",
+    "brand-stills",
+    "Voneus customer at home — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_17",
+    "brand-stills",
+    "Voneus team collaboration — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_18",
+    "brand-stills",
+    "Voneus event attendees — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_19",
+    "brand-stills",
+    "Voneus brand environment — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_20",
+    "brand-stills",
+    "Voneus community moment — UK rural broadband brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_21",
+    "brand-stills",
+    "Voneus staff candid — UK technology company brand photography by Flashbuzz"
+  ),
+  createPhoto(
+    "voneus_22",
+    "brand-stills",
+    "Voneus business detail — UK rural broadband brand photography by Flashbuzz"
   ),
 
   // Couples & Lifestyle - Maddie and Ollie series

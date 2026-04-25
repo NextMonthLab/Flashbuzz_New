@@ -300,6 +300,47 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-16 lg:py-24 bg-deep-petrol border-y border-card-border">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-4">
+            <Camera className="w-6 h-6 text-electric-amber" />
+            <span className="text-sm font-medium text-electric-amber uppercase tracking-wide">Photography</span>
+          </div>
+          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-6" data-testid="text-photography-too-title">
+            Photography too
+          </h2>
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed mb-8 max-w-3xl">
+            <p>
+              Not every project needs a film. Sometimes you need a set of headshots that don't look like everyone else's, brand stills that show what your business actually feels like, or event coverage that captures more than just who stood where.
+            </p>
+            <p>
+              I shoot all three, on the same craft principles that go into the films. Headshots from £600. Brand stills from £2,200. Event coverage from £750. Two weeks from booking to delivered files.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <Link
+              href="/photography"
+              data-testid="cta-photography-too-see"
+            >
+              <Button size="lg" data-testid="button-photography-too-see">
+                See photography
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+            <Link
+              href="/contact?type=photography"
+              className="plausible-event-name=Photo+General+CTA"
+              data-testid="cta-photography-too-book"
+            >
+              <Button size="lg" variant="outline" className="border-electric-amber/50 text-electric-amber" data-testid="button-photography-too-book">
+                Book a session
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {featuredTestimonials.length > 0 && (
         <section className="py-16 lg:py-32 bg-muted/30">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
@@ -307,42 +348,6 @@ export default function Home() {
           </div>
         </section>
       )}
-
-      <section className="py-16 lg:py-24 bg-deep-petrol border-y border-card-border">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <Camera className="w-6 h-6 text-electric-amber" />
-                <span className="text-sm font-medium text-electric-amber uppercase tracking-wide">Photography</span>
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-                Stills from the Story
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Every frame tells a story. Browse our photography portfolio featuring portraits, lifestyle, events, and documentary work captured with the same cinematic eye we bring to video.
-              </p>
-              <Link href="/photography">
-                <Button variant="outline" className="border-electric-amber/50 text-electric-amber" data-testid="button-photography-callout">
-                  View Photography
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            </div>
-            <div className="grid grid-cols-3 gap-2">
-              <div className="aspect-square rounded-lg overflow-hidden bg-muted">
-                <img src="https://res.cloudinary.com/drl0fxrkq/image/upload/q_auto,f_auto,w_300,h_300,c_fill/Alastair_a8sq8b" alt="Portrait" className="w-full h-full object-cover" />
-              </div>
-              <div className="aspect-square rounded-lg overflow-hidden bg-muted">
-                <img src="https://res.cloudinary.com/drl0fxrkq/image/upload/q_auto,f_auto,w_300,h_300,c_fill/P1002613_cxc4xr" alt="Event" className="w-full h-full object-cover" />
-              </div>
-              <div className="aspect-square rounded-lg overflow-hidden bg-muted">
-                <img src="https://res.cloudinary.com/drl0fxrkq/image/upload/q_auto,f_auto,w_300,h_300,c_fill/Maddie_and_Ollie_mp4_00_01_50_29_Still003_2c91a2343d_ytruiu" alt="Lifestyle" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="py-16 lg:py-32" id="contact">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
