@@ -26,6 +26,7 @@ const Photography = lazy(() => import("@/pages/photography"));
 const CaseStudies = lazy(() => import("@/pages/case-studies"));
 const CaseStudyDetail = lazy(() => import("@/pages/case-study-detail"));
 const Workshop = lazy(() => import("@/pages/workshop"));
+const PurposeLedVideo = lazy(() => import("@/pages/purpose-led-video"));
 
 const PaletteDemo = import.meta.env.DEV
   ? lazy(() => import("@/pages/palette-demo"))
@@ -49,6 +50,7 @@ function AppRoutes() {
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/case-studies/:slug" component={CaseStudyDetail} />
       <Route path="/workshop" component={Workshop} />
+      <Route path="/purpose-led-video" component={PurposeLedVideo} />
       {PaletteDemo && (
         <Route path="/palette-demo">
           <PaletteDemo />

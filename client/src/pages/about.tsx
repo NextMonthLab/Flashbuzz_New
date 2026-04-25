@@ -35,6 +35,12 @@ const faqItems: FaqItem[] = [
       "Campaign-scale productions, multi-day shoots, multiple locations, full content suites, start at £40,000.",
   },
   {
+    question: "What if I just need a video, not a film?",
+    answer:
+      "Not every project needs a Signature engagement. For businesses commissioning a single piece of video to serve a specific business purpose, with a brief already shaped, there's a separate offer called Purpose-led video, priced from £2,000 to £4,000. Details on the Purpose-led video page, linked from the footer.",
+    eventClassName: "plausible-event-name=Purpose+Led+Video+FAQ+View",
+  },
+  {
     question: "Why publish prices when most production companies don't?",
     answer:
       "Because if you've been let down by a previous supplier, the last thing you want is another opaque discovery call. The numbers above tell you whether I'm in your range before you book a conversation. If I am, the conversation can be about the work, not budget gymnastics.",
@@ -127,7 +133,7 @@ export default function About() {
               The reasons it doesn't cross are knowable. They aren't mystical and they aren't subjective. There's a craft underneath what makes audiences resonate with material. What the writing does, what the camera does, what the edit does, what's deliberately left out. I've spent a decade studying it across documentary work, narrative shorts, and commercial film. I'm currently writing a book about it.
             </p>
             <p>
-              Not every project needs a film. Sometimes a business needs a sixty-second product advert, and a film would be wasted on the brief. Part of my job in the first conversation is being honest about which one your project actually requires. If you need a video, I'll make a good one. If you need a film, you'll know the difference because I'll walk you through every choice that makes it one.
+              Not every project needs a film. For businesses commissioning video to a brief they've already shaped, there's a separate offer below.
             </p>
           </div>
         </div>

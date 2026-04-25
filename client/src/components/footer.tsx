@@ -120,6 +120,37 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+
+            <h4 className="font-semibold text-foreground mt-8 mb-4">Other ways to work together</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/purpose-led-video"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors plausible-event-name=Purpose+Led+Video+Footer+Click"
+                  data-testid="footer-link-purpose-led-video"
+                >
+                  Purpose-led video
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/workshop"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  data-testid="footer-link-workshop"
+                >
+                  Workshop
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact?type=training"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  data-testid="footer-link-training-contact"
+                >
+                  Team training
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <div>

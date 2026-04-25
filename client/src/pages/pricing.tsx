@@ -16,7 +16,6 @@ const alwaysIncluded = [
 ];
 
 const videoTypePricing = [
-  { type: "Brand Film", price: "from £4,500" },
   { type: "Testimonial", price: "from £2,000" },
   { type: "Case Study", price: "from £3,000" },
   { type: "Social Content Pack", price: "from £1,500" },
@@ -48,7 +47,7 @@ export default function Pricing() {
     <div className="min-h-screen pt-24 lg:pt-32">
       <PageMeta
         title="Pricing | Flashbuzz"
-        description="Transparent pricing for documentary-style video production. Brand films from £4,500, recruitment films from £3,500, testimonials from £2,000. No hidden surprises."
+        description="Transparent pricing for documentary-style video production. Recruitment films from £3,500, testimonials from £2,000. No hidden surprises."
         canonical="https://flashbuzz.tv/pricing"
       />
       <section className="py-12 lg:py-20 bg-gradient-to-b from-muted/50 to-background">
