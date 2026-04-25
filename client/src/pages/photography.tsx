@@ -108,12 +108,15 @@ const doorfitImages = photos
   .filter((photo) => photo.id.startsWith("Doorfit_"))
   .slice(0, 2);
 
-const voneusImages = photos
-  .filter((photo) => photo.category === "brand-stills")
-  .slice(0, 4);
+const featuredCaldwellImages = [
+  "P1011199_ycq6hy",
+  "P1011152_z2iudk",
+  "P1011262_ooaj27",
+  "P1011218_mkkje9",
+].map((id) => photos.find((photo) => photo.id === id)).filter((photo): photo is Photo => Boolean(photo));
 
 export default function Photography() {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("portraits");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
 
   const filteredPhotos = getPhotosByCategory(activeCategory);
@@ -122,7 +125,7 @@ export default function Photography() {
     <div className="min-h-screen pt-24 lg:pt-32">
       <PageMeta
         title="Photography | Flashbuzz"
-        description="Headshots, brand stills, and event photography for UK businesses. Shot by a 27-time award-winning documentary filmmaker. Two weeks from booking."
+        description="Headshots, brand stills, and editorial photography for UK businesses. Recent commissions include Alastair Caldwell for Auto Addicts magazine. Two weeks from booking."
         canonical="https://flashbuzz.tv/photography"
       />
 
@@ -215,12 +218,55 @@ export default function Photography() {
             Why hire a filmmaker for stills
           </h2>
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>Most photographers shoot people. Filmmakers shoot situations.</p>
             <p>
-              Most photographers shoot people. Filmmakers shoot situations. Twelve years of documentary work means I know how to direct someone who hates being in front of a camera, how to find the moment that says something about who they are rather than just how they look, and how to keep a team session moving so the last person isn't worse than the first because everyone's tired by then.
+              Auto Addicts magazine commissioned a profile shoot of former McLaren team manager Alastair Caldwell, the F1 figure depicted in <em>Rush</em>. The brief was to capture not just the man but the world he's built around the cars he loves. The published feature spread came back with images that worked because they were directed the way a documentary scene gets directed: looking for the moment that says something about who someone actually is, finding the frame where the environment tells half the story.
             </p>
             <p>
-              The kit is professional. The lighting is properly set. The editing is tight. None of that is the differentiator. The differentiator is that the stills come back with a point of view, because they were directed by someone who's spent fifteen years learning what makes an audience care about the person on screen.
+              That's the difference between a good headshot and a portrait that makes someone stop scrolling. Twelve years of documentary work means the same approach goes into a team headshot session, a brand stills day, or event coverage. The kit is professional, the lighting is properly set, the editing is tight. None of that is the differentiator. The differentiator is that the stills come back with a point of view.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 lg:py-24 bg-card border-y border-card-border">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="border border-card-border rounded-lg bg-background p-6 lg:p-10">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground">Featured commission</h2>
+            <p className="text-xl text-foreground/80 mt-2">Alastair Caldwell for Auto Addicts</p>
+            <div className="mt-6 space-y-4 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                Auto Addicts magazine commissioned a profile shoot of Alastair Caldwell at his home and workshops. Caldwell was McLaren's Formula One team manager during their championship years of 1974 and 1976, the period dramatised in Ron Howard's film <em>Rush</em>, on which he served as technical advisor. He invented the F1 air-starter and the six-speed gearbox.
+              </p>
+              <p>
+                The brief was to capture not just the man but the world he's built around the cars he loves. Four images from the published feature shown below.
+              </p>
+            </div>
+            <p className="mt-5 text-xs uppercase tracking-wide text-muted-foreground">
+              Auto Addicts magazine — {" "}
+              <a
+                href="https://autoaddicts.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="plausible-event-name=Caldwell+Feature+View underline hover:no-underline"
+              >
+                autoaddicts.co.uk
+              </a>
+            </p>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {featuredCaldwellImages.map((photo) => (
+                <div key={photo.id} className="aspect-[3/2] rounded-lg overflow-hidden bg-muted">
+                  <img
+                    src={`${cloudinaryBase}/q_auto,f_auto,w_1200/${photo.id}`}
+                    srcSet={`${cloudinaryBase}/q_auto,f_auto,w_800/${photo.id} 800w, ${cloudinaryBase}/q_auto,f_auto,w_1200/${photo.id} 1200w`}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    alt={photo.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -251,7 +297,7 @@ export default function Photography() {
                 key={photo.id}
                 className="group relative aspect-[3/2] rounded-lg overflow-hidden bg-muted cursor-pointer"
                 onClick={() => setSelectedPhoto(photo)}
-                data-testid={`card-photo-${photo.category}-${photo.id.split('_')[0]}`}
+                data-testid={`card-photo-${photo.category}-${photo.id.split("_")[0]}`}
               >
                 <img
                   src={photo.thumbnail}
@@ -292,36 +338,6 @@ export default function Photography() {
                 <div
                   key={photo.id}
                   className="aspect-[3/4] rounded-lg overflow-hidden bg-muted"
-                >
-                  <img
-                    src={photo.thumbnail}
-                    alt={photo.alt}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 lg:py-24 bg-card border-y border-card-border">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6" data-testid="text-voneus-shoot-title">
-                Recent shoot: Voneus
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Voneus are a UK rural broadband provider. They needed brand stills that humanised what's usually a faceless category — the people behind the network, the actual environments their service runs through, the moments that don't appear in stock photography of fibre cables. We spent a day capturing the real texture of the business: the operations team, customer environments, community events. The pictures became their primary visual library for the year.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              {voneusImages.map((photo) => (
-                <div
-                  key={photo.id}
-                  className="aspect-square rounded-lg overflow-hidden bg-muted"
                 >
                   <img
                     src={photo.thumbnail}
