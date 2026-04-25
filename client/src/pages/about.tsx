@@ -3,6 +3,7 @@ import { ArrowRight, Award, Film, Users, Clock, CheckCircle, Camera } from "luci
 import { Button } from "@/components/ui/button";
 import behindTheScenes from "@assets/flashbuzz-photo-1.jpg";
 import founderPhoto from "@assets/flashbuzz-photo-2.jpg";
+import { PageMeta } from "@/components/page-meta";
 
 const stats = [
   { label: "International Awards", value: "23" },
@@ -29,6 +30,11 @@ const values = [
 export default function About() {
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="About Flashbuzz | Documentary Filmmaker for Business"
+        description="Flashbuzz is a Banbury-based video production studio founded by Rob Hutt — award-winning filmmaker bringing documentary discipline to corporate video. 23 international awards, 9.2 IMDb."
+        canonical="https://flashbuzz.tv/about"
+      />
       <section className="py-12 lg:py-20 bg-gradient-to-b from-muted/50 to-background">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">

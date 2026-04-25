@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { MapPin, Mail, Phone, Clock, CheckCircle } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
+import { PageMeta } from "@/components/page-meta";
 
 const whatHappensNext = [
   "We'll respond within 24 hours",
@@ -30,6 +31,11 @@ const faqs = [
 export default function Contact() {
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="Get a Quote | Flashbuzz"
+        description="Tell us about your project and we'll respond within 24 hours. Documentary-style video production from Flashbuzz, based in Banbury, Oxfordshire and working UK-wide."
+        canonical="https://flashbuzz.tv/contact"
+      />
       <section className="py-12 lg:py-20 bg-gradient-to-b from-muted/50 to-background">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

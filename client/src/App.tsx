@@ -8,21 +8,24 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { MobileStickyCtaBar } from "@/components/mobile-sticky-cta-bar";
-import NotFound from "@/pages/not-found";
-import Home from "@/pages/home";
-import Work from "@/pages/work";
-import Project from "@/pages/project";
-import Services from "@/pages/services";
-import ServiceDetail from "@/pages/service-detail";
-import Sectors from "@/pages/sectors";
-import SectorDetail from "@/pages/sector-detail";
-import About from "@/pages/about";
-import Contact from "@/pages/contact";
-import Journal from "@/pages/journal";
-import Pricing from "@/pages/pricing";
-import Photography from "@/pages/photography";
-import CaseStudies from "@/pages/case-studies";
-import CaseStudyDetail from "@/pages/case-study-detail";
+import { PageLoader } from "@/components/page-loader";
+
+const NotFound = lazy(() => import("@/pages/not-found"));
+const Home = lazy(() => import("@/pages/home"));
+const Work = lazy(() => import("@/pages/work"));
+const Project = lazy(() => import("@/pages/project"));
+const Services = lazy(() => import("@/pages/services"));
+const ServiceDetail = lazy(() => import("@/pages/service-detail"));
+const Sectors = lazy(() => import("@/pages/sectors"));
+const SectorDetail = lazy(() => import("@/pages/sector-detail"));
+const About = lazy(() => import("@/pages/about"));
+const Contact = lazy(() => import("@/pages/contact"));
+const Journal = lazy(() => import("@/pages/journal"));
+const Pricing = lazy(() => import("@/pages/pricing"));
+const Photography = lazy(() => import("@/pages/photography"));
+const CaseStudies = lazy(() => import("@/pages/case-studies"));
+const CaseStudyDetail = lazy(() => import("@/pages/case-study-detail"));
+const Workshop = lazy(() => import("@/pages/workshop"));
 
 const PaletteDemo = import.meta.env.DEV
   ? lazy(() => import("@/pages/palette-demo"))
@@ -45,11 +48,10 @@ function AppRoutes() {
       <Route path="/photography" component={Photography} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/case-studies/:slug" component={CaseStudyDetail} />
+      <Route path="/workshop" component={Workshop} />
       {PaletteDemo && (
         <Route path="/palette-demo">
-          <Suspense fallback={null}>
-            <PaletteDemo />
-          </Suspense>
+          <PaletteDemo />
         </Route>
       )}
       <Route component={NotFound} />
@@ -65,7 +67,9 @@ function App() {
           <div className="flex flex-col min-h-screen">
             <Navigation />
             <main className="flex-1">
-              <AppRoutes />
+              <Suspense fallback={<PageLoader />}>
+                <AppRoutes />
+              </Suspense>
             </main>
             <Footer />
           </div>

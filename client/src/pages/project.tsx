@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { VideoPlayer } from "@/components/video-player";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { projects } from "@/lib/data";
+import { PageMeta } from "@/components/page-meta";
 
 export default function Project() {
   const params = useParams<{ slug: string }>();
@@ -37,6 +38,11 @@ export default function Project() {
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title={`${project.title} | Flashbuzz`}
+        description={project.description.slice(0, 158)}
+        canonical={`https://flashbuzz.tv/work/${project.slug}`}
+      />
       <section className="py-8 lg:py-12">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8" data-testid="project-breadcrumb">
