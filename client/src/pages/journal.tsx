@@ -5,10 +5,16 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { journalPosts } from "@/lib/data";
 import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
+import { PageMeta } from "@/components/PageMeta";
 
 export default function Journal() {
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="Journal | Flashbuzz"
+        description="Notes from a working filmmaker on documentary craft, business storytelling, recruitment video, interview technique, and what makes a film land with viewers."
+        canonical="https://flashbuzz.tv/journal"
+      />
       <section className="py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">

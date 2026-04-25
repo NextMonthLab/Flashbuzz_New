@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/lib/data";
+import { PageMeta } from "@/components/PageMeta";
 
 const filters = [
   { value: "all", label: "All Projects" },
@@ -24,6 +25,11 @@ export default function Work() {
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="Our Work | Flashbuzz"
+        description="Documentary-style films for recruitment, brand, and case-study storytelling. See how Flashbuzz partners with organisations to make business stories worth watching."
+        canonical="https://flashbuzz.tv/work"
+      />
       <section className="py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { pricingTiers } from "@/lib/data";
+import { PageMeta } from "@/components/PageMeta";
 
 const alwaysIncluded = [
   "Strategy session",
@@ -45,6 +46,11 @@ const faqs = [
 export default function Pricing() {
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="Pricing | Flashbuzz"
+        description="Accessible-premium video production pricing. Clear tiers for brand films, recruitment, case studies, social content, and event coverage—no hidden surprises."
+        canonical="https://flashbuzz.tv/pricing"
+      />
       <section className="py-12 lg:py-20 bg-gradient-to-b from-muted/50 to-background">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6" data-testid="text-pricing-title">

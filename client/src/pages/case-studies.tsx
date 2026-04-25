@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
 import { caseStudies, showreel, getHeroCaseStudies, getAllCategories, type CaseStudy } from "@/lib/case-studies";
 import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
+import { PageMeta } from "@/components/PageMeta";
 
 function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
@@ -54,6 +55,11 @@ export default function CaseStudiesIndex() {
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="Case Studies | Flashbuzz"
+        description="Real outcomes from Flashbuzz documentary-style films: recruitment, charity, food, healthcare, and brand. See the briefs, the approach, and the results."
+        canonical="https://flashbuzz.tv/case-studies"
+      />
       <section className="py-12 lg:py-16 bg-gradient-to-b from-muted/50 to-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">

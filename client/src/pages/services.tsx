@@ -4,10 +4,16 @@ import { Button } from "@/components/ui/button";
 import { ServiceCard } from "@/components/service-card";
 import { services } from "@/lib/data";
 import heroBackground from "@assets/flashbuzz-photo-1.jpg";
+import { PageMeta } from "@/components/PageMeta";
 
 export default function Services() {
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="Services | Flashbuzz"
+        description="Brand films, recruitment films, documentary case studies, presenter coaching, and event coverage—delivered with documentary craft from Banbury, Oxfordshire."
+        canonical="https://flashbuzz.tv/services"
+      />
       <section className="relative py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
         <div 

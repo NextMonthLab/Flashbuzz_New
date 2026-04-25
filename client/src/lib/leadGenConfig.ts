@@ -45,7 +45,7 @@ export interface LeadGenConfig {
 }
 
 const defaultConfig: LeadGenConfig = {
-  siteName: "FlashBuzz",
+  siteName: "Flashbuzz",
   utmSource: "flashbuzz",
 
   scorecard: {

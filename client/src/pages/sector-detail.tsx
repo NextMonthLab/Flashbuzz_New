@@ -7,6 +7,7 @@ import { ServiceCard } from "@/components/service-card";
 import { ContactForm } from "@/components/contact-form";
 import { sectors, projects, services } from "@/lib/data";
 import heroBackground from "@assets/flashbuzz-photo-2.jpg";
+import { PageMeta } from "@/components/PageMeta";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "recruitment-employer-branding": Users,
@@ -48,11 +49,18 @@ export default function SectorDetail() {
     .join("")
     .toUpperCase();
 
+  const metaDescription = sector.description.slice(0, 158);
+
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title={`${sector.title} | Flashbuzz`}
+        description={metaDescription}
+        canonical={`https://flashbuzz.tv/sectors/${sector.slug}`}
+      />
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `url(${heroBackground})`,

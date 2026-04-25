@@ -6,6 +6,7 @@ import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
 import { getCaseStudyBySlug, caseStudies } from "@/lib/case-studies";
 import { InlineCta } from "@/components/lead-gen-ctas";
 import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
+import { PageMeta } from "@/components/PageMeta";
 
 export default function CaseStudyDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -29,9 +30,15 @@ export default function CaseStudyDetail() {
   }
 
   const otherStudies = caseStudies.filter(cs => cs.id !== study.id).slice(0, 3);
+  const metaDescription = study.summary.slice(0, 158);
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title={`${study.title} | Flashbuzz`}
+        description={metaDescription}
+        canonical={`https://flashbuzz.tv/case-studies/${study.slug}`}
+      />
       <section className="py-8 lg:py-12">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <Link href="/case-studies">

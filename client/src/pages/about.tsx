@@ -3,6 +3,7 @@ import { ArrowRight, Award, Film, Users, Clock, CheckCircle, Camera } from "luci
 import { Button } from "@/components/ui/button";
 import behindTheScenes from "@assets/flashbuzz-photo-1.jpg";
 import founderPhoto from "@assets/flashbuzz-photo-2.jpg";
+import { PageMeta } from "@/components/PageMeta";
 
 const stats = [
   { label: "International Awards", value: "23" },
@@ -29,6 +30,11 @@ const values = [
 export default function About() {
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="About | Flashbuzz"
+        description="Flashbuzz is led by award-winning filmmaker Rob Hutt, bringing 23 international awards and 15+ years of documentary craft to business storytelling from Banbury."
+        canonical="https://flashbuzz.tv/about"
+      />
       <section className="py-12 lg:py-20 bg-gradient-to-b from-muted/50 to-background">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
