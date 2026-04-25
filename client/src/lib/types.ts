@@ -16,6 +16,13 @@ export interface Project {
   thumbnailUrl: string | null;
   featured: boolean | null;
   order: number | null;
+  cloudinaryVideoUrl?: string;
+  cloudinaryPosterUrl?: string;
+  theBrief?: string;
+  approachBullets?: string[];
+  tags?: string[];
+  year?: number;
+  hero?: boolean;
 }
 
 export interface Service {

@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { ArrowRight, ChevronDown, Award, Users, Film, Camera } from "lucide-react";
-import { showreel } from "@/lib/case-studies";
+import { showreel } from "@/lib/showreel";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
 import { ServiceCard } from "@/components/service-card";
@@ -85,7 +85,7 @@ export default function Home() {
           <div className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary-foreground dark:text-primary text-sm font-medium border border-primary/30">
               <Award className="w-4 h-4" />
-              23 International Awards
+              27 International Award Wins
             </span>
           </div>
           
@@ -206,7 +206,7 @@ export default function Home() {
                 We bring a filmmaker's discipline—story architecture, authentic interview technique, and cinematic execution—to organisations where generic corporate video fails.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                This is video production powered by an award-winning filmmaker with 23 international awards and a 9.2 IMDb rating for "Time Spent". Before we ever press record, we understand who you are and why your story matters.
+                This is video production powered by an award-winning filmmaker with 27 international award wins and an 8.8 IMDb rating for "Time Spent". Before we ever press record, we understand who you are and why your story matters.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -244,7 +244,7 @@ export default function Home() {
               </div>
               <div className="absolute -bottom-6 -left-6 bg-card border border-card-border rounded-lg p-6 shadow-lg max-w-xs">
                 <div className="flex items-center gap-4">
-                  <div className="text-4xl font-bold text-primary">23</div>
+                  <div className="text-4xl font-bold text-primary">27</div>
                   <div className="text-sm text-muted-foreground">International awards for documentary filmmaking</div>
                 </div>
               </div>

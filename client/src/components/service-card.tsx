@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { ArrowRight, Film, Users, BookOpen, Mic, Zap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import type { Service } from "@shared/schema";
+import type { Service } from "@/lib/types";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Film,

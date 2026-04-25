@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Play } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import type { Project } from "@shared/schema";
+import type { Project } from "@/lib/types";
 
 interface ProjectCardProps {
   project: Project;

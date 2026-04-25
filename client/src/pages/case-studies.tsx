@@ -5,18 +5,22 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
-import { caseStudies, showreel, getHeroCaseStudies, getAllCategories, type CaseStudy } from "@/lib/case-studies";
+import { getCaseStudyProjects, getHeroProjects } from "@/lib/data";
+import type { Project } from "@/lib/types";
+import { showreel } from "@/lib/showreel";
 import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
 import { PageMeta } from "@/components/page-meta";
 
-function CaseStudyCard({ study }: { study: CaseStudy }) {
+function CaseStudyCard({ project }: { project: Project }) {
+  const posterUrl = project.cloudinaryPosterUrl || project.thumbnailUrl || "";
+
   return (
-    <Link href={`/case-studies/${study.slug}`}>
-      <Card className="h-full overflow-hidden hover-elevate cursor-pointer group" data-testid={`card-case-study-${study.slug}`}>
+    <Link href={`/case-studies/${project.slug}`}>
+      <Card className="h-full overflow-hidden hover-elevate cursor-pointer group" data-testid={`card-case-study-${project.slug}`}>
         <div className="aspect-video overflow-hidden bg-muted relative">
           <img
-            src={study.featuredVideoPoster}
-            alt={study.title}
+            src={posterUrl}
+            alt={project.title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -27,12 +31,12 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
         </div>
         <CardContent className="p-6">
           <div className="flex items-center gap-2 mb-3">
-            <Badge variant="secondary" className="text-xs">{study.category.split(" / ")[0]}</Badge>
-            {study.hero && <Badge className="text-xs bg-flash-pink/20 text-flash-pink border-flash-pink/30">Featured</Badge>}
+            <Badge variant="secondary" className="text-xs">{project.sector}</Badge>
+            {project.hero && <Badge className="text-xs bg-flash-pink/20 text-flash-pink border-flash-pink/30">Featured</Badge>}
           </div>
-          <h3 className="text-lg font-semibold text-foreground mb-2" data-testid={`text-case-study-title-${study.slug}`}>{study.title}</h3>
-          <p className="text-sm text-muted-foreground line-clamp-2">{study.summary}</p>
-          <div className="flex items-center gap-2 mt-4 text-flash-pink text-sm font-medium group-hover:text-electric-amber transition-colors" data-testid={`cta-case-study-${study.slug}`}>
+          <h3 className="text-lg font-semibold text-foreground mb-2" data-testid={`text-case-study-title-${project.slug}`}>{project.title}</h3>
+          <p className="text-sm text-muted-foreground line-clamp-2">{project.theBrief || project.description}</p>
+          <div className="flex items-center gap-2 mt-4 text-flash-pink text-sm font-medium group-hover:text-electric-amber transition-colors" data-testid={`cta-case-study-${project.slug}`}>
             <span>View case study</span>
             <ArrowRight className="w-4 h-4" />
           </div>
@@ -43,15 +47,14 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
 }
 
 export default function CaseStudiesIndex() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const heroStudies = getHeroCaseStudies();
-  const categories = getAllCategories();
+  const heroStudies = getHeroProjects();
+  const caseStudyProjects = getCaseStudyProjects();
+  const sectors = Array.from(new Set(caseStudyProjects.map((p) => p.sector)));
+  const [activeSector, setActiveSector] = useState<string>("all");
 
-  const filteredStudies = activeCategory === "all"
-    ? caseStudies
-    : caseStudies.filter(cs => cs.category.includes(activeCategory));
-
-  const nonHeroStudies = filteredStudies.filter(cs => !cs.hero);
+  const filteredStudies = activeSector === "all"
+    ? caseStudyProjects
+    : caseStudyProjects.filter((p) => p.sector === activeSector);
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
@@ -104,8 +107,8 @@ export default function CaseStudiesIndex() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-8">Featured Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {heroStudies.map((study) => (
-                <CaseStudyCard key={study.id} study={study} />
+              {heroStudies.map((project) => (
+                <CaseStudyCard key={project.id} project={project} />
               ))}
             </div>
           </div>
@@ -118,39 +121,36 @@ export default function CaseStudiesIndex() {
             <h2 className="text-2xl lg:text-3xl font-bold text-foreground">All Projects</h2>
             <div className="flex flex-wrap gap-2">
               <Button
-                variant={activeCategory === "all" ? "default" : "outline"}
+                variant={activeSector === "all" ? "default" : "outline"}
                 size="sm"
-                onClick={() => setActiveCategory("all")}
+                onClick={() => setActiveSector("all")}
                 data-testid="filter-all"
               >
                 All
               </Button>
-              {categories.slice(0, 5).map((category) => {
-                const shortCategory = category.split(" / ")[0];
-                return (
-                  <Button
-                    key={category}
-                    variant={activeCategory === shortCategory ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setActiveCategory(shortCategory)}
-                    data-testid={`filter-${shortCategory.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    {shortCategory}
-                  </Button>
-                );
-              })}
+              {sectors.slice(0, 5).map((sector) => (
+                <Button
+                  key={sector}
+                  variant={activeSector === sector ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setActiveSector(sector)}
+                  data-testid={`filter-${sector.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  {sector}
+                </Button>
+              ))}
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {(activeCategory === "all" ? caseStudies : filteredStudies).map((study) => (
-              <CaseStudyCard key={study.id} study={study} />
+            {filteredStudies.map((project) => (
+              <CaseStudyCard key={project.id} project={project} />
             ))}
           </div>
 
           {filteredStudies.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-lg text-muted-foreground">No case studies found for this category.</p>
+              <p className="text-lg text-muted-foreground">No case studies found for this sector.</p>
             </div>
           )}
         </div>

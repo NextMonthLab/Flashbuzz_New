@@ -6,8 +6,8 @@ import founderPhoto from "@assets/flashbuzz-photo-2.jpg";
 import { PageMeta } from "@/components/page-meta";
 
 const stats = [
-  { label: "International Awards", value: "23" },
-  { label: "IMDb Rating", value: "9.2" },
+  { label: "International Award Wins", value: "27" },
+  { label: "IMDb Rating", value: "8.8" },
   { label: "Years Experience", value: "15+" },
   { label: "Projects Completed", value: "200+" },
 ];
@@ -32,7 +32,7 @@ export default function About() {
     <div className="min-h-screen pt-24 lg:pt-32">
       <PageMeta
         title="About Flashbuzz | Documentary Filmmaker for Business"
-        description="Flashbuzz is a Banbury-based video production studio founded by Rob Hutt — award-winning filmmaker bringing documentary discipline to corporate video. 23 international awards, 9.2 IMDb."
+        description="Flashbuzz is a Banbury-based video production studio founded by Rob Hutt — award-winning filmmaker bringing documentary discipline to corporate video. 27 international award wins, 8.8 IMDb."
         canonical="https://flashbuzz.tv/about"
       />
       <section className="py-12 lg:py-20 bg-gradient-to-b from-muted/50 to-background">
@@ -80,7 +80,7 @@ export default function About() {
                   Flashbuzz began with a simple observation: most corporate video fails because it treats businesses like products to be advertised, not stories to be told.
                 </p>
                 <p>
-                  After years of documentary filmmaking—including "Time Spent," which won 23 international awards and achieved a 9.2 IMDb rating—I realised that the same techniques that made documentaries compelling could transform how businesses communicate.
+                  After years of documentary filmmaking—including "Time Spent," which has won 27 international awards across 32 nominations and holds an 8.8 IMDb rating—I realised that the same techniques that made documentaries compelling could transform how businesses communicate.
                 </p>
                 <p>
                   Documentary craft isn't just about cameras and editing. It's about understanding people, finding authentic moments, and structuring narratives that resonate. That's what we bring to every project.

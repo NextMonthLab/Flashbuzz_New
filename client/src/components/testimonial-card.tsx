@@ -1,6 +1,6 @@
 import { Quote } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import type { Testimonial } from "@shared/schema";
+import type { Testimonial } from "@/lib/types";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
