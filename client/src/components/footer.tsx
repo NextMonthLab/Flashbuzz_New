@@ -42,7 +42,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Documentary craft for business stories that matter. Video production powered by an award-winning filmmaker.
+              Brand films for UK businesses whose previous suppliers couldn't see what made them different. 27-time international award-winning documentary filmmaker.
             </p>
             <div className="space-y-3 text-sm text-muted-foreground">
               <div className="flex items-start gap-3">

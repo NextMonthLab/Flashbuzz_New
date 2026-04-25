@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, ChevronDown, Award, Users, Film, Camera } from "lucide-react";
+import { ArrowRight, ChevronDown, Film, Camera } from "lucide-react";
 import { showreel } from "@/lib/showreel";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
@@ -66,13 +66,13 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <PageMeta
-        title="Flashbuzz | Documentary Craft for Business Stories That Matter"
-        description="Award-winning documentary filmmaker bringing story architecture, authentic interviews, and cinematic execution to corporate video production in Banbury, Oxfordshire."
+        title="Flashbuzz | Brand films for businesses whose previous suppliers missed the point"
+        description="Flashbuzz makes brand films for UK businesses whose previous suppliers couldn't see what made them different. 27-time international award-winning documentary filmmaker."
         canonical="https://flashbuzz.tv/"
       />
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90 dark:from-background dark:via-background/95 dark:to-background/90" />
-        <div 
+        <div
           className="absolute inset-0 opacity-30"
           style={{
             backgroundImage: `url('https://res.cloudinary.com/drl0fxrkq/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1759077974/Silhouette_Of_People_Working_In_Film_Set_original_1662964_bxcgmu.jpg')`,
@@ -80,30 +80,27 @@ export default function Home() {
             backgroundPosition: 'center',
           }}
         />
-        
+
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
-          <div className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary-foreground dark:text-primary text-sm font-medium border border-primary/30">
-              <Award className="w-4 h-4" />
-              27 International Award Wins
-            </span>
-          </div>
-          
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white dark:text-foreground leading-tight mb-6" data-testid="text-hero-title">
-            Documentary craft for business stories that matter.
+            The brand films you knew your business deserved.
           </h1>
-          
-          <p className="text-lg md:text-xl text-white/80 dark:text-muted-foreground max-w-2xl mx-auto mb-10" data-testid="text-hero-subtitle">
-            Video production powered by an award-winning filmmaker. We make films that change how people feel about your business.
+
+          <p className="text-lg md:text-xl text-white/80 dark:text-muted-foreground max-w-2xl mx-auto mb-6" data-testid="text-hero-subtitle">
+            For founders and marketing directors who've sat through too many cuts that missed the point.
           </p>
-          
+
+          <p className="italic text-sm md:text-base text-white/70 dark:text-muted-foreground max-w-3xl mx-auto mb-10" data-testid="text-hero-proof">
+            27 international award wins. Documentary filmmaker behind <em>Time Spent</em> (IMDb 8.8). Former Film and Television Academy tutor. Brand films for UK businesses since 2014.
+          </p>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
               className="plausible-event-name=Quote+CTA"
               data-testid="cta-quote-hero"
             >
-              <Button size="lg" data-testid="button-hero-quote">
+              <Button size="lg" className="text-base px-8 py-6" data-testid="button-hero-quote">
                 Get a quote
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -123,13 +120,20 @@ export default function Home() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
+            <Link
+              href="/work"
+              className="text-sm text-white/80 dark:text-muted-foreground hover:text-white dark:hover:text-foreground underline underline-offset-4 transition-colors"
+              data-testid="cta-work-hero"
+            >
+              See the work
+            </Link>
           </div>
           <p className="mt-6 text-sm text-white/60 dark:text-muted-foreground">
             We reply within 24 hours.
           </p>
         </div>
 
-        <button 
+        <button
           onClick={scrollToContent}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 dark:text-muted-foreground hover:text-white dark:hover:text-foreground transition-colors animate-bounce"
           aria-label="Scroll to content"
@@ -200,55 +204,70 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-6" data-testid="text-difference-title">
-                What makes Flashbuzz different
+                Most business video isn't film. That's the problem.
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                We bring a filmmaker's discipline—story architecture, authentic interview technique, and cinematic execution—to organisations where generic corporate video fails.
+                A video can look great. Crisp, well-lit, professionally edited, scored with the right kind of music. And then your customers watch it once and forget it within a week.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                This is video production powered by an award-winning filmmaker with 27 international award wins and an 8.8 IMDb rating for "Time Spent". Before we ever press record, we understand who you are and why your story matters.
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                A film does something different. It cuts deeper. It connects. It stays in the room after the lights come up. The difference isn't budget or equipment. It's a set of choices most suppliers don't know they're failing to make, because nobody ever taught them what makes an audience actually feel something.
               </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="text-center sm:text-left">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                    <Film className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-1">Story Architecture</h3>
-                  <p className="text-sm text-muted-foreground">Narrative structure that engages, not just informs.</p>
-                </div>
-                <div className="text-center sm:text-left">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                    <Users className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-1">Authentic Interviews</h3>
-                  <p className="text-sm text-muted-foreground">Documentary techniques that draw out genuine stories.</p>
-                </div>
-                <div className="text-center sm:text-left">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-1">Documentary Depth</h3>
-                  <p className="text-sm text-muted-foreground">Going beyond surface to reveal what makes you different.</p>
-                </div>
-              </div>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                I've spent the last decade learning what those choices are, first in award-winning documentary work, then teaching at the Film and Television Academy, and now writing a book about it. When you commission a brand film with me, you're not just paying for production. You're paying for the part of the craft that explains why some work resonates and some doesn't, and you're getting walked through it at every stage.
+              </p>
             </div>
-            
+
             <div className="relative">
               <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
                 <img
                   src="https://res.cloudinary.com/drl0fxrkq/image/upload/w_800,h_600,c_fill,q_auto,f_auto/v1759077975/Camera_Lens_original_779692_dp4vee.jpg"
-                  alt="Professional cinema camera lens - Flashbuzz documentary filmmaking equipment"
+                  alt="Professional cinema camera lens"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-card border border-card-border rounded-lg p-6 shadow-lg max-w-xs">
-                <div className="flex items-center gap-4">
-                  <div className="text-4xl font-bold text-primary">27</div>
-                  <div className="text-sm text-muted-foreground">International awards for documentary filmmaking</div>
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 lg:py-32">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-8" data-testid="text-discovery-title">
+            Start with a Discovery
+          </h2>
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed mb-8">
+            <p>
+              If you've been let down before, you don't need another sales call. You need to see how this filmmaker would approach your business before you commit a brand film budget.
+            </p>
+            <p>
+              A Discovery is a 90-minute diagnostic call where I run the framework on your business, followed by a written treatment. The treatment is, in my experience, the most valuable part of the engagement. It covers what the film should communicate, what to deliberately leave out, and what not to show your audience. It draws out what your business actually needs to say, and connects that with what your audience genuinely wants to hear. And it's a document you can take into your next leadership meeting to get senior buy-in for the project, before any production budget is committed.
+            </p>
+          </div>
+
+          <div className="bg-card border border-card-border rounded-lg p-6 lg:p-8 mb-8">
+            <p className="text-xl lg:text-2xl font-semibold text-foreground" data-testid="text-discovery-price">
+              £2,500. Two weeks from booking. The fee comes off the cost of any Signature engagement booked within 60 days.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <Link
+              href="/contact?type=discovery"
+              className="plausible-event-name=Discovery+CTA"
+              data-testid="cta-discovery"
+            >
+              <Button size="lg" className="text-base px-8 py-6" data-testid="button-discovery">
+                Book a Discovery
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+            <Link
+              href="/about#treatment"
+              className="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
+              data-testid="cta-treatment"
+            >
+              What's in a treatment
+            </Link>
           </div>
         </div>
       </section>
