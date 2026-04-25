@@ -56,7 +56,7 @@ export default function Services() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">2. Story Development</h3>
-                  <p>Documentary craft means finding the narrative. We identify the characters, tensions, and resolutions that will engage your audience.</p>
+                  <p>We find the narrative buried in the brief. We identify the characters, tensions, and resolutions that will engage your audience.</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">3. Production</h3>

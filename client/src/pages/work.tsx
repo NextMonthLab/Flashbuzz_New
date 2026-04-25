@@ -86,7 +86,7 @@ export default function Work() {
             Ready to create something meaningful?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Let's discuss how documentary craft can tell your business story with depth and authenticity.
+            Tell me about your business and I'll come back with how I'd approach it.
           </p>
           <Link href="/contact">
             <Button size="lg" data-testid="button-work-cta">
