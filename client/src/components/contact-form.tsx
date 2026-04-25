@@ -9,6 +9,11 @@ interface ContactFormProps {
 const TALLY_BASE_SRC =
   "https://tally.so/embed/Xxo2Le?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
 
+const contextLines: Record<string, string> = {
+  "purpose-led-video":
+    "Booking a Purpose-led video. Tell me about the project - what it's for, who it's for, and roughly when you'd like to shoot - and I'll come back to you within 24 hours with a quote.",
+};
+
 function buildTallySrc(type?: string | null, bookForFilmFollowup?: boolean): string {
   const params: string[] = [];
   if (type) params.push(`type=${encodeURIComponent(type)}`);
@@ -23,6 +28,7 @@ export function ContactForm({ variant = "default", type = null }: ContactFormPro
     [type]
   );
   const [bookForFilmFollowup, setBookForFilmFollowup] = useState(false);
+  const contextLine = type ? contextLines[type] : undefined;
 
   const tallySrc = useMemo(
     () => buildTallySrc(type, bookForFilmFollowup),
@@ -74,6 +80,11 @@ export function ContactForm({ variant = "default", type = null }: ContactFormPro
               I might be interested in video work in future, please add me to the list
             </span>
           </label>
+        )}
+        {contextLine && (
+          <p className="text-sm text-muted-foreground leading-relaxed mb-6" data-testid="contact-context-line">
+            {contextLine}
+          </p>
         )}
         <iframe
           key={tallySrc}

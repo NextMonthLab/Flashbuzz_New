@@ -9,6 +9,7 @@ export interface FaqItem {
   question: string;
   answer: string;
   id?: string;
+  eventClassName?: string;
 }
 
 interface FaqProps {
@@ -27,7 +28,9 @@ export function Faq({ items }: FaqProps) {
             id={item.id}
             data-testid={`faq-item-${value}`}
           >
-            <AccordionTrigger className="text-left text-lg font-semibold text-foreground py-5">
+            <AccordionTrigger
+              className={`text-left text-lg font-semibold text-foreground py-5 ${item.eventClassName ?? ""}`}
+            >
               {item.question}
             </AccordionTrigger>
             <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-5">
