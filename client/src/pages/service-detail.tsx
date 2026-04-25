@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/contact-form";
 import { services, projects } from "@/lib/data";
 import heroBackground from "@assets/flashbuzz-photo-1.jpg";
 import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
+import { PageMeta } from "@/components/page-meta";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Film,
@@ -45,6 +46,11 @@ export default function ServiceDetail() {
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title={`${service.title} | Flashbuzz`}
+        description={service.shortDescription.slice(0, 158)}
+        canonical={`https://flashbuzz.tv/services/${service.slug}`}
+      />
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
         <div 

@@ -10,6 +10,7 @@ import { CloudinaryVideoPlayer } from "@/components/cloudinary-video-player";
 import { projects, services, testimonials, clientLogos } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { LeadGenCtaBand } from "@/components/lead-gen-cta-band";
+import { PageMeta } from "@/components/page-meta";
 
 function ShowreelSection() {
   return (
@@ -64,6 +65,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <PageMeta
+        title="Flashbuzz | Documentary Craft for Business Stories That Matter"
+        description="Award-winning documentary filmmaker bringing story architecture, authentic interviews, and cinematic execution to corporate video production in Banbury, Oxfordshire."
+        canonical="https://flashbuzz.tv/"
+      />
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90 dark:from-background dark:via-background/95 dark:to-background/90" />
         <div 

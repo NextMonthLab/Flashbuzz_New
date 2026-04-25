@@ -3,15 +3,21 @@ import { Link } from "wouter";
 import { ArrowRight, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { photos, categories, getPhotosByCategory, type Photo } from "@/lib/photography";
+import { PageMeta } from "@/components/page-meta";
 
 export default function Photography() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-  
+
   const filteredPhotos = getPhotosByCategory(activeCategory);
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="Photography | Flashbuzz"
+        description="Stills from the story — portraits, lifestyle, events, and documentary photography from Flashbuzz, captured with the same cinematic eye we bring to film."
+        canonical="https://flashbuzz.tv/photography"
+      />
       <section className="py-12 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">

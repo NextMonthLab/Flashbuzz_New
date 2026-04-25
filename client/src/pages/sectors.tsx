@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { sectors } from "@/lib/data";
 import heroBackground from "@assets/flashbuzz-photo-2.jpg";
+import { PageMeta } from "@/components/page-meta";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "recruitment-employer-branding": Users,
@@ -16,6 +17,11 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 export default function Sectors() {
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
+      <PageMeta
+        title="Sectors We Work With | Flashbuzz"
+        description="Documentary video production for recruitment, financial services, manufacturing, motorsport, and scientific organisations. Sector-specific filmmaker craft from Flashbuzz."
+        canonical="https://flashbuzz.tv/sectors"
+      />
       <section className="relative py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
         <div 
