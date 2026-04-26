@@ -976,4 +976,4 @@ export const clientLogos = [
   },
 ];
 
-export { pricingTiers } from "./pricing";
+export { pricingTiers, secondaryOffers } from "./pricing";
