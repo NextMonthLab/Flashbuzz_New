@@ -25,8 +25,11 @@ const Pricing = lazy(() => import("@/pages/pricing"));
 const Photography = lazy(() => import("@/pages/photography"));
 const CaseStudies = lazy(() => import("@/pages/case-studies"));
 const CaseStudyDetail = lazy(() => import("@/pages/case-study-detail"));
-const Workshop = lazy(() => import("@/pages/workshop"));
 const PurposeLedVideo = lazy(() => import("@/pages/purpose-led-video"));
+const Workshops = lazy(() => import("@/pages/workshops"));
+const WorkshopPhotography = lazy(() => import("@/pages/workshop-photography"));
+const WorkshopVideo = lazy(() => import("@/pages/workshop-video"));
+const WorkshopFilm = lazy(() => import("@/pages/workshop-film"));
 
 const PaletteDemo = import.meta.env.DEV
   ? lazy(() => import("@/pages/palette-demo"))
@@ -49,7 +52,10 @@ function AppRoutes() {
       <Route path="/photography" component={Photography} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/case-studies/:slug" component={CaseStudyDetail} />
-      <Route path="/workshop" component={Workshop} />
+      <Route path="/workshops" component={Workshops} />
+      <Route path="/workshop/small-business-photography" component={WorkshopPhotography} />
+      <Route path="/workshop/video-brief" component={WorkshopVideo} />
+      <Route path="/workshop/brand-film" component={WorkshopFilm} />
       <Route path="/purpose-led-video" component={PurposeLedVideo} />
       {PaletteDemo && (
         <Route path="/palette-demo">
