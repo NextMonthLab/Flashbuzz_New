@@ -14,6 +14,14 @@ const contextLines: Record<string, string> = {
     "Booking a Purpose-led video. Tell me about the project - what it's for, who it's for, and roughly when you'd like to shoot - and I'll come back to you within 24 hours with a quote.",
   "brief-review":
     "Requesting a written CharacterX brief review. Send through the brief for your upcoming project and you'll receive a written diagnostic within five working days. No obligation.",
+  "discovery":
+    "Booking a Discovery diagnostic. Tell me about the business, the brand film question you are trying to answer, and roughly when you would like the treatment delivered. The £2,500 fee credits in full against any Signature engagement booked within 60 days.",
+  "signature":
+    "Starting a Signature engagement. Tell me about the project, the audience, the strategic question underneath the film, and any constraints on timeline or shoot. Most Signature engagements begin with a Discovery diagnostic, so if that has not happened yet, mention that here.",
+  "campaign":
+    "Discussing a Campaign engagement. Tell me about the launch moment, the asset family you have in mind, and the timeline. Campaign engagements typically begin with a strategic scoping conversation followed by Discovery before production planning begins.",
+  "training":
+    "Booking the in-house team training. Tell me about the team, their typical brief-shaping pain points, and the dates that work for the two-day workshop. Training is run on-site at your office or at a venue of your choice.",
   "strategic-review":
     "Requesting a written CharacterX strategic review. Send through your brief, treatment, or rough cut and you'll receive a written diagnostic within seven working days. No obligation.",
   "workshop-followup":
