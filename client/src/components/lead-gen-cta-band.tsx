@@ -62,8 +62,8 @@ export function LeadGenCtaBand({
                 </Button>
               </Link>
               <Link
-                href="/workshop"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden sm:block plausible-event-name=Workshop+CTA"
+                href="/workshops"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden sm:block plausible-event-name=Workshops+Nav+Click"
                 data-testid="cta-workshop-band-link"
               >
                 Or join the workshop
@@ -102,8 +102,8 @@ export function LeadGenCtaBand({
               </Button>
             </Link>
             <Link
-              href="/workshop"
-              className="plausible-event-name=Workshop+CTA"
+              href="/workshops"
+              className="plausible-event-name=Workshops+Nav+Click"
               data-testid="cta-workshop-band-gradient"
             >
               <Button variant="outline" size="lg">
@@ -146,8 +146,8 @@ export function LeadGenCtaBand({
               </Button>
             </Link>
             <Link
-              href="/workshop"
-              className="plausible-event-name=Workshop+CTA"
+              href="/workshops"
+              className="plausible-event-name=Workshops+Nav+Click"
               data-testid="cta-workshop-band-default"
             >
               <Button variant="outline" size="lg">

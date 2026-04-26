@@ -225,8 +225,8 @@ export function Navigation() {
               </Button>
             </Link>
             <Link
-              href="/workshop"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden xl:block plausible-event-name=Workshop+CTA"
+              href="/workshops"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden xl:block plausible-event-name=Workshops+Nav+Click"
               data-testid="cta-workshop-header"
             >
               Join the workshop
@@ -301,6 +301,19 @@ export function Navigation() {
               Journal
             </Link>
 
+            <div className="space-y-2">
+              <div className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Workshops</div>
+              <Link href="/workshop/small-business-photography" className="block py-1.5 pl-4 text-sm text-muted-foreground hover:text-foreground plausible-event-name=Workshops+Nav+Click" data-testid="mobile-link-workshop-photo">
+                For small businesses
+              </Link>
+              <Link href="/workshop/video-brief" className="block py-1.5 pl-4 text-sm text-muted-foreground hover:text-foreground plausible-event-name=Workshops+Nav+Click" data-testid="mobile-link-workshop-video">
+                For marketing managers
+              </Link>
+              <Link href="/workshop/brand-film" className="block py-1.5 pl-4 text-sm text-muted-foreground hover:text-foreground plausible-event-name=Workshops+Nav+Click" data-testid="mobile-link-workshop-film">
+                For marketing directors
+              </Link>
+            </div>
+
             <div className="pt-4 space-y-3">
               <Link
                 href="/contact"
@@ -313,8 +326,8 @@ export function Navigation() {
                 </Button>
               </Link>
               <Link
-                href="/workshop"
-                className="block plausible-event-name=Workshop+CTA"
+                href="/workshops"
+                className="block plausible-event-name=Workshops+Nav+Click"
                 data-testid="mobile-cta-workshop"
               >
                 <Button variant="outline" className="w-full">

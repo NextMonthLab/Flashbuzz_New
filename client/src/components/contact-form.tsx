@@ -12,6 +12,17 @@ const TALLY_BASE_SRC =
 const contextLines: Record<string, string> = {
   "purpose-led-video":
     "Booking a Purpose-led video. Tell me about the project - what it's for, who it's for, and roughly when you'd like to shoot - and I'll come back to you within 24 hours with a quote.",
+  "brief-review":
+    "Requesting a written CharacterX brief review. Send through the brief for your upcoming project and you'll receive a written diagnostic within five working days. No obligation.",
+  "strategic-review":
+    "Requesting a written CharacterX strategic review. Send through your brief, treatment, or rough cut and you'll receive a written diagnostic within seven working days. No obligation.",
+  "workshop-followup":
+    "Following up from one of the Flashbuzz workshops. Tell me what you'd like to discuss and I'll come back to you within 24 hours.",
+};
+
+const contextLineEvents: Record<string, string> = {
+  "brief-review": "plausible-event-name=Brief+Review+Request",
+  "strategic-review": "plausible-event-name=Strategic+Review+Request",
 };
 
 function buildTallySrc(type?: string | null, bookForFilmFollowup?: boolean): string {
@@ -82,7 +93,7 @@ export function ContactForm({ variant = "default", type = null }: ContactFormPro
           </label>
         )}
         {contextLine && (
-          <p className="text-sm text-muted-foreground leading-relaxed mb-6" data-testid="contact-context-line">
+          <p className={`text-sm text-muted-foreground leading-relaxed mb-6 ${contextLineEvents[type ?? ""] ?? ""}`.trim()} data-testid="contact-context-line">
             {contextLine}
           </p>
         )}

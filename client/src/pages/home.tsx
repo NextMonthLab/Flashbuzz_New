@@ -106,7 +106,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link
-              href="/workshop"
+              href="/workshops"
               className="plausible-event-name=Workshop+CTA"
               data-testid="cta-workshop-hero"
             >

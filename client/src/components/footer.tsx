@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { MapPin, Mail, Phone, Linkedin, ArrowRight, Calendar } from "lucide-react";
+import { MapPin, Mail, Phone, Linkedin, ArrowRight } from "lucide-react";
 import { SiVimeo } from "react-icons/si";
 import flashbuzzLogo from "@assets/flashbuzz-logo-white.png";
 
@@ -26,6 +26,12 @@ const locations = [
   { title: "Video Production Oxfordshire", href: "/video-production-oxfordshire" },
   { title: "Video Production Banbury", href: "/video-production-banbury" },
   { title: "Video Production Oxford", href: "/video-production-oxford" },
+];
+
+const workshops = [
+  { title: "For small businesses", href: "/workshop/small-business-photography" },
+  { title: "For marketing managers", href: "/workshop/video-brief" },
+  { title: "For marketing directors", href: "/workshop/brand-film" },
 ];
 
 export function Footer() {
@@ -109,16 +115,21 @@ export function Footer() {
                   Get a quote
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/workshop"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors plausible-event-name=Workshop+CTA"
-                  data-testid="footer-cta-workshop"
-                >
-                  <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
-                  Join the workshop
-                </Link>
-              </li>
+            </ul>
+
+            <h4 className="font-semibold text-foreground mt-8 mb-4">Workshops</h4>
+            <ul className="space-y-3">
+              {workshops.map((workshop) => (
+                <li key={workshop.href}>
+                  <Link
+                    href={workshop.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors plausible-event-name=Workshops+Footer+Click"
+                    data-testid={`footer-link-workshop-${workshop.href.split("/").pop()}`}
+                  >
+                    {workshop.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
 
             <h4 className="font-semibold text-foreground mt-8 mb-4">Other ways to work together</h4>
@@ -130,15 +141,6 @@ export function Footer() {
                   data-testid="footer-link-purpose-led-video"
                 >
                   Purpose-led video
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/workshop"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  data-testid="footer-link-workshop"
-                >
-                  Workshop
                 </Link>
               </li>
               <li>
