@@ -1,10 +1,15 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageMeta } from "@/components/page-meta";
-
-const registrationUrl = "{{VIDEO_WORKSHOP_URL}}";
+import { VIDEO_WORKSHOP } from "@/lib/workshopLinks";
 
 export default function WorkshopVideo() {
+  const link = VIDEO_WORKSHOP;
+  const ctaHref = link.status === "live" ? link.url! : link.waitlistUrl!;
+  const ctaLabel = link.status === "live" ? "Register for the workshop" : "Join the waitlist";
+  const ctaTarget = link.status === "live" ? "_blank" : undefined;
+  const ctaRel = link.status === "live" ? "noopener noreferrer" : undefined;
+
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
       <PageMeta
@@ -16,8 +21,8 @@ export default function WorkshopVideo() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">When your next video has to actually work</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">The brief diagnostic that makes sure your next campaign, launch, or pitch video doesn't underperform when the stakes are highest. A free workshop for UK marketing managers and comms leads.</p>
-            <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="plausible-event-name=Video+Workshop+Register+Click" data-testid="video-workshop-register-hero"><Button size="lg">Register for the workshop<ArrowRight className="w-4 h-4 ml-2" /></Button></a>
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8">The brief diagnostic that makes sure your next campaign, launch, or pitch video doesn't underperform when the stakes are highest. A free workshop for UK marketing managers and comms leads. Workshop launching soon. Join the waitlist to be the first to know when registration opens.</p>
+            <a href={ctaHref} target={ctaTarget} rel={ctaRel} className="plausible-event-name=Video+Workshop+Register+Click" data-testid="video-workshop-register-hero"><Button size="lg">{ctaLabel}<ArrowRight className="w-4 h-4 ml-2" /></Button></a>
           </div>
           <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
             <img src="https://i.vimeocdn.com/video/1852754909-203ae33b118f2514cf59c35dae845d8bfbfc82717baeded0c4faf116c44c05b0-d_640" alt="Flashbuzz video workshop supporting image" className="w-full h-full object-cover" loading="eager" />
@@ -35,7 +40,7 @@ export default function WorkshopVideo() {
 
       <section className="py-14 border-y border-border/60"><div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-6 text-lg text-muted-foreground"><h2 className="text-3xl font-bold text-foreground">Who's running it</h2><p>The workshop is built and hosted by Rob Hutt of Flashbuzz. Rob is a 27-time international award-winning documentary filmmaker, former Film and Television Academy tutor, and the photographer behind the recent Auto Addicts magazine feature on Alastair Caldwell. His brand film work for UK businesses includes HERO ERA, Bibby Financial Services, and Catherine House Hospice, with films and videos commissioned across recruitment, hospitality, financial services, and charity sectors since 2014.</p><p>The workshop runs on the Flashbuzz workshop platform, with delivery handled by Norman, the AI host. Norman guides each attendee through the workshop independently, with the diagnostic tool slide returning a personalised CharacterX read on each attendee's actual upcoming brief. The cumulative engagement model means later attendees see the running tally of which failure modes have been most common across all submitted briefs, building shared diagnostic experience over time.</p></div></section>
 
-      <section className="py-16 lg:py-20"><div className="max-w-4xl mx-auto px-6 lg:px-8"><h2 className="text-3xl font-bold text-foreground mb-6">Register for the workshop</h2><div className="space-y-6 text-lg text-muted-foreground mb-8"><p>The workshop is free to attend. Register through the Flashbuzz workshop platform and you'll get immediate access — every attendee runs through the workshop independently, on their own schedule, with Norman guiding them through. You'll receive your brief diagnostic immediately and a follow-up email at day five offering a free written CharacterX brief review on your actual upcoming project, delivered within five working days, with no obligation to commission anything.</p><p>The brief review is genuinely useful as an independent strategic asset. It tells you what's wrong with the brief before you send it to a supplier. Whether you commission the resulting work with Flashbuzz, with another supplier, or in-house, the diagnostic does the same job: makes sure the next video doesn't underperform when the stakes are highest.</p></div><a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="plausible-event-name=Video+Workshop+Register+Click" data-testid="video-workshop-register-footer"><Button size="lg">Register for the workshop<ArrowRight className="w-4 h-4 ml-2" /></Button></a></div></section>
+      <section className="py-16 lg:py-20"><div className="max-w-4xl mx-auto px-6 lg:px-8"><h2 className="text-3xl font-bold text-foreground mb-6">Join the waitlist</h2><div className="space-y-6 text-lg text-muted-foreground mb-8"><p>The workshop is free to attend. Register through the Flashbuzz workshop platform and you'll get immediate access — every attendee runs through the workshop independently, on their own schedule, with Norman guiding them through. You'll receive your brief diagnostic immediately and a follow-up email at day five offering a free written CharacterX brief review on your actual upcoming project, delivered within five working days, with no obligation to commission anything.</p><p>The brief review is genuinely useful as an independent strategic asset. It tells you what's wrong with the brief before you send it to a supplier. Whether you commission the resulting work with Flashbuzz, with another supplier, or in-house, the diagnostic does the same job: makes sure the next video doesn't underperform when the stakes are highest.</p></div><a href={ctaHref} target={ctaTarget} rel={ctaRel} className="plausible-event-name=Video+Workshop+Register+Click" data-testid="video-workshop-register-footer"><Button size="lg">{ctaLabel}<ArrowRight className="w-4 h-4 ml-2" /></Button></a></div></section>
     </div>
   );
 }
