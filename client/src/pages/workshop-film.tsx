@@ -1,10 +1,15 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageMeta } from "@/components/page-meta";
-
-const registrationUrl = "{{FILM_WORKSHOP_URL}}";
+import { FILM_WORKSHOP } from "@/lib/workshopLinks";
 
 export default function WorkshopFilm() {
+  const link = FILM_WORKSHOP;
+  const ctaHref = link.status === "live" ? link.url! : link.waitlistUrl!;
+  const ctaLabel = link.status === "live" ? "Register for the workshop" : "Join the waitlist";
+  const ctaTarget = link.status === "live" ? "_blank" : undefined;
+  const ctaRel = link.status === "live" ? "noopener noreferrer" : undefined;
+
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
       <PageMeta
@@ -16,8 +21,8 @@ export default function WorkshopFilm() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">How to waste £25k on a brand film</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">What your audience really cares about, and how to make sure your next brand film actually finds it. A free workshop for UK marketing directors and senior marketing leads.</p>
-            <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="plausible-event-name=Film+Workshop+Register+Click" data-testid="film-workshop-register-hero"><Button size="lg">Register for the workshop<ArrowRight className="w-4 h-4 ml-2" /></Button></a>
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8">What your audience really cares about, and how to make sure your next brand film actually finds it. A free workshop for UK marketing directors and senior marketing leads. Workshop launching soon. Join the waitlist to be the first to know when registration opens.</p>
+            <a href={ctaHref} target={ctaTarget} rel={ctaRel} className="plausible-event-name=Film+Workshop+Register+Click" data-testid="film-workshop-register-hero"><Button size="lg">{ctaLabel}<ArrowRight className="w-4 h-4 ml-2" /></Button></a>
           </div>
           <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
             <img src="https://i.vimeocdn.com/video/1713895958-66ce5480baf7a32d94908aef282d956810e208d061bd2371813ad28f9c9ad844-d_640" alt="Flashbuzz brand film workshop supporting image" className="w-full h-full object-cover" loading="eager" />
@@ -35,7 +40,7 @@ export default function WorkshopFilm() {
 
       <section className="py-14 border-y border-border/60"><div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-6 text-lg text-muted-foreground"><h2 className="text-3xl font-bold text-foreground">Who's running it</h2><p>The workshop is built and hosted by Rob Hutt of Flashbuzz. Rob is a 27-time international award-winning documentary filmmaker. His narrative short <em>Time Spent</em> holds an 8.8 IMDb rating and won 27 international awards. He taught at the Film and Television Academy for several years before returning to commercial filmmaking full time, and he photographed the recent Auto Addicts magazine feature on Alastair Caldwell, the McLaren team manager from the Hunt-Lauda era depicted in Ron Howard's <em>Rush</em>. His brand film work for UK businesses includes HERO ERA, Bibby Financial Services, Catherine House Hospice, and engagements across recruitment, hospitality, financial services, and charity sectors since 2014.</p><p>The workshop runs on the Flashbuzz workshop platform, with delivery handled by Norman, the AI host. Norman guides each attendee through the workshop independently, with the diagnostic tool slide returning a personalised CharacterX read on whichever brand film project the attendee submits — a brief, a treatment, a rough cut, or a finished film. The cumulative engagement model means later attendees see the running tally of which failure modes have been most common across all submitted projects, building shared diagnostic experience over time.</p></div></section>
 
-      <section className="py-16 lg:py-20"><div className="max-w-4xl mx-auto px-6 lg:px-8"><h2 className="text-3xl font-bold text-foreground mb-6">Register for the workshop</h2><div className="space-y-6 text-lg text-muted-foreground mb-8"><p>The workshop is free to attend. Register through the Flashbuzz workshop platform and you'll get immediate access — every attendee runs through the workshop independently, on their own schedule, with Norman guiding them through. You'll receive your project diagnostic immediately and a follow-up email at day seven offering a free written CharacterX strategic review on your actual project, delivered within seven working days.</p><p>The strategic review is calibrated to be genuinely useful as an independent strategic asset, equivalent to a £1k–£2k consulting deliverable in the open market. The review tells you whether the project is on track, what the priority intervention is, and which of the three failure modes is most acute. Whether you commission the resulting work with Flashbuzz, with your existing agency, or in-house, the diagnostic does the same job: makes sure the £25k spend doesn't end with you defending the result to your board.</p></div><a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="plausible-event-name=Film+Workshop+Register+Click" data-testid="film-workshop-register-footer"><Button size="lg">Register for the workshop<ArrowRight className="w-4 h-4 ml-2" /></Button></a></div></section>
+      <section className="py-16 lg:py-20"><div className="max-w-4xl mx-auto px-6 lg:px-8"><h2 className="text-3xl font-bold text-foreground mb-6">Join the waitlist</h2><div className="space-y-6 text-lg text-muted-foreground mb-8"><p>The workshop is free to attend. Register through the Flashbuzz workshop platform and you'll get immediate access — every attendee runs through the workshop independently, on their own schedule, with Norman guiding them through. You'll receive your project diagnostic immediately and a follow-up email at day seven offering a free written CharacterX strategic review on your actual project, delivered within seven working days.</p><p>The strategic review is calibrated to be genuinely useful as an independent strategic asset, equivalent to a £1k–£2k consulting deliverable in the open market. The review tells you whether the project is on track, what the priority intervention is, and which of the three failure modes is most acute. Whether you commission the resulting work with Flashbuzz, with your existing agency, or in-house, the diagnostic does the same job: makes sure the £25k spend doesn't end with you defending the result to your board.</p></div><a href={ctaHref} target={ctaTarget} rel={ctaRel} className="plausible-event-name=Film+Workshop+Register+Click" data-testid="film-workshop-register-footer"><Button size="lg">{ctaLabel}<ArrowRight className="w-4 h-4 ml-2" /></Button></a></div></section>
     </div>
   );
 }

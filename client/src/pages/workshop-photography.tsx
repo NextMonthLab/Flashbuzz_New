@@ -1,10 +1,15 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageMeta } from "@/components/page-meta";
-
-const registrationUrl = "{{PHOTOGRAPHY_WORKSHOP_URL}}";
+import { PHOTOGRAPHY_WORKSHOP } from "@/lib/workshopLinks";
 
 export default function WorkshopPhotography() {
+  const link = PHOTOGRAPHY_WORKSHOP;
+  const ctaHref = link.status === "live" ? link.url! : link.waitlistUrl!;
+  const ctaLabel = link.status === "live" ? "Register for the workshop" : "Join the waitlist";
+  const ctaTarget = link.status === "live" ? "_blank" : undefined;
+  const ctaRel = link.status === "live" ? "noopener noreferrer" : undefined;
+
   return (
     <div className="min-h-screen pt-24 lg:pt-32">
       <PageMeta
@@ -18,8 +23,8 @@ export default function WorkshopPhotography() {
           <div>
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">Losing customers to big-name chains?</h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8">The visual mistake costing you bookings, and the simple shift that turns the tables. A free workshop for UK small business owners.</p>
-            <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="plausible-event-name=Photo+Workshop+Register+Click" data-testid="photo-workshop-register-hero">
-              <Button size="lg">Register for the workshop<ArrowRight className="w-4 h-4 ml-2" /></Button>
+            <a href={ctaHref} target={ctaTarget} rel={ctaRel} className="plausible-event-name=Photo+Workshop+Register+Click" data-testid="photo-workshop-register-hero">
+              <Button size="lg">{ctaLabel}<ArrowRight className="w-4 h-4 ml-2" /></Button>
             </a>
           </div>
           <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
@@ -38,7 +43,7 @@ export default function WorkshopPhotography() {
 
       <section className="py-14 border-y border-border/60"><div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-6 text-lg text-muted-foreground"><h2 className="text-3xl font-bold text-foreground">Who's running it</h2><p>The workshop is built and hosted by Rob Hutt of Flashbuzz. Rob is a 27-time international award-winning documentary filmmaker, former Film and Television Academy tutor, and the photographer behind the recent Auto Addicts magazine feature on Alastair Caldwell, the McLaren team manager from the Hunt-Lauda era depicted in Ron Howard's <em>Rush</em>. He's been making brand films and commercial photography for UK businesses since 2014.</p><p>The workshop runs on the Flashbuzz workshop platform, with delivery handled by Nora, the AI host. Nora guides each attendee through the workshop independently, with the diagnostic tool slide returning a personalised CharacterX read on each attendee's current photography. Every attendee sees the running tally of how previous attendees scored on the four pillars, building social proof and shared diagnostic experience over time.</p></div></section>
 
-      <section className="py-16 lg:py-20"><div className="max-w-4xl mx-auto px-6 lg:px-8"><h2 className="text-3xl font-bold text-foreground mb-6">Register for the workshop</h2><div className="space-y-6 text-lg text-muted-foreground mb-8"><p>The workshop is free to attend. Register through the Flashbuzz workshop platform and you'll get instant access — every attendee runs through the workshop independently, on their own schedule, with the AI host guiding them through. You'll receive your diagnostic results immediately and a follow-up email at day five with deeper analysis applied to your specific business.</p><p>Workshop attendees who book a Flashbuzz photography day within 14 days of completing the workshop receive a £100 discount on the booking, with the workshop fee credited in full.</p></div><a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="plausible-event-name=Photo+Workshop+Register+Click" data-testid="photo-workshop-register-footer"><Button size="lg">Register for the workshop<ArrowRight className="w-4 h-4 ml-2" /></Button></a></div></section>
+      <section className="py-16 lg:py-20"><div className="max-w-4xl mx-auto px-6 lg:px-8"><h2 className="text-3xl font-bold text-foreground mb-6">Register for the workshop</h2><div className="space-y-6 text-lg text-muted-foreground mb-8"><p>The workshop is free to attend. Register through the Flashbuzz workshop platform and you'll get instant access — every attendee runs through the workshop independently, on their own schedule, with the AI host guiding them through. You'll receive your diagnostic results immediately and a follow-up email at day five with deeper analysis applied to your specific business.</p><p>Workshop attendees who book a Flashbuzz photography day within 14 days of completing the workshop receive a £100 discount on the booking, with the workshop fee credited in full.</p></div><a href={ctaHref} target={ctaTarget} rel={ctaRel} className="plausible-event-name=Photo+Workshop+Register+Click" data-testid="photo-workshop-register-footer"><Button size="lg">{ctaLabel}<ArrowRight className="w-4 h-4 ml-2" /></Button></a></div></section>
     </div>
   );
 }
